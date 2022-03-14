@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Locale;
 import java.util.Scanner;
 /*
 Adventure description of the game: in the README.txt
@@ -44,32 +45,35 @@ public class Adventure {
 
     public void mainMenu() {
 
+        createCaves();
+
         Scanner sc = new Scanner(System.in);
 
         welcomeMessage();
-
 
         String input;
         do {
             System.out.println("To get the description of which room you are in, write: look ");
             System.out.println("To get instructions and a overview of possible commands, write: help  ");
             System.out.println("To exit the game, write: exit");
-            input = sc.nextLine();
+            input = sc.nextLine().toLowerCase();
 
             if (input.equalsIgnoreCase("look")) {
                 System.out.println("Looking around...");
                 System.out.println(currentRoom.getDescription());
 
             } else if (input.equalsIgnoreCase("Go north")) {
-                System.out.println("Going north!");
+              //  System.out.println("Going north!");
                 Room caveToTheNorth = currentRoom.getNorth();
-                currentRoom = caveToTheNorth;
+                String direction = "north";
+                checkRoomNull(caveToTheNorth, direction);
+                // check for null
 
             } else if (input.equalsIgnoreCase("Go south")) {
                 System.out.println("Going south!");
-                Room caveToTheSouth = this.currentRoom.getSouth();
-                this.currentRoom = caveToTheSouth;
-
+                Room caveToTheSouth = currentRoom.getSouth();
+                String direction = "south";
+                checkRoomNull(caveToTheSouth, direction);
 
             } else if (input.equalsIgnoreCase("Go east")) {
                 System.out.println("Going east!");
@@ -92,8 +96,18 @@ public class Adventure {
         }
         while (!input.equals("exit")); // or (!"exit".equals(input) ??)
 
+
     }
 
+    public void checkRoomNull(Room cave, String direction){
+
+        if(cave == null){
+            System.out.println("You cannot go in that direction");
+        } else {
+            System.out.println("Going " + direction);
+            currentRoom = cave;
+        }
+    }
 
     public void createCaves() {
         // N, S, E, W
