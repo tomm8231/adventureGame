@@ -26,6 +26,7 @@ public class Adventure {
     }
 
 
+
     public void setRoom(Room aRoom){
         this.currentRoom = aRoom;
     }
@@ -34,21 +35,7 @@ public class Adventure {
         return this.currentRoom;
     }
 
-    public String getName(){
-        return name;
-    }
 
-    public void setName(String aName){
-        this.name = aName;
-    }
-
-    public String getDescription(){
-        return description;
-    }
-
-    public void setDescription(String aDescription){
-        this.description = aDescription;
-    }
 
     public void describeRoom() {
 
@@ -84,6 +71,7 @@ public int movePlayerTo(Direction dir){
 
         welcomeMessage();
 
+
         String input;
         do {
             System.out.println("To get the description of which room you are in, write: look ");
@@ -94,12 +82,19 @@ public int movePlayerTo(Direction dir){
             if (input.equalsIgnoreCase("look")) {
                 System.out.println("Looking around...");
                 System.out.println("The cave you're in, ... "); //hardcoded as example
+
+                System.out.println(currentRoom.getDescription());
+
             } else if (input.equalsIgnoreCase("Go north")) {
                 System.out.println("Going north!");
             } else if (input.equalsIgnoreCase("Go south")) {
                 System.out.println("Going south!");
             } else if (input.equalsIgnoreCase("Go east")) {
                 System.out.println("Going east!");
+
+                Room roomToTheEast = currentRoom.getEast();
+                currentRoom = roomToTheEast;
+
                // setRoom(getRoom(east))
             } else if (input.equalsIgnoreCase("Go west")) {
                 System.out.println("Going west!");
@@ -118,6 +113,28 @@ public int movePlayerTo(Direction dir){
     public void playAdventure(){
     }
 
+    public void createCaves() {
+        // N, S, E, W
+        Room cave1 = new Room("the claustrophobia", "You are in a very small and dark cave with 4 tiny holes, you have no clues witch way to go. This cave is named the claustrophobia.");
+        Room cave2 = new Room(name, description);
+        Room cave3 = new Room(name, description);
+        Room cave4 = new Room(name, description);
+        Room cave5 = new Room(name, description);
+        Room cave6 = new Room(name, description);
+        Room cave7 = new Room(name, description);
+        Room cave8 = new Room(name, description);
+        Room cave9 = new Room(name, description);
+
+        cave1.setEast(cave2);
+
+        currentRoom = cave1;
+    }
+
+    public void connectCaves() {
+
+
+    }
+
 
 
     public static void main(String[] args) {
@@ -126,16 +143,10 @@ public int movePlayerTo(Direction dir){
 
         // starter spillet
         adventure.mainMenu();
-        // N, S, E, W
-        Room cave1 = new Room();
-        Room cave2 = new Room();
-        Room cave3 = new Room();
-        Room cave4 = new Room();
-        Room cave5 = new Room();
-        Room cave6 = new Room();
-        Room cave7 = new Room();
-        Room cave8 = new Room();
-        Room cave9 = new Room();
+        adventure.createCaves();
+        adventure.connectCaves();
+
+
 
         // set room
 

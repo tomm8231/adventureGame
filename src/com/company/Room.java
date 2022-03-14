@@ -3,61 +3,64 @@ package com.company;
 
 public class Room {
 
-  /*private final int north;
-  private final int south;
-  private final int east;
-  private final int west;
   private String name;
   private String description;
 
+  private Room north;
+  private Room south;
+  private Room east;
+  private Room west;
 
-  private String roomDescription;
-
-   */
 
   // et rum med et navn, en beskrivelse og fire forbindelser til andre rum
   //TODO: Parameter med beskrivelse af rum mangler!
-  public Room(){ // 4 connections to other rooms?
+  public Room(String name, String description){ // 4 connections to other rooms?
 
     // Room har 4 attributter af typen Room til at håndtere forbindelser til de fire andre rum:
     // north, east, south and west eller null
-
-   /*
-    this.roomDescription = roomDescription;
-    this.north = north;
-    this.south = south;
-    this.east = east;
-    this.west = west;
-    */
+    this.name = name;
+    this.description = description;
 
   }
 
 
 
   public void setDescription(String aDescription){
-    //this.description = aDescription;
-
-    String cave1 = "You are in a very small and dark cave with 4 tiny holes, you have no clues witch way to go. This cave is named the claustrophobia ";
-
-    String cave2 = "cave 2";
-
-    String cave3 = "cave 3";
-
-    String cave4 = "cave 4";
-
-    String cave5 = "cave 5";
-
-    String cave6 = "cave 6";
-
-    String cave7 = "cave 7";
-
-    String cave8 = "cave 8";
-
-    String cave9 = "cave 9";
+    this.description = aDescription;
 
   }
 
+  public void setNorth(Room cave) {
+    north = cave;
+  }
 
+  public void setSouth(Room cave) {
+    south = cave;
+  }
+
+  public void setEast(Room cave) {
+    east = cave;
+  }
+
+  public Room getEast() {
+    return east;
+  }
+
+  public void setWest(Room cave) {
+    west = cave;
+  }
+
+  public String getName(){
+    return name;
+  }
+
+  public void setName(String aName){
+    this.name = aName;
+  }
+
+  public String getDescription(){
+    return description;
+  }
 
 
   // THE LOGIC IN THE GAME:
