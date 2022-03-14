@@ -3,38 +3,39 @@ package com.company;
 
 public class Room {
 
-  private final int north;
+  /*private final int north;
   private final int south;
   private final int east;
   private final int west;
   private String name;
   private String description;
 
+
   private String roomDescription;
+
+   */
 
   // et rum med et navn, en beskrivelse og fire forbindelser til andre rum
   //TODO: Parameter med beskrivelse af rum mangler!
-  public Room(String aName, int north, int south, int east, int west){ // 4 connections to other rooms?
+  public Room(){ // 4 connections to other rooms?
 
     // Room har 4 attributter af typen Room til at håndtere forbindelser til de fire andre rum:
     // north, east, south and west eller null
-    System.out.println(aName);
+
+   /*
     this.roomDescription = roomDescription;
     this.north = north;
     this.south = south;
     this.east = east;
     this.west = west;
-        /*
-    Adventure.Direction dirN = Adventure.Direction.NORTH;
-    Adventure.Direction dirE = Adventure.Direction.EAST;
-    Adventure.Direction dirS = Adventure.Direction.SOUTH;
-    Adventure.Direction dirW = Adventure.Direction.WEST;
-         */
+    */
 
   }
 
+
+
   public void setDescription(String aDescription){
-    this.description = aDescription;
+    //this.description = aDescription;
 
     String cave1 = "You are in a very small and dark cave with 4 tiny holes, you have no clues witch way to go. This cave is named the claustrophobia ";
 

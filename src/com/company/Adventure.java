@@ -20,28 +20,10 @@ public class Adventure {
     private String name;
     private String description;
 
-        Direction dirN = Direction.NORTH;
-        Direction dirE = Direction.EAST;
-        Direction dirS = Direction.SOUTH;
-        Direction dirW = Direction.WEST;
-
 
     public void newLine() {
         System.out.println();
     }
-
-    // use enum or int????
-    public enum Direction{
-        NORTH, EAST, SOUTH, WEST; // You can access enum constants: Direction dirN = Direction.NORTH;
-        final int NOEXIT = -1; // ??
-        }
-
-
-/* A class constructor for the Adventure class
-public Adventure (String aName, String aDescription){
-this.currentRoom = aRoom;
-}
- */
 
 
     public void setRoom(Room aRoom){
@@ -118,6 +100,7 @@ public int movePlayerTo(Direction dir){
                 System.out.println("Going south!");
             } else if (input.equalsIgnoreCase("Go east")) {
                 System.out.println("Going east!");
+               // setRoom(getRoom(east))
             } else if (input.equalsIgnoreCase("Go west")) {
                 System.out.println("Going west!");
             } else if (input.equalsIgnoreCase("help")) {
@@ -144,15 +127,18 @@ public int movePlayerTo(Direction dir){
         // starter spillet
         adventure.mainMenu();
         // N, S, E, W
-        Room cave1 = new Room("Cave 1", 0, 4, 2, 0);
-        Room cave2 = new Room("Cave 2", 0, 0, 3, 1);
-        Room cave3 = new Room("Cave 3", 0, 6, 0, 2);
-        Room cave4 = new Room("Cave 4", 1, 7, 0, 0);
-        Room cave5 = new Room("Cave 5", 0, 8, 0, 0);
-        Room cave6 = new Room("Cave 6", 3, 9, 0, 0);
-        Room cave7 = new Room("Cave 7", 4, 0, 8, 0);
-        Room cave8 = new Room("Cave 8", 5, 0, 9, 7);
-        Room cave9 = new Room("Cave 9", 6, 0, 0, 8);
+        Room cave1 = new Room();
+        Room cave2 = new Room();
+        Room cave3 = new Room();
+        Room cave4 = new Room();
+        Room cave5 = new Room();
+        Room cave6 = new Room();
+        Room cave7 = new Room();
+        Room cave8 = new Room();
+        Room cave9 = new Room();
+
+        // set room
+
 
 
 
