@@ -1,12 +1,5 @@
 package com.company;
 
-/*
-You have arrived in Iceland with a sailboat, and you are on the most exciting trip of your life to experience
- the newly discovered lava caves, found by some researchers from the University of Aberdeen. You have heard that
- it is very difficult to find the greatest cave of them all, the one with purple stalactites all over, a huge waterfall and with the most
-  amazing light, but with enough food, water and patience, you have decided to complete. Get ready to the Adventure of Vatnajökull!
- */
-
 
 public class Room {
 

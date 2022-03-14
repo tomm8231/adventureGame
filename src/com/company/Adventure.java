@@ -25,6 +25,11 @@ public class Adventure {
         Direction dirS = Direction.SOUTH;
         Direction dirW = Direction.WEST;
 
+
+    public void newLine() {
+        System.out.println();
+    }
+
     // use enum or int????
     public enum Direction{
         NORTH, EAST, SOUTH, WEST; // You can access enum constants: Direction dirN = Direction.NORTH;
@@ -80,8 +85,15 @@ public int movePlayerTo(Direction dir){
 
     public void welcomeMessage(){
         System.out.println("Welcome to Adventure Iceland!");
+        newLine();
         System.out.println("Adventure Iceland is a game where the player move " +
             "from cave to cave by typing in commands: go north, go east, etc.");
+        newLine();
+        System.out.println("You have arrived in Iceland with a sailboat, and you are on the most exciting trip of your life to experience\n" +
+            " the newly discovered lava caves, found by some researchers from the University of Aberdeen. You have heard that\n" +
+            " it is very difficult to find the greatest cave of them all, the one with purple stalactites all over, a huge waterfall and with the most\n" +
+            "  amazing light, but with enough food, water and patience, you have decided to complete. Get ready to the Adventure of Vatnajökull!");
+        newLine();
     }
 
     public void mainMenu() {
