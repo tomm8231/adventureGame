@@ -77,7 +77,7 @@ public int movePlayerTo(Direction dir){
     return moveTo(player, dir)
 }
 
- */ // movePlayerTo
+ */
 
     public void updateOutput(int currentRoom){
         String s;
@@ -143,9 +143,18 @@ public int movePlayerTo(Direction dir){
 
         // starter spillet
         adventure.mainMenu();
+        // N, S, E, W
+        Room cave1 = new Room("Cave 1", 0, 4, 2, 0);
+        Room cave2 = new Room("Cave 2", 0, 0, 3, 1);
+        Room cave3 = new Room("Cave 3", 0, 6, 0, 2);
+        Room cave4 = new Room("Cave 4", 1, 7, 0, 0);
+        Room cave5 = new Room("Cave 5", 0, 8, 0, 0);
+        Room cave6 = new Room("Cave 6", 3, 9, 0, 0);
+        Room cave7 = new Room("Cave 7", 4, 0, 8, 0);
+        Room cave8 = new Room("Cave 8", 5, 0, 9, 7);
+        Room cave9 = new Room("Cave 9", 6, 0, 0, 8);
 
-        Room room1 = new Room("Cave 1", 0, 4, 2, 0);
-        Room room2 = new Room("Cave 2", 0, 0, 1, 3);
+
 
 
         //  oprette og forbinde de ni room objekter
