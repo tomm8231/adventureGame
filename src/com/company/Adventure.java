@@ -98,7 +98,7 @@ public int movePlayerTo(Direction dir){
             input = sc.nextLine();
 
             if (input.equals("look")) {
-                System.out.println("The cave you're in, ... "); //hardcoded as example
+                System.out.println("You are in room " + currentRoom); //hardcoded as example
             } else if (input.equals("help")) {
                 System.out.println("You use the commands 'go north', 'go east', 'go south' and 'go west' to change the " +
                     "direction in this game ");
