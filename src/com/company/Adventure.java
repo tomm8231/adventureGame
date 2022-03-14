@@ -113,11 +113,15 @@ public int movePlayerTo(Direction dir){
 
 
 
-
     public static void main(String[] args) {
 
         Adventure adventure = new Adventure();
+
         // starter spillet
+        adventure.mainMenu();
+
+        Room room1 = new Room("Room 1", "Description...", 0, 4, 2, 0);
+
 
         //  oprette og forbinde de ni room objekter
 
