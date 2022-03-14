@@ -20,10 +20,10 @@ public class Adventure {
     private String name;
     private String description;
 
-    Direction dirN = Direction.NORTH;
-    Direction dirE = Direction.EAST;
-    Direction dirS = Direction.SOUTH;
-    Direction dirW = Direction.WEST;
+        Direction dirN = Direction.NORTH;
+        Direction dirE = Direction.EAST;
+        Direction dirS = Direction.SOUTH;
+        Direction dirW = Direction.WEST;
 
     // use enum or int????
     public enum Direction{
@@ -118,7 +118,6 @@ public int movePlayerTo(Direction dir){
 
         Adventure adventure = new Adventure();
         // starter spillet
-        adventure.mainMenu();
 
         //  oprette og forbinde de ni room objekter
 
@@ -134,7 +133,11 @@ public int movePlayerTo(Direction dir){
         // Adventure-objektet holder hele tiden styr på hvilket rum spilleren befinder sig i
         // - f.eks. med en variabel: currentRoom.
 
+        // exit - for at afbryde spillet helt, og afslutte programmet
 
+        // help - for at få en instruktion og oversigt over mulige kommandoer
+
+        // look - for at få gentaget beskrivelsen af det rum man er i
 
 
 
