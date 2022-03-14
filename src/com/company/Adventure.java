@@ -63,6 +63,10 @@ this.currentRoom = aRoom;
         this.description = aDescription;
     }
 
+    public void describeRoom() {
+
+    }
+
 /*
 public int movePlayerTo(Direction dir){
     return moveTo(player, dir)
@@ -94,7 +98,7 @@ public int movePlayerTo(Direction dir){
             input = sc.nextLine();
 
             if (input.equals("look")) {
-                System.out.println("You are in room " + currentRoom); //hardcoded as example
+                System.out.println("The cave you're in, ... "); //hardcoded as example
             } else if (input.equals("help")) {
                 System.out.println("You use the commands 'go north', 'go east', 'go south' and 'go west' to change the " +
                     "direction in this game ");
@@ -120,7 +124,8 @@ public int movePlayerTo(Direction dir){
         // starter spillet
         adventure.mainMenu();
 
-        Room room1 = new Room("Room 1", "Description...", 0, 4, 2, 0);
+        Room room1 = new Room("Cave 1", 0, 4, 2, 0);
+        Room room2 = new Room("Cave 2", 0, 0, 1, 3);
 
 
         //  oprette og forbinde de ni room objekter
