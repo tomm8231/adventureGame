@@ -2,13 +2,6 @@ package com.company;
 
 import java.util.Scanner;
 /*
-Det er Adventure-klassen der skal bygge "kortet" ved at oprette og forbinde
-de ni room objekter - room objekterne må ikke være hardcoded med kortet på nogen måde,
-og der skal heller ikke oprettes arrays eller andre datastrukturer med “kortet”,
-kun forbindelser fra room-objekt til room-objekt
-
-The object represent the human player and we need this object to keep track of where the player is.
-
 Adventure description of the game: in the README.txt
 AdventureIceland is an old school command line java game where the player move from room to room by typing in simple commands.
  */
@@ -16,7 +9,7 @@ AdventureIceland is an old school command line java game where the player move f
 
 public class Adventure {
 
-    private Room currentRoom; // int or Room?? where the player is at current
+    private Room currentRoom;
     private String name;
     private String description;
 
@@ -26,30 +19,12 @@ public class Adventure {
     }
 
 
-
     public void setRoom(Room aRoom){
         this.currentRoom = aRoom;
     }
 
     public Room getRoom(){
         return this.currentRoom;
-    }
-
-
-
-    public void describeRoom() {
-
-    }
-
-/*
-public int movePlayerTo(Direction dir){
-    return moveTo(player, dir)
-}
-
- */
-
-    public void updateOutput(int currentRoom){
-        String s;
     }
 
     public void welcomeMessage(){
@@ -110,8 +85,6 @@ public int movePlayerTo(Direction dir){
 
     }
 
-    public void playAdventure(){
-    }
 
     public void createCaves() {
         // N, S, E, W
@@ -126,15 +99,34 @@ public int movePlayerTo(Direction dir){
         Room cave9 = new Room(name, description);
 
         cave1.setEast(cave2);
+        cave1.setSouth(cave4);
+
+        cave2.setWest(cave1);
+        cave2.setEast(cave3);
+
+        cave3.setWest(cave2);
+        cave3.setSouth(cave6);
+
+        cave4.setNorth(cave1);
+        cave4.setSouth(cave7);
+
+        cave5.setSouth(cave8);
+
+        cave6.setNorth(cave3);
+        cave6.setSouth(cave9);
+
+        cave7.setNorth(cave4);
+        cave7.setEast(cave8);
+
+        cave8.setWest(cave7);
+        cave8.setNorth(cave5);
+        cave8.setEast(cave9);
+
+        cave9.setWest(cave8);
+        cave9.setNorth(cave6);
 
         currentRoom = cave1;
     }
-
-    public void connectCaves() {
-
-
-    }
-
 
 
     public static void main(String[] args) {
@@ -143,39 +135,6 @@ public int movePlayerTo(Direction dir){
 
         // starter spillet
         adventure.mainMenu();
-        adventure.createCaves();
-        adventure.connectCaves();
-
-
-
-        // set room
-
-
-
-
-
-        //  oprette og forbinde de ni room objekter
-
-        // kun forbindelser fra room-objekt til room-objekt
-
-        // Man skal kunne skrive "go north", "go east", "go south" og "go west" for at navigere rundt.
-
-        // Hvis man kan flytte sig i den ønskede retning, udskrives navn og beskrivelse for det nye rum man er i - hvis det ikke er muligt at flytte sig,
-        // får man beskeden "you cannot go that way" og forbliver hvor man var.
-
-        // Al input/output og kommunikation med brugeren skal foregå i Adventure-objektet.
-
-        // Adventure-objektet holder hele tiden styr på hvilket rum spilleren befinder sig i
-        // - f.eks. med en variabel: currentRoom.
-
-        // exit - for at afbryde spillet helt, og afslutte programmet
-
-        // help - for at få en instruktion og oversigt over mulige kommandoer
-
-        // look - for at få gentaget beskrivelsen af det rum man er i
-
-
-
 
     }
 }
