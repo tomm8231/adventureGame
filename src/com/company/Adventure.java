@@ -97,13 +97,21 @@ public int movePlayerTo(Direction dir){
             System.out.println("To exit the game, write: exit");
             input = sc.nextLine();
 
-            if (input.equals("look")) {
-                System.out.println("You are in room " + currentRoom); //hardcoded as example
-            } else if (input.equals("help")) {
+            if (input.equalsIgnoreCase("look")) {
+                System.out.println("Looking around...");
+                System.out.println("The cave you're in, ... "); //hardcoded as example
+            } else if (input.equalsIgnoreCase("Go north")) {
+                System.out.println("Going north!");
+            } else if (input.equalsIgnoreCase("Go south")) {
+                System.out.println("Going south!");
+            } else if (input.equalsIgnoreCase("Go east")) {
+                System.out.println("Going east!");
+            } else if (input.equalsIgnoreCase("Go west")) {
+                System.out.println("Going west!");
+            } else if (input.equalsIgnoreCase("help")) {
                 System.out.println("You use the commands 'go north', 'go east', 'go south' and 'go west' to change the " +
                     "direction in this game ");
-
-            } else if (input.equals("exit")) {
+            } else if (input.equalsIgnoreCase("exit")) {
                 System.out.println("You have ended the game - welcome back!");
             } else
                 System.out.println("Not a valid command, try again!");

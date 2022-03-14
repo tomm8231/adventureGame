@@ -17,12 +17,16 @@ public class Room {
   private String name;
   private String description;
 
+  private String roomDescription;
+
   // et rum med et navn, en beskrivelse og fire forbindelser til andre rum
+  //TODO: Parameter med beskrivelse af rum mangler!
   public Room(String aName, int north, int south, int east, int west){ // 4 connections to other rooms?
 
     // Room har 4 attributter af typen Room til at håndtere forbindelser til de fire andre rum:
     // north, east, south and west eller null
     System.out.println(aName);
+    this.roomDescription = roomDescription;
     this.north = north;
     this.south = south;
     this.east = east;
