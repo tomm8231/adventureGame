@@ -18,15 +18,17 @@ public class Adventure {
         System.out.println();
     }
 
-
+/*
     public void setRoom(Room aRoom){
-        this.currentRoom = aRoom;
+      //  this.currentRoom = aRoom;
     }
 
     public Room getRoom(){
         return this.currentRoom;
     }
 
+
+ */
     public void welcomeMessage(){
         System.out.println("Welcome to Adventure Iceland!");
         newLine();
@@ -56,23 +58,30 @@ public class Adventure {
 
             if (input.equalsIgnoreCase("look")) {
                 System.out.println("Looking around...");
-                System.out.println("The cave you're in, ... "); //hardcoded as example
-
                 System.out.println(currentRoom.getDescription());
 
             } else if (input.equalsIgnoreCase("Go north")) {
                 System.out.println("Going north!");
+                Room caveToTheNorth = currentRoom.getNorth();
+                currentRoom = caveToTheNorth;
+
             } else if (input.equalsIgnoreCase("Go south")) {
                 System.out.println("Going south!");
+                Room caveToTheSouth = this.currentRoom.getSouth();
+                this.currentRoom = caveToTheSouth;
+
+
             } else if (input.equalsIgnoreCase("Go east")) {
                 System.out.println("Going east!");
 
                 Room roomToTheEast = currentRoom.getEast();
                 currentRoom = roomToTheEast;
 
-               // setRoom(getRoom(east))
             } else if (input.equalsIgnoreCase("Go west")) {
                 System.out.println("Going west!");
+                Room caveToTheWest = currentRoom.getWest();
+                currentRoom = caveToTheWest;
+
             } else if (input.equalsIgnoreCase("help")) {
                 System.out.println("You use the commands 'go north', 'go east', 'go south' and 'go west' to change the " +
                     "direction in this game ");
@@ -89,9 +98,9 @@ public class Adventure {
     public void createCaves() {
         // N, S, E, W
         Room cave1 = new Room("the claustrophobia", "You are in a very small and dark cave with 4 tiny holes, you have no clues witch way to go. This cave is named the claustrophobia.");
-        Room cave2 = new Room(name, description);
+        Room cave2 = new Room("cave 2", "Here comes a description of cave 2");
         Room cave3 = new Room(name, description);
-        Room cave4 = new Room(name, description);
+        Room cave4 = new Room("cave 4", "Here comes a description of cave 4");
         Room cave5 = new Room(name, description);
         Room cave6 = new Room(name, description);
         Room cave7 = new Room(name, description);

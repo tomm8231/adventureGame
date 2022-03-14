@@ -14,8 +14,8 @@ public class Room {
   public Room(String name, String description) {
     this.name = name;
     this.description = description;
-  }
 
+  }
 
   public void setDescription(String aDescription){
     this.description = aDescription;
@@ -26,7 +26,7 @@ public class Room {
     north = cave;
   }
 
-  public Room getNorth(Room cave) {
+  public Room getNorth() {
     return north;
   }
 
@@ -34,7 +34,7 @@ public class Room {
     south = cave;
   }
 
-  public Room getSouth(Room cave) {
+  public Room getSouth() {
     return south;
   }
 
@@ -50,7 +50,7 @@ public class Room {
     west = cave;
   }
 
-  public Room getWest(Room cave) {
+  public Room getWest() {
     return west;
   }
 
