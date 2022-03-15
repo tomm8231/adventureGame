@@ -17,28 +17,30 @@ public class Adventure {
         System.out.println("""
             Adventure Iceland is a game where the player move from cave to cave by typing in commands: go north, go east, etc.
             """);
-        newLine();
         System.out.println("""
             You have arrived to Iceland with a sailboat, and you are on the most exciting trip of your life to experience
             the newly discovered lava caves, found by some researchers from the University of Aberdeen.
             You have heard that it is very difficult to find the greatest cave of them all, the one with purple stalactites all
             over, a huge waterfall and with the most amazing light, but with enough food, water and patience, you have decided
-            to complete. Get ready to the Adventure of Vatnajökull!
-            
+            to complete. Get ready for the Adventure of Vatnajökull!
+            """);
+        helpMenu();
+        System.out.println("""
             You have abseiled into a very small and dark cave with four tiny
             tunnels, you have no clues witch way to go. This cave is named The Claustrophobia...
+            
+            What do you do?
             """);
-
-        helpMenu();
 
     }
 
     public void helpMenu() {
-        System.out.println("To get the description of which room you are in, write: look ");
-        System.out.println("To get instructions and a overview of possible commands, write: help  ");
-        System.out.println("To exit the game, write: exit");
-        System.out.println("You use the commands 'go north', 'go east', 'go south' and 'go west' to change the " +
-        "direction in this game ");
+        System.out.println("COMMANDS:");
+        System.out.println("\"Look\" | Description of surroundings");
+        System.out.println("\"Help\" | Game instructions"); // Skal fjernes, når menuen hentes senere i spillet!
+        System.out.println("\"Exit\" | Quit game");
+        newLine();
+        System.out.println("Directions:\n\"Go north\"\n\"Go south\"\n\"Go east\"\n\"Go west\"");
         newLine();
     }
 
@@ -70,9 +72,9 @@ public class Adventure {
             } else if (input.equals("help")) {
                 helpMenu();
             } else if (input.equals("exit")) {
-                System.out.println("You have ended the game - welcome back!");
+                System.out.println("Exiting game");
             } else
-                System.out.println("Not a valid command, try again!");
+                System.out.println(input + " is not a valid command. Try again!");
         }
         while (!input.equals("exit"));
     }
@@ -92,9 +94,10 @@ public class Adventure {
         if(cave == null){
             System.out.println("This way is ófærð. Try another path.");
         } else {
-            System.out.println("Going " + direction);
+            System.out.println("Going " + direction + "...");
+            newLine();
             currentRoom = cave;
-            System.out.println(currentRoom.getName());
+            System.out.println("You have entered " + currentRoom.getName());
             System.out.println(currentRoom.getDescription());
         }
     }
@@ -108,7 +111,7 @@ public class Adventure {
             """);
 
         Room cave2 = new Room("The Moist", """
-            Suddenly you're standing in water to your knees. 
+            Suddenly you're standing in water to your knees.
             There's a long way home to your boat. But there are possibilities to move on...
             """);
 
@@ -151,29 +154,16 @@ public class Adventure {
         cave1.setEast(cave2);
         cave1.setSouth(cave4);
 
-        cave2.setWest(cave1);
-        cave2.setEast(cave3);
-
         cave3.setWest(cave2);
         cave3.setSouth(cave6);
 
-        cave4.setNorth(cave1);
-        cave4.setSouth(cave7);
-
-        cave5.setSouth(cave8);
-
-        cave6.setNorth(cave3);
-        cave6.setSouth(cave9);
+        cave9.setNorth(cave6);
+        cave9.setWest(cave8);
 
         cave7.setNorth(cave4);
         cave7.setEast(cave8);
 
-        cave8.setWest(cave7);
         cave8.setNorth(cave5);
-        cave8.setEast(cave9);
-
-        cave9.setWest(cave8);
-        cave9.setNorth(cave6);
 
         currentRoom = cave1;
     }
