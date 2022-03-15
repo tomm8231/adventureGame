@@ -40,7 +40,7 @@ public class Adventure {
             You have arrived in Iceland with a sailboat, and you are on the most exciting trip of your life to experience
             the newly discovered lava caves, found by some researchers from the University of Aberdeen.
             You have heard that it is very difficult to find the greatest cave of them all, the one with purple stalactites all
-            over, a huge waterfall and with the most amazing light, but with enough food, water and patience, you have decided 
+            over, a huge waterfall and with the most amazing light, but with enough food, water and patience, you have decided
             to complete. Get ready to the Adventure of Vatnajökull!
             """);
 
@@ -137,20 +137,28 @@ public class Adventure {
             and with the most amazing light. Something glittering is shining in the corner.
             """);
 
-        Room cave6 = new Room("The Mere Darkness","It's dark. You forgot your torch");
+        Room cave6 = new Room("The Mere Darkness", """
+            It's dark. You forgot your torch
+            """);
 
-        Room cave7 = new Room("The Lava Surprise", "You didn't believe it was possible, but now you see it with your" +
-            " own eyes: you are almost surrounded by lava with three narrow passages, leading to the other caves. " +
-            "The cave is enormous and while you are walking into the cave your eyes are almost melting. You think" +
-            "you saw something moving down in the lava. ");
+        Room cave7 = new Room("The Lava Surprise", """
+            You didn't believe it was possible, but now you see it with your
+            own eyes: you are almost surrounded by lava with three narrow passages, leading to the other caves.
+            The cave is enormous and while you are walking into the cave your eyes are almost melting. You think
+            you saw something moving down in the lava.
+            """);
 
 
-        Room cave8 = new Room("The Massive Boulder ", "When you enter the cave you hear something rumbling and the whole cave " +
-            "is covered by a massive rock slide. You look at your compass and to the north you can see " +
-            "bright flashes through a big pile of boulders blocking the way.");
+        Room cave8 = new Room("The Massive Boulder ", """
+            When you enter the cave you hear something rumbling and the whole cave
+            is covered by a massive rock slide. You look at your compass and to the north you can see
+            bright flashes through a big pile of boulders blocking the way.
+            """);
 
-        Room cave9 = new Room("The Windy Tunnel", "The wind blows your mind away and you cannot hear your own thoughts. " +
-            "Like the cave is protecting itself from you going deeper into it.");
+        Room cave9 = new Room("The Windy Tunnel", """
+            The wind blows your mind away and you cannot hear your own thoughts.
+            Like the cave is protecting itself from you going deeper into it.
+            """);
 
         cave1.setEast(cave2);
         cave1.setSouth(cave4);
