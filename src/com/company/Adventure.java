@@ -47,6 +47,23 @@ public class Adventure {
             tunnels, you have no clues witch way to go. This cave is named The Claustrophobia...
             """);
 
+        helpMenu();
+
+    }
+
+    public void helpMenu() {
+        System.out.println("To get the description of which room you are in, write: look ");
+        System.out.println("To get instructions and a overview of possible commands, write: help  ");
+        System.out.println("To exit the game, write: exit");
+        System.out.println("You use the commands 'go north', 'go east', 'go south' and 'go west' to change the " +
+        "direction in this game ");
+        newLine();
+    }
+
+    public void lookAround() {
+        System.out.println("Looking around...");
+        System.out.println(currentRoom.getName());
+        System.out.println(currentRoom.getDescription());
     }
 
     public void mainMenu() {
@@ -57,6 +74,27 @@ public class Adventure {
 
         welcomeMessage();
 
+        String input;
+        do {
+
+            input = sc.nextLine().trim().toLowerCase();
+
+            if (input.equals("look")) {
+                lookAround();
+            } else if(input.startsWith("go ")) {
+                String direction = input.substring(input.indexOf(" ")+1);
+                checkRoomNull(direction);
+
+            } else if (input.equals("help")) {
+                helpMenu();
+            } else if (input.equals("exit")) {
+                System.out.println("You have ended the game - welcome back!");
+            } else
+                System.out.println("Not a valid command, try again!");
+        }
+        while (!input.equals("exit"));
+
+        /*
         String input;
         do {
             System.out.println("To get the description of which room you are in, write: look ");
@@ -73,32 +111,7 @@ public class Adventure {
             } else if(input.startsWith("go ")) {
                 String direction = input.substring(input.indexOf(" ")+1);
                 checkRoomNull(direction);
-/*
-            }
 
-            else if (input.equals("go north")) {
-              //  System.out.println("Going north!");
-                Room caveToTheNorth = currentRoom.getNorth();
-                String direction = "north";
-                checkRoomNull(caveToTheNorth, direction);
-
-            } else if (input.equals("go south")) {
-                Room caveToTheSouth = currentRoom.getSouth();
-                String direction = "south";
-                checkRoomNull(caveToTheSouth, direction);
-
-            } else if (input.equals("go east")) {
-                Room caveToTheEast = currentRoom.getEast();
-                String direction = "east";
-                checkRoomNull(caveToTheEast, direction);
-
-            } else if (input.equals("go west")) {
-                Room caveToTheWest = currentRoom.getWest();
-                String direction = "west";
-                checkRoomNull(direction);
-
-
- */
             } else if (input.equals("help")) {
                 System.out.println("You use the commands 'go north', 'go east', 'go south' and 'go west' to change the " +
                     "direction in this game ");
@@ -108,8 +121,7 @@ public class Adventure {
                 System.out.println("Not a valid command, try again!");
         }
         while (!input.equals("exit"));
-
-
+        */
     }
 
     public void checkRoomNull(String direction){
