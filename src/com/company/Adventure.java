@@ -58,56 +58,71 @@ public class Adventure {
         welcomeMessage();
 
         String input;
-
-       // System.out.println(currentRoom.getDescription());
-
         do {
             System.out.println("To get the description of which room you are in, write: look ");
             System.out.println("To get instructions and a overview of possible commands, write: help  ");
             System.out.println("To exit the game, write: exit");
 
-            input = sc.nextLine().toLowerCase();
+            input = sc.nextLine().trim().toLowerCase();
 
-            if (input.equalsIgnoreCase("look")) { //TODO: Fjerne IgnoreCase, det har givet problemer
+            if (input.equals("look")) {
                 System.out.println("Looking around...");
                 System.out.println(currentRoom.getName());
                 System.out.println(currentRoom.getDescription());
 
-            } else if (input.equalsIgnoreCase("go north")) {
+            } else if(input.startsWith("go ")) {
+                String direction = input.substring(input.indexOf(" ")+1);
+                checkRoomNull(direction);
+/*
+            }
+
+            else if (input.equals("go north")) {
               //  System.out.println("Going north!");
                 Room caveToTheNorth = currentRoom.getNorth();
                 String direction = "north";
                 checkRoomNull(caveToTheNorth, direction);
 
-            } else if (input.equalsIgnoreCase("go south")) {
+            } else if (input.equals("go south")) {
                 Room caveToTheSouth = currentRoom.getSouth();
                 String direction = "south";
                 checkRoomNull(caveToTheSouth, direction);
 
-            } else if (input.equalsIgnoreCase("Go east")) {
+            } else if (input.equals("go east")) {
                 Room caveToTheEast = currentRoom.getEast();
                 String direction = "east";
                 checkRoomNull(caveToTheEast, direction);
 
-            } else if (input.equalsIgnoreCase("Go west")) {
+            } else if (input.equals("go west")) {
                 Room caveToTheWest = currentRoom.getWest();
                 String direction = "west";
-                checkRoomNull(caveToTheWest, direction);
+                checkRoomNull(direction);
 
+
+ */
             } else if (input.equals("help")) {
                 System.out.println("You use the commands 'go north', 'go east', 'go south' and 'go west' to change the " +
                     "direction in this game ");
-            } else if (input.equalsIgnoreCase("exit")) {
+            } else if (input.equals("exit")) {
                 System.out.println("You have ended the game - welcome back!");
             } else
                 System.out.println("Not a valid command, try again!");
         }
-        while (!input.equals("exit")); // or (!"exit".equals(input) ??)
+        while (!input.equals("exit"));
 
 
     }
 
-    public void checkRoomNull(Room cave, String direction){
+    public void checkRoomNull(String direction){
+        Room cave = null;
+        if(direction.equals("north")) {
+            cave = currentRoom.getNorth();
+        } else if (direction.equals("south")) {
+            cave = currentRoom.getSouth();
+        } else if (direction.equals("east")) {
+            cave = currentRoom.getEast();
+        } else if (direction.equals("west")) {
+            cave = currentRoom.getWest();
+        }
 
         if(cave == null){
             System.out.println("You cannot go in that direction");
@@ -123,7 +138,8 @@ public class Adventure {
         // N, S, E, W
 
         Room cave1 = new Room("The Claustrophobia", """
-            Cave1 description
+            The cave is surprisingly small and you feel that the walls are getting closer every second you stand there.
+            You have to decide fast where to go, because you're claustrophobia is freaking you out. 
             """);
 
         Room cave2 = new Room("The Moist", """
