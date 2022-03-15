@@ -58,6 +58,8 @@ public class Adventure {
 
         welcomeMessage();
 
+        Devices flashlight = new Devices("flashlight", false);
+
         String input;
         do {
 
@@ -65,18 +67,22 @@ public class Adventure {
 
             if (input.equals("look")) {
                 lookAround();
-            } else if(input.startsWith("go ")) {
-                String direction = input.substring(input.indexOf(" ")+1);
+            } else if (input.startsWith("go ")) {
+                String direction = input.substring(input.indexOf(" ") + 1);
                 checkRoomNull(direction);
 
             } else if (input.equals("help")) {
                 helpMenu();
             } else if (input.equals("exit")) {
                 System.out.println("Exiting game");
-            } else
+
+            } else if (input.equals("light on")) {
+                flashlight.pushDevice();
+                flashlight.displayDeviceStatus();
+            } else {
                 System.out.println("\"" + input + "\" is not a valid command. Try again!");
-        }
-        while (!input.equals("exit"));
+            }
+        } while (!input.equals("exit"));
     }
 
     public void checkRoomNull(String direction){
@@ -130,7 +136,7 @@ public class Adventure {
             """);
 
         Room cave6 = new Room("The Mere Darkness", """
-            It's dark. You forgot your torch...
+            It's dark. You pick up your flashlight. To turn it on, write: 'light on'
             """);
 
         Room cave7 = new Room("The Lava Surprise", """
