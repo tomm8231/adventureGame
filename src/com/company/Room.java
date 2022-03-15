@@ -20,6 +20,9 @@ public class Room {
 
   public void setNorth(Room cave) {
     north = cave;
+    if(cave.south != this) {
+      cave.setSouth(this);
+    }
   }
 
   public Room getNorth() {
@@ -28,6 +31,9 @@ public class Room {
 
   public void setSouth(Room cave) {
     south = cave;
+    if(cave.north != this) {
+      cave.setNorth(this);
+    }
   }
 
   public Room getSouth() {
@@ -36,6 +42,9 @@ public class Room {
 
   public void setEast(Room cave) {
     east = cave;
+    if(cave.west != this) {
+      cave.setWest(this);
+    }
   }
 
   public Room getEast() {
@@ -44,6 +53,9 @@ public class Room {
 
   public void setWest(Room cave) {
     west = cave;
+    if(cave.east != this) {
+      cave.setEast(this);
+    }
   }
 
   public Room getWest() {
