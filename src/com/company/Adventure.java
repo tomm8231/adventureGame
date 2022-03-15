@@ -1,40 +1,22 @@
 package com.company;
 
-import java.util.Locale;
 import java.util.Scanner;
-/*
-Adventure description of the game: in the README.txt
-AdventureIceland is an old school command line java game where the player move from room to room by typing in simple commands.
- */
-
 
 public class Adventure {
 
     private Room currentRoom;
-    private String name;
-    private String description;
 
 
     public void newLine() {
         System.out.println();
     }
 
-/*
-    public void setRoom(Room aRoom){
-      //  this.currentRoom = aRoom;
-    }
-
-    public Room getRoom(){
-        return this.currentRoom;
-    }
-
-
- */
     public void welcomeMessage(){
         System.out.println("Welcome to Adventure Iceland!");
         newLine();
-        System.out.println("Adventure Iceland is a game where the player move " +
-            "from cave to cave by typing in commands: go north, go east, etc.");
+        System.out.println("""
+            Adventure Iceland is a game where the player move from cave to cave by typing in commands: go north, go east, etc.
+            """);
         newLine();
         System.out.println("""
             You have arrived to Iceland with a sailboat, and you are on the most exciting trip of your life to experience
@@ -93,35 +75,6 @@ public class Adventure {
                 System.out.println("Not a valid command, try again!");
         }
         while (!input.equals("exit"));
-
-        /*
-        String input;
-        do {
-            System.out.println("To get the description of which room you are in, write: look ");
-            System.out.println("To get instructions and a overview of possible commands, write: help  ");
-            System.out.println("To exit the game, write: exit");
-
-            input = sc.nextLine().trim().toLowerCase();
-
-            if (input.equals("look")) {
-                System.out.println("Looking around...");
-                System.out.println(currentRoom.getName());
-                System.out.println(currentRoom.getDescription());
-
-            } else if(input.startsWith("go ")) {
-                String direction = input.substring(input.indexOf(" ")+1);
-                checkRoomNull(direction);
-
-            } else if (input.equals("help")) {
-                System.out.println("You use the commands 'go north', 'go east', 'go south' and 'go west' to change the " +
-                    "direction in this game ");
-            } else if (input.equals("exit")) {
-                System.out.println("You have ended the game - welcome back!");
-            } else
-                System.out.println("Not a valid command, try again!");
-        }
-        while (!input.equals("exit"));
-        */
     }
 
     public void checkRoomNull(String direction){
@@ -230,7 +183,6 @@ public class Adventure {
 
         Adventure adventure = new Adventure();
 
-        // starter spillet
         adventure.mainMenu();
 
     }

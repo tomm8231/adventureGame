@@ -17,10 +17,6 @@ public class Room {
 
   }
 
-  public void setDescription(String aDescription){
-    this.description = aDescription;
-
-  }
 
   public void setNorth(Room cave) {
     north = cave;
@@ -58,9 +54,6 @@ public class Room {
     return name;
   }
 
-  public void setName(String aName){
-    this.name = aName;
-  }
 
   public String getDescription(){
     return description;
