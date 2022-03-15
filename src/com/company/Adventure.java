@@ -59,9 +59,10 @@ public class Adventure {
             System.out.println("To get the description of which room you are in, write: look ");
             System.out.println("To get instructions and a overview of possible commands, write: help  ");
             System.out.println("To exit the game, write: exit");
+
             input = sc.nextLine().toLowerCase();
 
-            if (input.equalsIgnoreCase("look")) {
+            if (input.equalsIgnoreCase("look")) { //TODO: Fjerne IgnoreCase, det har givet problemer
                 System.out.println("Looking around...");
                 System.out.println(currentRoom.getDescription());
 
@@ -112,21 +113,29 @@ public class Adventure {
     public void createCaves() {
         // N, S, E, W
 
-        Room cave1 = new Room("The Claustrophobia", "You have abseiled into a very small and dark cave with four tiny " +
-            "tunnels, you have no clues witch way to go. This cave is named The Claustrophobia.");
+        Room cave1 = new Room("The Claustrophobia", """
+            You have abseiled into a very small and dark cave with four tiny
+            "tunnels, you have no clues witch way to go. This cave is named The Claustrophobia.
+            """);
 
-        Room cave2 = new Room("The Moist", "Suddenly you're standing in water to your knees. There's a long way home" +
-            " to your boat. But there are possibilities to move on...");
+        Room cave2 = new Room("The Moist", """
+            Suddenly you're standing in water to your knees. There's a long way home
+            to your boat. But there are possibilities to move on...
+            """);
 
-        Room cave3 = new Room("The Bats Nest", "When you enter the cave you hear screaming bats all over the place. " +
-            "You consider if this is a good idea.");
+        Room cave3 = new Room("The Bats Nest", """
+            When you enter the cave you hear screaming bats all over the place. You consider if this is a good idea.
+            """);
 
-        Room cave4 = new Room("The Eternal Deep", "You step onto a surface which feels rather wobbly. There's a distinct smell" +
-            " of rotten eggs. Your doubts about your journey have never been bigger. Be very careful when you take further steps.");
+        Room cave4 = new Room("The Eternal Deep", """
+            You step onto a surface which feels rather wobbly. There's a distinct smell of rotten eggs. Your doubts about
+            your journey have never been bigger. Be very careful when you take further steps.
+            """);
 
-        Room cave5 = new Room("The Spectacular", "You have finally found the greatest cave of them all, the one with" +
-            " purple stalactites all over, a huge waterfall and with the most\\n\" +\n" +
-            "            \"  amazing light. Something glittering is shining in the corner.");
+        Room cave5 = new Room("The Spectacular", """
+            You have finally found the greatest cave of them all, the one with purple stalactites all over, a huge waterfall
+            and with the most amazing light. Something glittering is shining in the corner.
+            """);
 
         Room cave6 = new Room("The Mere Darkness","It's dark. You forgot your torch");
 
