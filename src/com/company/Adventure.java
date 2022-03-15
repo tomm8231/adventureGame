@@ -42,6 +42,9 @@ public class Adventure {
             You have heard that it is very difficult to find the greatest cave of them all, the one with purple stalactites all
             over, a huge waterfall and with the most amazing light, but with enough food, water and patience, you have decided
             to complete. Get ready to the Adventure of Vatnajökull!
+            
+            You have abseiled into a very small and dark cave with four tiny
+            tunnels, you have no clues witch way to go. This cave is named The Claustrophobia...
             """);
 
     }
@@ -55,6 +58,9 @@ public class Adventure {
         welcomeMessage();
 
         String input;
+
+       // System.out.println(currentRoom.getDescription());
+
         do {
             System.out.println("To get the description of which room you are in, write: look ");
             System.out.println("To get instructions and a overview of possible commands, write: help  ");
@@ -64,6 +70,7 @@ public class Adventure {
 
             if (input.equalsIgnoreCase("look")) { //TODO: Fjerne IgnoreCase, det har givet problemer
                 System.out.println("Looking around...");
+                System.out.println(currentRoom.getName());
                 System.out.println(currentRoom.getDescription());
 
             } else if (input.equalsIgnoreCase("go north")) {
@@ -107,6 +114,8 @@ public class Adventure {
         } else {
             System.out.println("Going " + direction);
             currentRoom = cave;
+            System.out.println(currentRoom.getName());
+            System.out.println(currentRoom.getDescription());
         }
     }
 
@@ -114,8 +123,7 @@ public class Adventure {
         // N, S, E, W
 
         Room cave1 = new Room("The Claustrophobia", """
-            You have abseiled into a very small and dark cave with four tiny
-            "tunnels, you have no clues witch way to go. This cave is named The Claustrophobia.
+            Cave1 description
             """);
 
         Room cave2 = new Room("The Moist", """
