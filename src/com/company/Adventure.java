@@ -57,10 +57,8 @@ public class Adventure {
             System.out.println("To get instructions and a overview of possible commands, write: help  ");
             System.out.println("To exit the game, write: exit");
             input = sc.nextLine().toLowerCase();
-            //Programme does not run properly with .equals
-            // Does with .equalsIgnoreCase does. Why??
 
-            if (input.equals("look")) {
+            if (input.equalsIgnoreCase("look")) {
                 System.out.println("Looking around...");
                 System.out.println(currentRoom.getDescription());
 
@@ -88,7 +86,7 @@ public class Adventure {
             } else if (input.equals("help")) {
                 System.out.println("You use the commands 'go north', 'go east', 'go south' and 'go west' to change the " +
                     "direction in this game ");
-            } else if (input.equals("exit")) {
+            } else if (input.equalsIgnoreCase("exit")) {
                 System.out.println("You have ended the game - welcome back!");
             } else
                 System.out.println("Not a valid command, try again!");
@@ -111,15 +109,36 @@ public class Adventure {
     public void createCaves() {
         // N, S, E, W
 
-        Room cave1 = new Room("the claustrophobia", "You are in a very small and dark cave with 4 tiny holes, you have no clues witch way to go. This cave is named the claustrophobia.");
-        Room cave2 = new Room("Cave 2", "Here comes a description of cave 2");
-        Room cave3 = new Room("Cave 3", "description3...");
-        Room cave4 = new Room("Cave 4", "Here comes a description of cave 4");
-        Room cave5 = new Room("Cave 5", "description5...");
-        Room cave6 = new Room("Cave 6", "description6");
-        Room cave7 = new Room("Cave 7", "description7");
-        Room cave8 = new Room("Cave 8", "description8");
-        Room cave9 = new Room("Cave 9", "description9");
+        Room cave1 = new Room("The Claustrophobia", "You have abseiled into a very small and dark cave with four tiny " +
+            "tunnels, you have no clues witch way to go. This cave is named The Claustrophobia.");
+
+        Room cave2 = new Room("The Moist", "Suddenly you're standing in water to your knees. There's a long way home" +
+            " to your boat. But there are possibilities to move on...");
+
+        Room cave3 = new Room("The Bats Nest", "When you enter the cave you hear screaming bats all over the place. " +
+            "You consider if this is a good idea.");
+
+        Room cave4 = new Room("The Eternal Deep", "You step onto a surface which feels rather wobbly. There's a distinct smell" +
+            " of rotten eggs. Your doubts about your journey have never been bigger. Be very careful when you take further steps.");
+
+        Room cave5 = new Room("The Spectacular", "You have finally found the greatest cave of them all, the one with" +
+            " purple stalactites all over, a huge waterfall and with the most\\n\" +\n" +
+            "            \"  amazing light. Something glittering is shining in the corner.");
+
+        Room cave6 = new Room("The Mere Darkness","It's dark. You forgot your torch");
+
+        Room cave7 = new Room("The Lava Surprise", "You didn't believe it was possible, but now you see it with your" +
+            " own eyes: you are almost surrounded by lava with three narrow passages, leading to the other caves. " +
+            "The cave is enormous and while you are walking into the cave your eyes are almost melting. You think" +
+            "you saw something moving down in the lava. ");
+
+
+        Room cave8 = new Room("The Massive Boulder ", "When you enter the cave you hear something rumbling and the whole cave " +
+            "is covered by a massive rock slide. You look at your compass and to the north you can see " +
+            "bright flashes through a big pile of boulders blocking the way.");
+
+        Room cave9 = new Room("The Windy Tunnel", "The wind blows your mind away and you cannot hear your own thoughts. " +
+            "Like the cave is protecting itself from you going deeper into it.");
 
         cave1.setEast(cave2);
         cave1.setSouth(cave4);
