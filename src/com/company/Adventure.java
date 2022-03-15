@@ -74,7 +74,7 @@ public class Adventure {
             } else if (input.equals("exit")) {
                 System.out.println("Exiting game");
             } else
-                System.out.println(input + " is not a valid command. Try again!");
+                System.out.println("\"" + input + "\" is not a valid command. Try again!");
         }
         while (!input.equals("exit"));
     }
