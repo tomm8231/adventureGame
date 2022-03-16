@@ -13,12 +13,12 @@ public class Map {
   }
 
 
+
   public void createCaves() {
     // N, S, E, W
 
-    Room cave1 = new Room("The Claustrophobia", """
-            \tThe cave is surprisingly small and you feel that the walls are getting closer every second you stand there.
-            \tYou have to decide fast where to go, because you're claustrophobia is freaking you out.""");
+    UserInterface ui = new UserInterface();
+    //Room cave1 = new Room(ui.getName1(),ui.getDescription1());
 
     Room cave2 = new Room("The Moist", """
             \tSuddenly you're standing in water to your knees.
@@ -52,7 +52,7 @@ public class Map {
     Room cave9 = new Room("The Windy Tunnel", """
             \tThe wind blows your mind away and you cannot hear your own thoughts.
             \tLike the cave is protecting itself from you going deeper into it.""");
-
+/*
     cave1.setEast(cave2);
     cave1.setSouth(cave4);
 
@@ -69,6 +69,8 @@ public class Map {
 
     setStarterRoom(cave1);
 
+
+ */
 
   }
 }
