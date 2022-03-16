@@ -46,7 +46,7 @@ public class UserInterface {
             \tWhen you enter the cave you hear something rumbling and the whole cave is covered by a massive rock slide. 
             \tYou look at your compass and to the north you can see bright flashes through a big pile of boulders blocking the way.""";
 
-private String name9 ="The Windy Tunnel";
+  private String name9 ="The Windy Tunnel";
   private String description9 = """
             \tThe wind blows your mind away and you cannot hear your own thoughts.
             \tLike the cave is protecting itself from you going deeper into it.""";
@@ -148,6 +148,7 @@ private String name9 ="The Windy Tunnel";
 
     if(cave == null) {
       System.out.println("This way is ófærð. Try another path.");
+      newLine();
     } else {
       System.out.println("Going " + direction + "...");
       newLine();
@@ -162,6 +163,81 @@ private String name9 ="The Windy Tunnel";
 
   public void newLine() {
     System.out.println();
+  }
+
+
+  // GETTERS AND SETTERS:
+
+  public String getName1() {
+    return name1;
+  }
+
+  public String getDescription1() {
+    return description1;
+  }
+
+  public String getName2() {
+    return name2;
+  }
+
+  public String getDescription2() {
+    return description2;
+  }
+
+  public String getName3() {
+    return name3;
+  }
+
+  public String getDescription3() {
+    return description3;
+  }
+
+  public String getName4() {
+    return name4;
+  }
+
+  public String getDescription4() {
+    return description4;
+  }
+
+  public String getName5() {
+    return name5;
+  }
+
+  public String getDescription5() {
+    return description5;
+  }
+
+  public String getName6() {
+    return name6;
+  }
+
+  public String getDescription6() {
+    return description6;
+  }
+
+  public String getName7() {
+    return name7;
+  }
+
+  public String getDescription7() {
+    return description7;
+  }
+
+  public String getName8() {
+    return name8;
+  }
+
+  public String getDescription8() {
+    return description8;
+  }
+
+  public String getName9() {
+    return name9;
+  }
+
+  public String getDescription9() {
+    return description9;
   }
 
 }

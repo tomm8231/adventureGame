@@ -44,9 +44,5 @@ public class Map {
     cave8.setNorth(cave5);
 
     setStarterRoom(cave1);
-
-
-
-
   }
 }
