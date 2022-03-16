@@ -12,11 +12,9 @@ public class Adventure {
     }
 
     public void welcomeMessage(){
+        newLine();
         System.out.println("Welcome to Adventure Iceland!");
         newLine();
-        System.out.println("""
-            Adventure Iceland is a game where the player move from cave to cave by typing in commands: go north, go east, etc.
-            """);
         System.out.println("""
             You have arrived to Iceland with a sailboat, and you are on the most exciting trip of your life to experience
             the newly discovered lava caves, found by some researchers from the University of Aberdeen.
@@ -107,8 +105,11 @@ public class Adventure {
             System.out.println("Going " + direction + "...");
             newLine();
             currentRoom = cave;
-            System.out.println("You have entered " + currentRoom.getName());
+            System.out.println("--------------------");
+            System.out.println("You have entered " + currentRoom.getName() + ":");
             System.out.println(currentRoom.getDescription());
+            System.out.println("--------------------");
+            newLine();
         }
     }
 
@@ -116,50 +117,41 @@ public class Adventure {
         // N, S, E, W
 
         Room cave1 = new Room("The Claustrophobia", """
-            The cave is surprisingly small and you feel that the walls are getting closer every second you stand there.
-            You have to decide fast where to go, because you're claustrophobia is freaking you out. 
-            """);
+            \tThe cave is surprisingly small and you feel that the walls are getting closer every second you stand there.
+            \tYou have to decide fast where to go, because you're claustrophobia is freaking you out.""");
 
         Room cave2 = new Room("The Moist", """
-            Suddenly you're standing in water to your knees.
-            There's a long way home to your boat. But there are possibilities to move on...
-            """);
+            \tSuddenly you're standing in water to your knees.
+            \tThere's a long way home to your boat. But there are possibilities to move on...""");
 
         Room cave3 = new Room("The Bats Nest", """
-            When you enter the cave you hear screaming bats all over the place. You consider if this is a good idea.
-            """);
+            \tWhen you enter the cave you hear screaming bats all over the place. You consider if this is a good idea.""");
 
         Room cave4 = new Room("The Eternal Deep", """
-            You step onto a surface which feels rather wobbly. There's a distinct smell of rotten eggs. Your doubts about
-            your journey have never been bigger. Be very careful when you take further steps.
-            """);
+            \tYou step onto a surface which feels rather wobbly. There's a distinct smell of rotten eggs. Your doubts about
+            \tyour journey have never been bigger. Be very careful when you take further steps.""");
 
         Room cave5 = new Room("The Spectacular", """
-            You have finally found the greatest cave of them all, the one with purple stalactites all over, a huge waterfall
-            and with the most amazing light. Something glittering is shining in the corner.
-            """);
+            \tYou have finally found the greatest cave of them all, the one with purple stalactites all over, a huge waterfall
+            \tand with the most amazing light. Something glittering is shining in the corner.""");
 
         Room cave6 = new Room("The Mere Darkness", """
-            It's dark. You pick up your flashlight. To turn it on, write: 'light on'
-            """);
+            \tIt's dark. You pick up your flashlight. To turn it on, write: 'light on'""");
 
         Room cave7 = new Room("The Lava Surprise", """
-            You didn't believe it was possible, but now you see it with your own eyes: 
-            you are almost surrounded by lava with three narrow passages, leading to the other caves.
-            The cave is enormous and while you are walking into the cave your eyes are almost melting. 
-            You think you saw something moving down in the lava.
-            """);
+            \tYou didn't believe it was possible, but now you see it with your own eyes: 
+            \tyou are almost surrounded by lava with three narrow passages, leading to the other caves.
+            \tThe cave is enormous and while you are walking into the cave your eyes are almost melting. 
+            \tYou think you saw something moving down in the lava.""");
 
 
         Room cave8 = new Room("The Massive Boulder ", """
-            When you enter the cave you hear something rumbling and the whole cave is covered by a massive rock slide. 
-            You look at your compass and to the north you can see bright flashes through a big pile of boulders blocking the way.
-            """);
+            \tWhen you enter the cave you hear something rumbling and the whole cave is covered by a massive rock slide. 
+            \tYou look at your compass and to the north you can see bright flashes through a big pile of boulders blocking the way.""");
 
         Room cave9 = new Room("The Windy Tunnel", """
-            The wind blows your mind away and you cannot hear your own thoughts.
-            Like the cave is protecting itself from you going deeper into it.
-            """);
+            \tThe wind blows your mind away and you cannot hear your own thoughts.
+            \tLike the cave is protecting itself from you going deeper into it.""");
 
         cave1.setEast(cave2);
         cave1.setSouth(cave4);
