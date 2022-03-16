@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-  private Room currentRoom;
+
+  Player player = new Player();
 
   private String name1 = "The Claustrophobia";
   private String description1 = """
@@ -90,7 +91,7 @@ public class UserInterface {
 
     map.createCaves();
 
-    currentRoom = map.getStarterRoom();
+    player.setCurrentRoom(map.getStarterRoom());
 
 
     Scanner sc = new Scanner(System.in);
@@ -108,7 +109,7 @@ public class UserInterface {
         lookAround();
       } else if (input.startsWith("go ")) {
         String direction = input.substring(input.indexOf(" ") + 1);
-        checkRoomNull(direction);
+        System.out.println(player.movePlayer(direction));
 
       } else if (input.equals("help")) {
         ui.helpMenu();
@@ -130,35 +131,8 @@ public class UserInterface {
 
   public void lookAround() {
     System.out.println("Looking around...");
-    System.out.println(currentRoom.getName());
-    System.out.println(currentRoom.getDescription());
-  }
-
-  public void checkRoomNull(String direction) {
-    Room cave = null;
-    if(direction.equals("north")) {
-      cave = currentRoom.getNorth();
-    } else if (direction.equals("south")) {
-      cave = currentRoom.getSouth();
-    } else if (direction.equals("east")) {
-      cave = currentRoom.getEast();
-    } else if (direction.equals("west")) {
-      cave = currentRoom.getWest();
-    }
-
-    if(cave == null) {
-      System.out.println("This way is ófærð. Try another path.");
-      newLine();
-    } else {
-      System.out.println("Going " + direction + "...");
-      newLine();
-      currentRoom = cave;
-      System.out.println("--------------------");
-      System.out.println("You have entered " + currentRoom.getName() + ":");
-      System.out.println(currentRoom.getDescription());
-      System.out.println("--------------------");
-      newLine();
-    }
+    System.out.println(player.getCurrentRoom().getName());
+    System.out.println(player.getCurrentRoom().getDescription());
   }
 
   public void newLine() {

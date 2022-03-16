@@ -9,10 +9,6 @@ public class Torch {
     this.name = name;
   }
 
-  public Torch(String name){
-    this.name = name;
-  }
-
   public String toString(){
     return name + " is on: " + isOn;
   }

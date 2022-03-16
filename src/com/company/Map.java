@@ -13,7 +13,6 @@ public class Map {
   }
 
 
-
   public void createCaves() {
 
     UserInterface ui = new UserInterface();

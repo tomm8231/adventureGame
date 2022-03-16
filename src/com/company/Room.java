@@ -17,7 +17,6 @@ public class Room {
 
   }
 
-
   public void setNorth(Room cave) {
     north = cave;
     if(cave.south != this) {
@@ -65,7 +64,6 @@ public class Room {
   public String getName(){
     return name;
   }
-
 
   public String getDescription(){
     return description;
