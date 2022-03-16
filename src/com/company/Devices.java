@@ -9,6 +9,11 @@ public class Devices {
     this.name = name;
   }
 
+  public Devices(String name){
+    this.name = name;
+  }
+
+  // to be implemented in vol.2
   public String toString(){
     return name + " is on: " + isOn;
   }
