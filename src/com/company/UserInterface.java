@@ -51,9 +51,6 @@ private String name9 ="The Windy Tunnel";
             \tThe wind blows your mind away and you cannot hear your own thoughts.
             \tLike the cave is protecting itself from you going deeper into it.""";
 
-  public void newLine() {
-    System.out.println();
-  }
 
   public void welcomeMessage(){
     newLine();
@@ -163,6 +160,9 @@ private String name9 ="The Windy Tunnel";
     }
   }
 
+  public void newLine() {
+    System.out.println();
+  }
 
 }
 
