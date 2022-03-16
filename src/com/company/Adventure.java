@@ -78,10 +78,10 @@ public class Adventure {
 
             } else if (input.equals("light on")) {
                 flashlight.pushDevice();
-                flashlight.displayDeviceStatus();
+                System.out.println(flashlight);
             } else if (input.equals("light off")) {
                 flashlight.pushDevice();
-                flashlight.displayDeviceStatus();
+                System.out.println(flashlight);
 
             } else {
                 System.out.println("\"" + input + "\" is not a valid command. Try again!");

@@ -13,14 +13,10 @@ public class Devices {
     this.name = name;
   }
 
-  // to be implemented in vol.2
   public String toString(){
     return name + " is on: " + isOn;
   }
 
-  void displayDeviceStatus(){
-    System.out.println("Light on? " + isOn);
-  }
 
   public void pushDevice(){
     if(isOn == true){
