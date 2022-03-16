@@ -56,7 +56,7 @@ public class Adventure {
 
         welcomeMessage();
 
-        Devices flashlight = new Devices("flashlight", false);
+        Torch flashlight = new Torch("flashlight", false);
 
         String input;
         do {
@@ -87,7 +87,7 @@ public class Adventure {
         } while (!input.equals("exit"));
     }
 
-    public void checkRoomNull(String direction){
+    public void checkRoomNull(String direction) {
         Room cave = null;
         if(direction.equals("north")) {
             cave = currentRoom.getNorth();
@@ -99,7 +99,7 @@ public class Adventure {
             cave = currentRoom.getWest();
         }
 
-        if(cave == null){
+        if(cave == null) {
             System.out.println("This way is ófærð. Try another path.");
         } else {
             System.out.println("Going " + direction + "...");
