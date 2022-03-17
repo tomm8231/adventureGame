@@ -4,6 +4,7 @@ public class Player {
 
   private Room currentRoom;
 
+
   public void setCurrentRoom(Room currentRoom) {
     this.currentRoom = currentRoom;
   }
