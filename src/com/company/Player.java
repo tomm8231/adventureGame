@@ -21,7 +21,7 @@ public class Player {
   public String checkValidDirection(Room cave, String direction) {
 
     if(cave == null) {
-      return "This way is ófærð. Try another path.";
+      return "Ófærð! Try another path.";
 
     } else {
       currentRoom = cave;

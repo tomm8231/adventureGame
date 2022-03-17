@@ -40,6 +40,14 @@ public class UserInterface {
 
   public void mainMenu() {
 
+
+    //ATTEMPT TO ADD MUSIC
+    String filepath = "music.wav";
+    PlayMusic play = new PlayMusic();
+    play.playMusic(filepath);
+
+
+
     Map map = new Map();
     UserInterface ui = new UserInterface();
 

@@ -1,6 +1,5 @@
 package com.company;
 
-
 public class Adventure {
 
 
@@ -8,7 +7,6 @@ public class Adventure {
 
 
         UserInterface ui = new UserInterface();
-
         ui.mainMenu();
 
     }
