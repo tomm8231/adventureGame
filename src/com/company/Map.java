@@ -5,16 +5,9 @@ public class Map {
   private Room starterRoom;
 
 
-  private String name9 ="The Windy Tunnel";
-  private String description9 = """
-            \tThe wind blows your mind away and you cannot hear your own thoughts.
-            \tLike the cave is protecting itself from you going deeper into it.""";
-
-
   public Room getStarterRoom() {
     return starterRoom;
   }
-
 
 
   public void createCaves() {

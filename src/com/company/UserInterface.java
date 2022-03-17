@@ -41,12 +41,10 @@ public class UserInterface {
 
   public void startGame() {
 
-
     //ATTEMPT TO ADD MUSIC
     String filepath = "music.wav";
     PlayMusic play = new PlayMusic();
     play.playMusic(filepath);
-
 
     map = new Map();
     player = new Player();
@@ -100,7 +98,6 @@ public class UserInterface {
   public void newLine() {
     System.out.println();
   }
-
 
 }
 
