@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-  Player player = new Player();
+  private Player player;
+  private Map map;
 
 
   public void welcomeMessage(){
@@ -38,7 +39,7 @@ public class UserInterface {
     newLine();
   }
 
-  public void mainMenu() {
+  public void startGame() {
 
 
     //ATTEMPT TO ADD MUSIC
@@ -47,9 +48,8 @@ public class UserInterface {
     play.playMusic(filepath);
 
 
-
-    Map map = new Map();
-    UserInterface ui = new UserInterface();
+    map = new Map();
+    player = new Player();
 
     map.createCaves();
 
@@ -57,7 +57,7 @@ public class UserInterface {
 
     Scanner sc = new Scanner(System.in);
 
-    ui.welcomeMessage();
+    welcomeMessage();
 
     Torch flashlight = new Torch("flashlight", false);
 
@@ -74,7 +74,7 @@ public class UserInterface {
 
 
       } else if (input.equals("help")) {
-        ui.helpMenu();
+        helpMenu();
       } else if (input.equals("exit")) {
         System.out.println("Exiting game");
 
