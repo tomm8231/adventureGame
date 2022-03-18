@@ -7,7 +7,7 @@ public class Room {
 
   private String name;
   private String description;
-  private ArrayList<Item> items = new ArrayList<Item>();
+  private ArrayList<Item> items = new ArrayList<>();
 
   private Room north;
   private Room south;
@@ -22,11 +22,11 @@ public class Room {
 
   }
 
-  public void addObject(Item item){
+  public void addItem(Item item){
     items.add(item);
   }
 
-  public void removeObject(Item item) {
+  public void removeItem(Item item) {
     this.items.remove(item);
   }
 

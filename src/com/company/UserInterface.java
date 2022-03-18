@@ -11,6 +11,16 @@ public class UserInterface {
   public void welcomeMessage(){
     newLine();
     System.out.println("Welcome to Adventure Iceland!");
+    System.out.println("""
+        
+           _____       .___                    __                         .___             .__                     .___._.
+          /  _  \\    __| _/__  __ ____   _____/  |_ __ _________   ____   |   | ____  ____ |  | _____    ____    __| _/| |
+         /  /_\\  \\  / __ |\\  \\/ // __ \\ /    \\   __\\  |  \\_  __ \\_/ __ \\  |   |/ ___\\/ __ \\|  | \\__  \\  /    \\  / __ | | |
+        /    |    \\/ /_/ | \\   /\\  ___/|   |  \\  | |  |  /|  | \\/\\  ___/  |   \\  \\__\\  ___/|  |__/ __ \\|   |  \\/ /_/ |  \\|
+        \\____|__  /\\____ |  \\_/  \\___  >___|  /__| |____/ |__|    \\___  > |___|\\___  >___  >____(____  /___|  /\\____ |  __
+                \\/      \\/           \\/     \\/                        \\/           \\/    \\/          \\/     \\/      \\/  \\/
+         
+        """);
     newLine();
     System.out.println("""
             You have arrived to Iceland with a sailboat, and you are on the most exciting trip of your life to experience
@@ -97,6 +107,7 @@ public class UserInterface {
     System.out.println("Looking around...");
     System.out.println(player.getCurrentRoom().getName());
     System.out.println(player.getCurrentRoom().getDescription());
+    System.out.println(player.getCurrentRoom().getItems());
   }
 
   public void newLine() {

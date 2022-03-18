@@ -1,8 +1,5 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Map {
 
   private Room starterRoom;
@@ -28,33 +25,32 @@ public class Map {
     Room cave1 = new Room("The Claustrophobia","""
             \tThe cave is surprisingly small and you feel that the walls are getting closer every second you stand there.
             \tYou have to decide fast where to go, because you're claustrophobia is freaking you out.""");
-    cave1.addObject(axe); // Hvordan navngive de forskellige arrayList
-    System.out.println(cave1.getItems());
-
+    cave1.addItem(axe); // Hvordan navngive de forskellige arrayList?
 
 
     Room cave2 = new Room("The moist","""
             \tSuddenly you're standing in water to your knees.
             \tThere's a long way home to your boat. But there are possibilities to move on...""");
-    cave2.addObject(rope);
+    cave2.addItem(rope);
+
 
     Room cave3 = new Room("The Bats Nest","""
             \tWhen you enter the cave you hear screaming bats all over the place. You consider if this is a good idea.""");
-    cave3.addObject(flashlight);
+    cave3.addItem(flashlight);
 
     Room cave4 = new Room("The Eternal Deep","""
             \tYou step onto a surface which feels rather wobbly. There's a distinct smell of rotten eggs. Your doubts about
             \tyour journey have never been bigger. Be very careful when you take further steps.""");
-    cave4.addObject(sword);
+    cave4.addItem(sword);
 
     Room cave5 = new Room("The Spectacular","""
             \tYou have finally found the greatest cave of them all, the one with purple stalactites all over, a huge waterfall
             \tand with the most amazing light. Something glittering is shining in the corner.""");
-    cave5.addObject(diamond);
+    cave5.addItem(diamond);
 
     Room cave6 = new Room("The Mere Darkness","""
             \tIt's dark. You pick up your flashlight. To turn it on, write: 'light on'""");
-    cave6.addObject(dynamite);
+    cave6.addItem(dynamite);
 
     Room cave7 = new Room("The Lava Surprise","""
             \tYou didn't believe it was possible, but now you see it with your own eyes: 
