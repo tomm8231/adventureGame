@@ -11,7 +11,7 @@ public class Player {
   public Item findItemRoom(String itemName) {
 
     for (Item item : currentRoom.getItems()) {
-      if (item.equals(itemName)) {
+      if (item.getName().equals(itemName)) {
         return item;
       }
     }
@@ -21,7 +21,7 @@ public class Player {
   public Item findItemPlayer(String itemName) {
 
     for (Item item : inventoryPlayer) {
-      if (item.equals(itemName)) {
+      if (item.getName().equals(itemName)) {
         return item;
       }
     }
@@ -38,7 +38,7 @@ public class Player {
       currentRoom.removeItem(item);
       return item.getName() + " has been added to your backpack.";
 
-    } else return "There is nothing like " + item.getName() + " in this cave.";
+    } else return "There is nothing like " + itemName + " in this cave.";
   }
 
 
@@ -51,7 +51,11 @@ public class Player {
       inventoryPlayer.remove(item);
       return item.getName() + " has been dropped";
 
-    } else return "There is nothing like " + item.getName() + " in your backpack.";
+    } else return "There is nothing like " + itemName + " in your backpack.";
+  }
+
+  public void showBackpackInventory(){
+    System.out.println(inventoryPlayer);
   }
 
 

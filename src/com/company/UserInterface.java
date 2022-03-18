@@ -82,9 +82,17 @@ public class UserInterface {
       } else if (input.startsWith("go ")) {
         String direction = input.substring(input.indexOf(" ") + 1);
         System.out.println(player.movePlayer(direction));
-        //  printe hvad der er i det givne rum
 
+      } else if (input.startsWith("take ")) {
+        String itemName = input.substring(input.indexOf(" ") + 1);
+        System.out.println(player.takeItem(itemName));
 
+      }  else if (input.startsWith("drop ")) {
+        String itemName = input.substring(input.indexOf(" ") + 1);
+        System.out.println(player.dropItem(itemName));
+
+      } else if (input.equals("inventory")) {
+        player.showBackpackInventory();
       } else if (input.equals("help")) {
         showCommands();
       } else if (input.equals("exit")) {
