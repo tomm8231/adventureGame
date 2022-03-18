@@ -8,9 +8,19 @@ public class Player {
   private ArrayList<Item> inventoryPlayer = new ArrayList<>();
 
 
-  public Item findItem(String itemName) {
+  public Item findItemRoom(String itemName) {
 
     for (Item item : currentRoom.getItems()) {
+      if (item.equals(itemName)) {
+        return item;
+      }
+    }
+    return null;
+  }
+
+  public Item findItemPlayer(String itemName) {
+
+    for (Item item : inventoryPlayer) {
       if (item.equals(itemName)) {
         return item;
       }
@@ -21,20 +31,27 @@ public class Player {
   public String takeItem(String itemName) {
     // remove from cave´s arrayList and put into players arrayList
 
-    Item item = findItem(itemName);
+    Item item = findItemRoom(itemName);
 
     if (item != null) {
       inventoryPlayer.add(item);
       currentRoom.removeItem(item);
       return item.getName() + " has been added to your backpack.";
 
-    } else return "There is nothing like … to take around here";
+    } else return "There is nothing like " + item.getName() + " in this cave.";
   }
 
 
-  public void dropItem() {
+  public String dropItem(String itemName) {
     // remove from players arrayList and add to the Arraylist of the cave
+    Item item = findItemPlayer(itemName);
 
+    if (item != null) {
+      currentRoom.addItem(item);
+      inventoryPlayer.remove(item);
+      return item.getName() + " has been dropped";
+
+    } else return "There is nothing like " + item.getName() + " in your backpack.";
   }
 
 
