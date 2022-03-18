@@ -7,8 +7,8 @@ public class Adventure {
 
         UserInterface ui = new UserInterface();
         Map map = new Map();
-        ui.startGame();
-        // map.createCaves();
+        //ui.startGame();
+        map.createCaves();
 
     }
 }

@@ -72,6 +72,7 @@ public class UserInterface {
       } else if (input.startsWith("go ")) {
         String direction = input.substring(input.indexOf(" ") + 1);
         System.out.println(player.movePlayer(direction));
+        //  printe hvad der er i det givne rum
 
 
       } else if (input.equals("help")) {

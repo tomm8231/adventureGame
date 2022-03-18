@@ -2,8 +2,13 @@ package com.company;
 
 public class Player {
 
+
   private Room currentRoom;
 
+
+  public void takeItem(){
+
+  }
 
   public void setCurrentRoom(Room currentRoom) {
     this.currentRoom = currentRoom;

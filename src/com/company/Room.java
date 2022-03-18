@@ -18,7 +18,7 @@ public class Room {
   public Room(String name, String description) {
     this.name = name;
     this.description = description;
-   // this.items = new ArrayList<>();
+    this.items = new ArrayList<>();
 
   }
 
