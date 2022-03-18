@@ -29,11 +29,8 @@ public class Map {
             \tThe cave is surprisingly small and you feel that the walls are getting closer every second you stand there.
             \tYou have to decide fast where to go, because you're claustrophobia is freaking you out.""");
     cave1.addObject(axe); // Hvordan navngive de forskellige arrayList
+    System.out.println(cave1.getItems());
 
-    for (int i = 0; i <= cave1.getItems().size(); i++) {
-      System.out.println();
-
-    }
 
 
     Room cave2 = new Room("The moist","""
