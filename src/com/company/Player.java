@@ -54,8 +54,15 @@ public class Player {
     } else return "There is nothing like " + itemName + " in your backpack.";
   }
 
-  public void showBackpackInventory(){
-    System.out.println(inventoryPlayer);
+  public ArrayList<Item> showBackpackInventory(){
+    for (int i = 0; i < inventoryPlayer.size() ; i++) {
+     /* ArrayList<Item> tempList = new ArrayList<>();
+      tempList.add(get(i));
+      return templist;
+
+      */
+    }
+    return null;
   }
 
 

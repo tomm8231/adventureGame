@@ -92,7 +92,8 @@ public class UserInterface {
         System.out.println(player.dropItem(itemName));
 
       } else if (input.equals("inventory")) {
-        player.showBackpackInventory();
+        System.out.println(player.showBackpackInventory());
+
       } else if (input.equals("help")) {
         showCommands();
       } else if (input.equals("exit")) {
