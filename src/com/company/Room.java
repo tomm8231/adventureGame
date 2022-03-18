@@ -1,10 +1,13 @@
 package com.company;
 
 
+import java.util.ArrayList;
+
 public class Room {
 
   private String name;
   private String description;
+  private ArrayList<Item> items = new ArrayList<Item>();
 
   private Room north;
   private Room south;
@@ -15,8 +18,22 @@ public class Room {
   public Room(String name, String description) {
     this.name = name;
     this.description = description;
+   // this.items = new ArrayList<>();
 
   }
+
+  public void addObject(Item item){
+    items.add(item);
+  }
+
+  public void removeObject(Item item) {
+    this.items.remove(item);
+  }
+
+  public ArrayList<Item> getItems() {
+    return items;
+  }
+
 
   public void setNorth(Room cave) {
     north = cave;

@@ -19,7 +19,7 @@ public class UserInterface {
             over, a huge waterfall and with the most amazing light, but with enough food, water and patience, you have decided
             to complete. Get ready for the Adventure of Vatnajökull!
             """);
-    helpMenu();
+    showCommands();
     System.out.println("""
             You have abseiled into a very small and dark cave with four tiny
             tunnels, you have no clues witch way to go. This cave is named The Claustrophobia...
@@ -29,9 +29,12 @@ public class UserInterface {
 
   }
 
-  public void helpMenu() {
+  public void showCommands() {
     System.out.println("COMMANDS:");
     System.out.println("\"Look\" | Description of surroundings");
+    System.out.println("\"Take\" | + of things you find");
+    System.out.println("\"Drop\" | + name of things you find");
+    System.out.println("\"Inventory\" | View your bag of things");
     System.out.println("\"Help\" | Game instructions");
     System.out.println("\"Exit\" | Quit game");
     newLine();
@@ -72,7 +75,7 @@ public class UserInterface {
 
 
       } else if (input.equals("help")) {
-        helpMenu();
+        showCommands();
       } else if (input.equals("exit")) {
         System.out.println("Exiting game");
 
