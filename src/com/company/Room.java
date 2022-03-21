@@ -19,11 +19,22 @@ public class Room {
     this.name = name;
     this.description = description;
     this.items = new ArrayList<>();
-
   }
 
   public void addItem(Item item){
     items.add(item);
+  }
+
+  // deleteItem should be done in Room public Item deleteItem(String name) med for-løkke
+  public Item deleteItem() {
+    for (int i = 0; i < items.size(); i++) {
+      Item temp = items.get(i);
+      if (temp.getName().equals(name)) {
+        items.remove(temp);
+
+      }
+    }
+    return null;
   }
 
   public void removeItem(Item item) {

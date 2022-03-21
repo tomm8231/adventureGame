@@ -86,22 +86,18 @@ public class UserInterface {
       input = sc.nextLine().trim().toLowerCase();
 
       if (input.equals("look")) {
-          if (player.getCurrentRoom().getName().equals("The Mere Darkness") && player.findItemPlayer("torch")== null) {
+        if (player.getCurrentRoom().getName().equals("The Mere Darkness") && player.findItemPlayer("torch") == null) {
           System.out.println("You have to find a flashlight or torch or something to light up this dark cave!");
 
-          } else if (player.getCurrentRoom().getName().equals("The Mere Darkness") && player.findItemPlayer("torch").getName().equals("torch")) {
+        } else if (player.getCurrentRoom().getName().equals("The Mere Darkness") && player.findItemPlayer("torch").getName().equals("torch")) {
           System.out.println("It is dark, you have to write 'light on'.");
-            if (input.equals("look")) {
-              lookAround();
-            } else {
-              System.out.println("Lit your torch by writing light on!");
-            }
+          // make a new method to check if the light is on?
           //BUG: you should only could see the things in the room if the light is on!lookAround();
-          } else {
+        } else {
           lookAround();
-          }
-
-      } else if (input.startsWith("go ")) {
+        }
+      }
+        else if (input.startsWith("go ")) {
         String direction = input.substring(input.indexOf(" ") + 1);
         System.out.println(player.movePlayer(direction));
 
@@ -111,7 +107,6 @@ public class UserInterface {
 
       }  else if (input.startsWith("drop ")) {
         String itemName = input.substring(input.indexOf(" ") + 1);
-        //String itemNameUpperCase = itemName.substring(0,1).toUpperCase() + itemName.substring(1);
         System.out.println(player.dropItem(itemName));
 
       } else if (input.equals("inventory")) {
@@ -127,7 +122,7 @@ public class UserInterface {
         System.out.println("Exiting game");
 
       } else if (input.equals("light on")) {
-        // light on/of should only work in cave6?
+        // light on/of should only work in cave6
         torch.pushDevice();
         System.out.println(torch);
       } else if (input.equals("light off")) {
@@ -150,7 +145,7 @@ public class UserInterface {
       System.out.println("You can not see any items to pick up in this cave");
     } else
       System.out.println("In the cave you can see:");
-    //player.getCurrentRoom().getItems().forEach((n) -> System.out.println(n));
+
     StringBuilder sb = new StringBuilder();
     for (Item item : player.getCurrentRoom().getItems()) {
       String itemNameFirstLetterCapitalised = player.capitaliseFirstLetterItem(item) + ": " + item.getDescription() + "\n";
