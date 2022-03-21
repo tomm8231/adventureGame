@@ -33,7 +33,7 @@ public class Map {
     Item lighter = new Item ("lighter", "A silver zippo lighter");
     Item treasure = new Item ("treasure", "A large treasure chest"); // needs the key??
 
-    Torch torchBoolean = new Torch("torch", false);
+    Torch torchUse = new Torch("torch", false);
     // Creates the caves with fixed items in different rooms
 
     Room cave1 = new Room("The Claustrophobia","""
@@ -69,7 +69,6 @@ public class Map {
     cave5.addItem(diamond);
     cave5.addItem(treasure);
 
-    // When you turn on the torch, you can see the items in the cave.
 
     Room cave6 = new Room("The Mere Darkness","""
             \tIt's completely dark and you don't see anything.""");

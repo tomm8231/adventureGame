@@ -77,8 +77,8 @@ public class UserInterface {
             """);
 
 
-    // move this one
-    Torch flashlight = new Torch("flashlight", false);
+    // move this one?
+    Torch torch = new Torch("torch", false);
 
     String input;
     do {
@@ -101,7 +101,11 @@ public class UserInterface {
         System.out.println(player.dropItem(itemName));
 
       } else if (input.equals("inventory")) {
-        System.out.println(player.showBackpackInventory()); //TODO: If null: you have nothing in your backpack
+
+        if(player.checkEmptyBackpack() == true){
+          System.out.println("You have nothing in your backpack");
+        } else
+          player.showBackpackInventory();
 
       } else if (input.equals("help")) {
         showCommands();
@@ -109,11 +113,11 @@ public class UserInterface {
         System.out.println("Exiting game");
 
       } else if (input.equals("light on")) {
-        flashlight.pushDevice();
-        System.out.println(flashlight);
+        torch.pushDevice();
+        System.out.println(torch);
       } else if (input.equals("light off")) {
-        flashlight.pushDevice();
-        System.out.println(flashlight);
+        torch.pushDevice();
+        System.out.println(torch);
 
       } else {
         System.out.println("\"" + input + "\" is not a valid command. Try again!");
@@ -125,8 +129,15 @@ public class UserInterface {
     System.out.println("Looking around...");
     System.out.println(player.getCurrentRoom().getName());
     System.out.println(player.getCurrentRoom().getDescription());
-    System.out.println(player.getCurrentRoom().getItems());
+
+    boolean result = player.getCurrentRoom().getItems().isEmpty();
+    if(result == true) {
+      System.out.println("You can not see any items to pick up in this cave");
+    } else
+      System.out.println("In the cave you can see:");
+    player.getCurrentRoom().getItems().forEach((n) -> System.out.println(n));
   }
+
 
   public void newLine() {
     System.out.println();

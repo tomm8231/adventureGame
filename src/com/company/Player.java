@@ -61,12 +61,16 @@ public class Player {
     return itemNameUpperCase;
   }
 
-  public ArrayList<Item> showBackpackInventory(){
+
+  public void showBackpackInventory(){
     System.out.println("In your backpack you have:");
     inventoryPlayer.forEach((n) -> System.out.println(n)); //inspiration from Sebastian & Bjørn
-    return null;
   }
 
+  public boolean checkEmptyBackpack(){
+    boolean result = inventoryPlayer.isEmpty();
+    return result;
+  }
 
   public void setCurrentRoom(Room currentRoom) {
     this.currentRoom = currentRoom;
