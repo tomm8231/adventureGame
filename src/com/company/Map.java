@@ -33,8 +33,6 @@ public class Map {
     Item lighter = new Item ("lighter", "A silver zippo lighter");
     Item treasure = new Item ("treasure", "A large treasure chest"); // needs the key??
 
-    Torch torchUse = new Torch("torch", false);
-    // Creates the caves with fixed items in different rooms
 
     Room cave1 = new Room("The Claustrophobia","""
             \tThe cave is surprisingly small and you feel that the walls are getting closer every second you stand there.

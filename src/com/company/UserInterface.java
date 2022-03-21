@@ -86,7 +86,21 @@ public class UserInterface {
       input = sc.nextLine().trim().toLowerCase();
 
       if (input.equals("look")) {
-        lookAround();
+          if (player.getCurrentRoom().getName().equals("The Mere Darkness") && player.findItemPlayer("torch")== null) {
+          System.out.println("You have to find a flashlight or torch or something to light up this dark cave!");
+
+          } else if (player.getCurrentRoom().getName().equals("The Mere Darkness") && player.findItemPlayer("torch").getName().equals("torch")) {
+          System.out.println("It is dark, you have to write 'light on'.");
+            if (input.equals("look")) {
+              lookAround();
+            } else {
+              System.out.println("Lit your torch by writing light on!");
+            }
+          //BUG: you should only could see the things in the room if the light is on!lookAround();
+          } else {
+          lookAround();
+          }
+
       } else if (input.startsWith("go ")) {
         String direction = input.substring(input.indexOf(" ") + 1);
         System.out.println(player.movePlayer(direction));
@@ -113,6 +127,7 @@ public class UserInterface {
         System.out.println("Exiting game");
 
       } else if (input.equals("light on")) {
+        // light on/of should only work in cave6?
         torch.pushDevice();
         System.out.println(torch);
       } else if (input.equals("light off")) {
