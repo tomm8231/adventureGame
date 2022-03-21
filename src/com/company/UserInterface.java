@@ -9,7 +9,6 @@ public class UserInterface {
 
 
   public void welcomeMessage(){
-    newLine();
     System.out.println("Welcome to Adventure Iceland!");
     System.out.println("""
         
@@ -21,7 +20,8 @@ public class UserInterface {
                 \\/      \\/           \\/     \\/                        \\/           \\/    \\/          \\/     \\/      \\/  \\/
          
         """);
-    newLine();
+
+
     System.out.println("""
             You have arrived to Iceland with a sailboat, and you are on the most exciting trip of your life to experience
             the newly discovered lava caves, found by some researchers from the University of Aberdeen.
@@ -29,14 +29,8 @@ public class UserInterface {
             over, a huge waterfall and with the most amazing light, but with enough food, water and patience, you have decided
             to complete. Get ready for the Adventure of Vatnajökull!
             """);
-    showCommands();
-    System.out.println("""
-            You have abseiled into a very small and dark cave with four tiny
-            tunnels, you have no clues witch way to go. This cave is named The Claustrophobia...
-            
-            What do you do?
-            """);
 
+    System.out.println("Press enter to play game");
   }
 
   public void showCommands() {
@@ -70,6 +64,17 @@ public class UserInterface {
 
     welcomeMessage();
 
+    sc.nextLine();
+    showCommands();
+    System.out.println("""
+            You have abseiled into a very small and dark cave with four tiny
+            tunnels, you have no clues witch way to go. This cave is named The Claustrophobia...
+            
+            What do you do?
+            """);
+
+
+    // move this one
     Torch flashlight = new Torch("flashlight", false);
 
     String input;
@@ -92,7 +97,7 @@ public class UserInterface {
         System.out.println(player.dropItem(itemName));
 
       } else if (input.equals("inventory")) {
-        System.out.println(player.showBackpackInventory());
+        System.out.println(player.showBackpackInventory()); //TODO: If null: you have nothing in your backpack
 
       } else if (input.equals("help")) {
         showCommands();

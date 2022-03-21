@@ -55,13 +55,8 @@ public class Player {
   }
 
   public ArrayList<Item> showBackpackInventory(){
-    for (int i = 0; i < inventoryPlayer.size() ; i++) {
-     /* ArrayList<Item> tempList = new ArrayList<>();
-      tempList.add(get(i));
-      return templist;
-
-      */
-    }
+    System.out.println("In your backpack you have:");
+    inventoryPlayer.forEach((n) -> System.out.println(n)); //inspiration from Sebastian & Bjørn
     return null;
   }
 
