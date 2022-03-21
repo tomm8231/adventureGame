@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -49,9 +50,11 @@ public class UserInterface {
   public void startGame() {
 
     // Music code fetched from some YouTube tutorial
-    String filepath = "music.wav";
+    /* String filepath = "music.wav";
     PlayMusic play = new PlayMusic();
     play.playMusic(filepath);
+
+     */
 
     map = new Map();
     player = new Player();
@@ -94,6 +97,7 @@ public class UserInterface {
 
       }  else if (input.startsWith("drop ")) {
         String itemName = input.substring(input.indexOf(" ") + 1);
+        //String itemNameUpperCase = itemName.substring(0,1).toUpperCase() + itemName.substring(1);
         System.out.println(player.dropItem(itemName));
 
       } else if (input.equals("inventory")) {

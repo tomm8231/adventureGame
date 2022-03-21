@@ -36,7 +36,8 @@ public class Player {
     if (item != null) {
       inventoryPlayer.add(item);
       currentRoom.removeItem(item);
-      return item.getName() + " has been added to your backpack.";
+      String itemNameFirstLetterCapitalised = capitaliseFirstLetterItem(item);
+      return itemNameFirstLetterCapitalised + " has been added to your backpack.";
 
     } else return "There is nothing like " + itemName + " in this cave.";
   }
@@ -49,9 +50,15 @@ public class Player {
     if (item != null) {
       currentRoom.addItem(item);
       inventoryPlayer.remove(item);
-      return item.getName() + " has been dropped";
+      String ItemNameFirstLetterCapitalised = capitaliseFirstLetterItem(item);
+      return ItemNameFirstLetterCapitalised + " has been dropped";
 
     } else return "There is nothing like " + itemName + " in your backpack.";
+  }
+
+  public String capitaliseFirstLetterItem(Item item) {
+    String itemNameUpperCase = item.getName().substring(0,1).toUpperCase() + item.getName().substring(1).toLowerCase();
+    return itemNameUpperCase;
   }
 
   public ArrayList<Item> showBackpackInventory(){
