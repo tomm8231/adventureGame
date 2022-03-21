@@ -62,16 +62,8 @@ public class Player {
   }
 
 
-  public StringBuilder showBackpackInventory(){
-    System.out.println("In your backpack you have:");
-    //inventoryPlayer.forEach((n) -> System.out.println(n)); //inspiration from Sebastian & Bjørn
-    StringBuilder sb = new StringBuilder();
-    for (Item item : inventoryPlayer) {
-      String itemNameFirstLetterCapitalised = capitaliseFirstLetterItem(item) + "\n";
-      sb.append(itemNameFirstLetterCapitalised);
-
-    }
-    return sb;
+  public ArrayList<Item> getBackpackInventory(){
+    return inventoryPlayer;
   }
 
   public boolean checkEmptyBackpack(){
@@ -87,29 +79,17 @@ public class Player {
     return currentRoom;
   }
 
-  public String movePlayer(String direction) {
+  public Room movePlayer(String direction) {
+    Room nextRoom = null;
     if (direction.equals("north") || direction.equals("south") || direction.equals("east") || direction.equals("west")) {
-      Room nextRoom = findNewRoom(direction);
-      return checkValidDirection(nextRoom, direction);
-    } else {
-      return "Invalid command! Perhaps the direction was spelled incorrectly?";
+      nextRoom = findNewRoom(direction);
+      if (nextRoom != null) {
+        currentRoom = nextRoom;
+      }
     }
+    return nextRoom;
   }
 
-  public String checkValidDirection(Room cave, String direction) {
-
-    if (cave == null) {
-      return "Ófærð! Try another path.";
-
-    } else {
-      currentRoom = cave;
-      return "Going " + direction + "...\n" +
-          "\n----------------\n" +
-          "You have entered \"" + currentRoom.getName() + "\":\n" +
-          currentRoom.getDescription() +
-          "\n----------------\n";
-    }
-  }
 
   public Room findNewRoom(String direction) {
 
@@ -123,5 +103,6 @@ public class Player {
       return currentRoom.getWest();
     } else return null;
   }
+
 
 }

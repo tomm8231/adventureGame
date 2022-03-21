@@ -1,6 +1,6 @@
 package com.company;
 
-import java.util.Locale;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -58,9 +58,7 @@ public class UserInterface {
 
     map = new Map();
     player = new Player();
-
     map.createCaves();
-
     player.setCurrentRoom(map.getStarterRoom());
 
     Scanner sc = new Scanner(System.in);
@@ -86,35 +84,47 @@ public class UserInterface {
       input = sc.nextLine().trim().toLowerCase();
 
       if (input.equals("look")) {
-        if (player.getCurrentRoom().getName().equals("The Mere Darkness") && player.findItemPlayer("torch") == null) {
-          System.out.println("You have to find a flashlight or torch or something to light up this dark cave!");
+        lookAround();
+      }
 
-        } else if (player.getCurrentRoom().getName().equals("The Mere Darkness") && player.findItemPlayer("torch").getName().equals("torch")) {
+        /*
+        if (player.getCurrentRoom().getName().equals("The Mere Darkness")) {
+          if (player.findItemPlayer("torch") == null) {
+            System.out.println("You have to find a flashlight or torch or something to light up this dark cave!");
+          }
+        } else {
+           lookAround(); // this is not finished
+         }
+        }
+       /*else if (player.getCurrentRoom().getName().equals("The Mere Darkness") && player.findItemPlayer("torch").getName().equals("torch")) {
           System.out.println("It is dark, you have to write 'light on'.");
+
           // make a new method to check if the light is on?
           //BUG: you should only could see the things in the room if the light is on!lookAround();
-        } else {
-          lookAround();
-        }
-      }
-        else if (input.startsWith("go ")) {
+        }*/
+
+      else if (input.startsWith("go ")) {
         String direction = input.substring(input.indexOf(" ") + 1);
-        System.out.println(player.movePlayer(direction));
+        Room room = player.movePlayer(direction);
+        checkValidDirection(room, direction);
 
       } else if (input.startsWith("take ")) {
         String itemName = input.substring(input.indexOf(" ") + 1);
         System.out.println(player.takeItem(itemName));
+        // redigere teksten her
 
-      }  else if (input.startsWith("drop ")) {
+      } else if (input.startsWith("drop ")) {
         String itemName = input.substring(input.indexOf(" ") + 1);
         System.out.println(player.dropItem(itemName));
+        // redigere tekst her
 
       } else if (input.equals("inventory")) {
-
         if(player.checkEmptyBackpack() == true){
-          System.out.println("You have nothing in your backpack");
+        System.out.println("You have nothing in your backpack");
         } else
-          System.out.println(player.showBackpackInventory());
+        System.out.println("In your backpack you have:");
+        showBackpackInventory(player.getBackpackInventory());
+
 
       } else if (input.equals("help")) {
         showCommands();
@@ -122,9 +132,13 @@ public class UserInterface {
         System.out.println("Exiting game");
 
       } else if (input.equals("light on")) {
-        // light on/of should only work in cave6
-        torch.pushDevice();
-        System.out.println(torch);
+        // if you turn on the light and go to next room and go back, you should remember that you have been there
+        // and therefore get another description of the room, because now you can see!
+        if (player.getCurrentRoom().getName().equals("The Mere Darkness")){
+          torch.pushDevice();
+          System.out.println(torch);
+        }
+
       } else if (input.equals("light off")) {
         torch.pushDevice();
         System.out.println(torch);
@@ -152,6 +166,36 @@ public class UserInterface {
       sb.append(itemNameFirstLetterCapitalised);
     }
     System.out.println(sb);
+  }
+
+  public void showBackpackInventory(ArrayList<Item> inventoryPlayer){
+    // StringBuilder sb = new StringBuilder();
+    for (Item item : inventoryPlayer) {
+      //String temp = item.getName();
+      String temp = capitaliseFirstLetterItem(item);
+      //sb.append(temp);
+      System.out.println(temp);
+    }
+
+  }
+
+  public String capitaliseFirstLetterItem(Item item) {
+    String itemNameUpperCase = item.getName().substring(0,1).toUpperCase() + item.getName().substring(1).toLowerCase();
+    return itemNameUpperCase;
+  }
+
+  public void checkValidDirection(Room cave, String direction) {
+
+    if (cave == null) {
+      System.out.println("Ófærð! Try another path.");
+
+    } else {
+      System.out.println("Going " + direction + "...\n" +
+          "\n----------------\n" +
+          "You have entered \"" + player.getCurrentRoom().getName() + "\":\n" +
+          player.getCurrentRoom().getDescription() +
+          "\n----------------\n");
+    }
   }
 
 
