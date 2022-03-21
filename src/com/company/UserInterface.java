@@ -138,7 +138,7 @@ public class UserInterface {
     //player.getCurrentRoom().getItems().forEach((n) -> System.out.println(n));
     StringBuilder sb = new StringBuilder();
     for (Item item : player.getCurrentRoom().getItems()) {
-      String itemNameFirstLetterCapitalised = player.capitaliseFirstLetterItem(item) + "\n";
+      String itemNameFirstLetterCapitalised = player.capitaliseFirstLetterItem(item) + ": " + item.getDescription() + "\n";
       sb.append(itemNameFirstLetterCapitalised);
     }
     System.out.println(sb);
