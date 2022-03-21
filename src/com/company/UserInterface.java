@@ -36,8 +36,8 @@ public class UserInterface {
   public void showCommands() {
     System.out.println("COMMANDS:");
     System.out.println("\"Look\" | Description of surroundings");
-    System.out.println("\"Take\" | + of things you find");
-    System.out.println("\"Drop\" | + name of things you find");
+    System.out.println("\"Take\" | Pick up an item you find");
+    System.out.println("\"Drop\" | Get rid of an item from your inventory");
     System.out.println("\"Inventory\" | View your bag of things");
     System.out.println("\"Help\" | Game instructions");
     System.out.println("\"Exit\" | Quit game");
@@ -48,7 +48,7 @@ public class UserInterface {
 
   public void startGame() {
 
-    //ATTEMPT TO ADD MUSIC
+    // Music code fetched from some YouTube tutorial
     String filepath = "music.wav";
     PlayMusic play = new PlayMusic();
     play.playMusic(filepath);
