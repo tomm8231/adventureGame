@@ -105,7 +105,7 @@ public class UserInterface {
         if(player.checkEmptyBackpack() == true){
           System.out.println("You have nothing in your backpack");
         } else
-          player.showBackpackInventory();
+          System.out.println(player.showBackpackInventory());
 
       } else if (input.equals("help")) {
         showCommands();
@@ -135,7 +135,13 @@ public class UserInterface {
       System.out.println("You can not see any items to pick up in this cave");
     } else
       System.out.println("In the cave you can see:");
-    player.getCurrentRoom().getItems().forEach((n) -> System.out.println(n));
+    //player.getCurrentRoom().getItems().forEach((n) -> System.out.println(n));
+    StringBuilder sb = new StringBuilder();
+    for (Item item : player.getCurrentRoom().getItems()) {
+      String itemNameFirstLetterCapitalised = player.capitaliseFirstLetterItem(item) + "\n";
+      sb.append(itemNameFirstLetterCapitalised);
+    }
+    System.out.println(sb);
   }
 
 

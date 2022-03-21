@@ -62,9 +62,16 @@ public class Player {
   }
 
 
-  public void showBackpackInventory(){
+  public StringBuilder showBackpackInventory(){
     System.out.println("In your backpack you have:");
-    inventoryPlayer.forEach((n) -> System.out.println(n)); //inspiration from Sebastian & Bjørn
+    //inventoryPlayer.forEach((n) -> System.out.println(n)); //inspiration from Sebastian & Bjørn
+    StringBuilder sb = new StringBuilder();
+    for (Item item : inventoryPlayer) {
+      String itemNameFirstLetterCapitalised = capitaliseFirstLetterItem(item) + "\n";
+      sb.append(itemNameFirstLetterCapitalised);
+
+    }
+    return sb;
   }
 
   public boolean checkEmptyBackpack(){
