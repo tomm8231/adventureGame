@@ -70,8 +70,12 @@ public class Player {
   }
 
   public String movePlayer(String direction) {
-    Room nextRoom = findNewRoom(direction);
-    return checkValidDirection(nextRoom, direction);
+    if (direction.equals("north") || direction.equals("south") || direction.equals("east") || direction.equals("west")) {
+      Room nextRoom = findNewRoom(direction);
+      return checkValidDirection(nextRoom, direction);
+    } else {
+      return "Invalid command! Perhaps the direction was spelled incorrectly?";
+    }
   }
 
   public String checkValidDirection(Room cave, String direction) {
@@ -99,7 +103,6 @@ public class Player {
       return currentRoom.getEast();
     } else if (direction.equals("west")) {
       return currentRoom.getWest();
-    }
-    return null;
+    } else return null;
   }
 }
