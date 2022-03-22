@@ -5,8 +5,13 @@ import java.util.ArrayList;
 public class Player {
 
   private Room currentRoom;
+  private int healthstatus = 100;
   private ArrayList<Item> inventoryPlayer = new ArrayList<>();
 
+
+  public int getHealthStatus(){
+    return healthstatus;
+  }
 
   public Item findItemRoom(String itemName) {
 

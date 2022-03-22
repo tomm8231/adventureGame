@@ -40,12 +40,14 @@ public class UserInterface {
     System.out.println("\"Take\" | Pick up an item you find");
     System.out.println("\"Drop\" | Get rid of an item from your inventory");
     System.out.println("\"Inventory\" | View your bag of things");
+    System.out.println("\"Health\" | Health status");
     System.out.println("\"Help\" | Game instructions");
     System.out.println("\"Exit\" | Quit game");
     newLine();
     System.out.println("Directions:\n\"Go north\"\n\"Go south\"\n\"Go east\"\n\"Go west\"");
     newLine();
   }
+
 
   public void startGame() {
 
@@ -86,7 +88,6 @@ public class UserInterface {
       if (input.equals("look")) {
         lookAround();
       }
-
         /*
         if (player.getCurrentRoom().getName().equals("The Mere Darkness")) {
           if (player.findItemPlayer("torch") == null) {
@@ -125,8 +126,10 @@ public class UserInterface {
         System.out.println("In your backpack you have:");
         showBackpackInventory(player.getBackpackInventory());
 
-
-      } else if (input.equals("help")) {
+      } else if (input.equals("health")){
+        checkHealthStatus();
+      }
+      else if (input.equals("help")) {
         showCommands();
       } else if (input.equals("exit")) {
         System.out.println("Exiting game");
@@ -198,6 +201,21 @@ public class UserInterface {
     }
   }
 
+  public void checkHealthStatus(){
+    int tempHealth = player.getHealthStatus();
+
+    if(tempHealth <= 100 || tempHealth >= 75) {
+      System.out.println(tempHealth + " - You're in good shape!");
+    } else if (tempHealth < 75 || tempHealth >= 50) {
+      System.out.println(tempHealth + " - You're in okay shape. Some healthy food would be good for you!");
+    } else if (tempHealth < 50 || tempHealth >= 25) {
+      System.out.println(tempHealth + " - You're getting weak! Consider what you consume and try avoid combats.");
+    } else if (tempHealth < 25 || tempHealth >= 1) {
+      System.out.println(tempHealth + " - You're in health danger! Go find some healthy food before anything else!");
+    } else {
+      System.out.println("You're dead!");
+    }
+  }
 
   public void newLine() {
     System.out.println();
