@@ -136,11 +136,12 @@ public class UserInterface {
 
         // koble 2 arraylist??
         // hvordan også kunne spise food fra rum og vide om man spiser fra backpack eller room hvis flere genstander?
+        // the return from the method tryEatFood should be an enum
 
         if (item != null) {
-          System.out.println("Spist");
+          System.out.println("You have eaten the " + eatenFood);
         } else {
-          System.out.println("Ikke spist");
+          System.out.println("You can not eat that");
         }
 
       }
@@ -172,6 +173,7 @@ public class UserInterface {
     System.out.println("Looking around...");
     System.out.println(player.getCurrentRoom().getName());
     System.out.println(player.getCurrentRoom().getDescription());
+    System.out.println(player.getCurrentRoom().getItems());
 
     boolean result = player.getCurrentRoom().getItems().isEmpty();
     if(result == true) {
