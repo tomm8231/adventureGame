@@ -13,14 +13,23 @@ public class Player {
     return healthStatus;
   }
 
-  public void setHealthStatus(int healthstatus) {
-    this.healthStatus = healthstatus;
+  public void setHealthStatus(int healthStatus) {
+    this.healthStatus = healthStatus;
   }
 
+  // Should return an enum, for ex. EDIBLE
   public int tryEatFood(Item itemName){
+    // search if the food is available
+
+    // move this to where?
     setHealthStatus(getHealthStatus() + itemName.getHealth());
+    //currentRoom.removeItem(itemName);
+    // Should also check the rooms items
+    inventoryPlayer.remove(itemName);
+
     return healthStatus;
   }
+
 
   public Item findItemRoom(String itemName) {
 

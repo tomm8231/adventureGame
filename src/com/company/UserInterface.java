@@ -112,12 +112,12 @@ public class UserInterface {
       } else if (input.startsWith("take ")) {
         String itemName = input.substring(input.indexOf(" ") + 1);
         System.out.println(player.takeItem(itemName));
-        // redigere teksten her
+
 
       } else if (input.startsWith("drop ")) {
         String itemName = input.substring(input.indexOf(" ") + 1);
         System.out.println(player.dropItem(itemName));
-        // redigere tekst her
+
 
       } else if (input.equals("inventory")) {
         if(player.checkEmptyBackpack() == true){
@@ -131,9 +131,11 @@ public class UserInterface {
 
       } else if (input.startsWith("eat ")){
         String eatenFood = input.substring(input.indexOf(" ") + 1);
-        // System.out.println(player.takeItem(eatenFood));
         Item item = player.findItemPlayer(eatenFood);
         System.out.println(player.tryEatFood(item));
+
+        // koble 2 arraylist??
+        // hvordan også kunne spise food fra rum og vide om man spiser fra backpack eller room hvis flere genstander?
 
         if (item != null) {
           System.out.println("Spist");
