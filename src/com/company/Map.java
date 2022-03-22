@@ -33,12 +33,16 @@ public class Map {
     Item lighter = new Item ("lighter", "A silver zippo lighter");
     Item treasure = new Item ("treasure", "A large treasure chest"); // needs the key??
 
+    Item apple = new Food("apple", "A red apple", 10);
 
     Room cave1 = new Room("The Claustrophobia","""
             \tThe cave is surprisingly small and you feel that the walls are getting closer every second you stand there.
             \tYou have to decide fast where to go, because you're claustrophobia is freaking you out.""");
     cave1.addItem(axe);
     cave1.addItem(knife);
+    cave1.addItem(apple);
+    cave1.addItem(new Food("orange", "A rotten orange", -10));
+
 
 
     Room cave2 = new Room("The moist","""

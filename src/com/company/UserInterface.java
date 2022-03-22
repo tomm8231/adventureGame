@@ -128,9 +128,23 @@ public class UserInterface {
 
       } else if (input.equals("health")){
         checkHealthStatus();
+
+      } else if (input.startsWith("eat ")){
+        String eatenFood = input.substring(input.indexOf(" ") + 1);
+        // System.out.println(player.takeItem(eatenFood));
+        Item item = player.findItemPlayer(eatenFood);
+        System.out.println(player.tryEatFood(item));
+
+        if (item != null) {
+          System.out.println("Spist");
+        } else {
+          System.out.println("Ikke spist");
+        }
+
       }
-      else if (input.equals("help")) {
+       else if (input.equals("help")) {
         showCommands();
+
       } else if (input.equals("exit")) {
         System.out.println("Exiting game");
 

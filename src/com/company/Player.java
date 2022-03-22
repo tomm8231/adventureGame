@@ -5,12 +5,21 @@ import java.util.ArrayList;
 public class Player {
 
   private Room currentRoom;
-  private int healthstatus = 100;
+  private int healthStatus = 100;
   private ArrayList<Item> inventoryPlayer = new ArrayList<>();
 
 
   public int getHealthStatus(){
-    return healthstatus;
+    return healthStatus;
+  }
+
+  public void setHealthStatus(int healthstatus) {
+    this.healthStatus = healthstatus;
+  }
+
+  public int tryEatFood(Item itemName){
+    setHealthStatus(getHealthStatus() + itemName.getHealth());
+    return healthStatus;
   }
 
   public Item findItemRoom(String itemName) {
