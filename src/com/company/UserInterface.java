@@ -10,6 +10,8 @@ public class UserInterface {
   private boolean isAlive;
 
 
+
+
   public void welcomeMessage(){
     System.out.println("Welcome to Adventure Iceland!");
     System.out.println("""
@@ -251,7 +253,7 @@ public class UserInterface {
   public void warningHealth(){
     int tempHealth = player.getHealthStatus();
 
-      if (tempHealth < 25) {
+      if (tempHealth < 25 && tempHealth > 0) {
         System.out.println("Warning: Your health points are low!");
       } else if (tempHealth == 0) {
         System.out.println("You are dead");
@@ -261,13 +263,13 @@ public class UserInterface {
   public void checkHealthStatus(){
     int tempHealth = player.getHealthStatus();
 
-    if(tempHealth <= 100 || tempHealth >= 75) {
+    if(tempHealth <= 100 && tempHealth >= 75) {
       System.out.println(tempHealth + " - You're in good shape!");
-    } else if (tempHealth < 75 || tempHealth >= 50) {
+    } else if (tempHealth < 75 && tempHealth >= 50) {
       System.out.println(tempHealth + " - You're in okay shape. Some healthy food would be good for you!");
-    } else if (tempHealth < 50 || tempHealth >= 25) {
+    } else if (tempHealth < 50 && tempHealth >= 25) {
       System.out.println(tempHealth + " - You're getting weak! Consider what you consume and try avoid combats.");
-    } else if (tempHealth < 25 || tempHealth >= 1) {
+    } else if (tempHealth < 25 && tempHealth >= 1) {
       System.out.println(tempHealth + " - You're in health danger! Go find some healthy food before anything else!");
     }
   }

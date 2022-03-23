@@ -43,7 +43,7 @@ public class Map {
     cave1.addItem(new Item ("axe","This axe is very blunt"));
     cave1.addItem(new Item ("knife","A rusty old knife"));
     cave1.addItem(new Food ("apple", "A red apple", 5));
-    cave1.addItem(new Food("orange", "A rotten orange", -5));
+    cave1.addItem(new Food("orange", "A rotten orange", -100));
 
 
     Room cave2 = new Room("The moist","""
