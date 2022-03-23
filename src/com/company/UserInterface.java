@@ -7,6 +7,7 @@ public class UserInterface {
 
   private Player player;
   private Map map;
+  private boolean isAlive;
 
 
   public void welcomeMessage(){
@@ -84,6 +85,7 @@ public class UserInterface {
     do {
 
       input = sc.nextLine().trim().toLowerCase();
+      isAlive = true;
 
       if (input.equals("look")) {
         lookAround();
@@ -186,7 +188,7 @@ public class UserInterface {
       warningHealth();
        //OBS loopet skal også stoppe hvis Player dør!!
 
-    } while (!input.equals("exit"));
+    } while (!input.equals("exit"));  // || isAlive == false
   }
 
   public String capitaliseFirstLetterItem(Item item) {
@@ -242,10 +244,10 @@ public class UserInterface {
   public void warningHealth(){
     int tempHealth = player.getHealthStatus();
 
-      if (tempHealth < 25 && tempHealth >= 1) {
-        System.out.println(tempHealth + " - You're in health danger! Go find some healthy food before anything else!");
-      } else {
-        System.out.println("You are dead!");
+      if (tempHealth < 25) {
+        System.out.println("Warning: Your health points are low!");
+      } else if (tempHealth == 0) {
+        System.out.println("You are dead");
       }
   }
 
@@ -260,8 +262,6 @@ public class UserInterface {
       System.out.println(tempHealth + " - You're getting weak! Consider what you consume and try avoid combats.");
     } else if (tempHealth < 25 || tempHealth >= 1) {
       System.out.println(tempHealth + " - You're in health danger! Go find some healthy food before anything else!");
-    } else {
-      System.out.println("You're dead!");
     }
   }
 
