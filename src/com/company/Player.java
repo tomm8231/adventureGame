@@ -9,7 +9,7 @@ public class Player {
   private ArrayList<Item> inventoryPlayer = new ArrayList<>();
 
 
-  public int getHealthStatus(){
+  public int getHealthStatus() {
     return healthStatus;
   }
 
@@ -18,16 +18,29 @@ public class Player {
   }
 
   // Should return an enum, for ex. EDIBLE
-  public int tryEatFood(Item itemName){
+  public Edible tryEatFood(String item) { // String eller Item?
+
     // search if the food is available
+    Item found = findItemRoom(item);
 
-    // move this to where?
-    setHealthStatus(getHealthStatus() + itemName.getHealth());
-    //currentRoom.removeItem(itemName);
-    // Should also check the rooms items
-    inventoryPlayer.remove(itemName);
+    if (found == null) {
+      found = findItemPlayer(item);
+      if (found == null) {
+        return Edible.NOT_PRESENT;
+      }
+    } else {
+      if (found instanceof Food) {
+        eat((Food) found);
+        return Edible.EDIBLE;
+      } else return Edible.NON_EDIBLE;
+    }
+    return null; // Hvad skal der ske med return null?
+  }
 
-    return healthStatus;
+  public void eat(Food food) {
+    setHealthStatus(getHealthStatus() + food.getHealth());
+    inventoryPlayer.remove(food);
+    currentRoom.removeItem(food);
   }
 
 
@@ -65,31 +78,29 @@ public class Player {
     } else return "There is nothing like " + itemName + " in this cave.";
   }
 
-
-  public String dropItem(String itemName) {
-    // remove from players arrayList and add to the Arraylist of the cave
-    Item item = findItemPlayer(itemName);
-
-    if (item != null) {
-      currentRoom.addItem(item);
-      inventoryPlayer.remove(item);
-      String ItemNameFirstLetterCapitalised = capitaliseFirstLetterItem(item);
-      return ItemNameFirstLetterCapitalised + " has been dropped";
-
-    } else return "There is nothing like " + itemName + " in your backpack.";
-  }
-
   public String capitaliseFirstLetterItem(Item item) {
     String itemNameUpperCase = item.getName().substring(0,1).toUpperCase() + item.getName().substring(1).toLowerCase();
     return itemNameUpperCase;
   }
 
+  public Item dropItem(Item itemName) {
+    // remove from players arrayList and add to the Arraylist of the cave
 
-  public ArrayList<Item> getBackpackInventory(){
+    if (itemName != null) {
+      currentRoom.addItem(itemName);
+      inventoryPlayer.remove(itemName);
+      return itemName;
+
+
+    } else return null;
+  }
+
+
+  public ArrayList<Item> getBackpackInventory() {
     return inventoryPlayer;
   }
 
-  public boolean checkEmptyBackpack(){
+  public boolean checkEmptyBackpack() {
     boolean result = inventoryPlayer.isEmpty();
     return result;
   }

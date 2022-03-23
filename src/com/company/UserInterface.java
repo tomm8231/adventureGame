@@ -102,7 +102,8 @@ public class UserInterface {
 
           // make a new method to check if the light is on?
           //BUG: you should only could see the things in the room if the light is on!lookAround();
-        }*/
+        }
+         */
 
       else if (input.startsWith("go ")) {
         String direction = input.substring(input.indexOf(" ") + 1);
@@ -116,7 +117,15 @@ public class UserInterface {
 
       } else if (input.startsWith("drop ")) {
         String itemName = input.substring(input.indexOf(" ") + 1);
-        System.out.println(player.dropItem(itemName));
+        Item temp = player.findItemPlayer(itemName);
+        Item itemDropped  = player.dropItem(temp);
+
+        if(itemDropped != null) {
+          String itemNameFirstLetterCapitalised = capitaliseFirstLetterItem(itemDropped);
+          System.out.println(itemNameFirstLetterCapitalised + " has been dropped.");
+        } else {
+          System.out.println("There is nothing like " + itemName + " in your backpack.");
+        }
 
 
       } else if (input.equals("inventory")) {
@@ -131,17 +140,19 @@ public class UserInterface {
 
       } else if (input.startsWith("eat ")){
         String eatenFood = input.substring(input.indexOf(" ") + 1);
-        Item item = player.findItemPlayer(eatenFood);
-        System.out.println(player.tryEatFood(item));
+        //Item item = player.findItemPlayer(eatenFood);
+        Edible found = player.tryEatFood(eatenFood);
 
         // koble 2 arraylist??
         // hvordan også kunne spise food fra rum og vide om man spiser fra backpack eller room hvis flere genstander?
         // the return from the method tryEatFood should be an enum
 
-        if (item != null) {
+        if (found == Edible.EDIBLE) {
           System.out.println("You have eaten the " + eatenFood);
+        } else if (found == Edible.NON_EDIBLE){
+          System.out.println("You can not eat the " + eatenFood);
         } else {
-          System.out.println("You can not eat that");
+          System.out.println(eatenFood + " is not within reach.");
         }
 
       }
@@ -169,11 +180,15 @@ public class UserInterface {
     } while (!input.equals("exit"));
   }
 
+  public String capitaliseFirstLetterItem(Item item) {
+    String itemNameUpperCase = item.getName().substring(0,1).toUpperCase() + item.getName().substring(1).toLowerCase();
+    return itemNameUpperCase;
+  }
+
   public void lookAround() {
     System.out.println("Looking around...");
     System.out.println(player.getCurrentRoom().getName());
     System.out.println(player.getCurrentRoom().getDescription());
-    System.out.println(player.getCurrentRoom().getItems());
 
     boolean result = player.getCurrentRoom().getItems().isEmpty();
     if(result == true) {
@@ -183,7 +198,7 @@ public class UserInterface {
 
     StringBuilder sb = new StringBuilder();
     for (Item item : player.getCurrentRoom().getItems()) {
-      String itemNameFirstLetterCapitalised = player.capitaliseFirstLetterItem(item) + ": " + item.getDescription() + "\n";
+      String itemNameFirstLetterCapitalised = capitaliseFirstLetterItem(item) + ": " + item.getDescription() + "\n";
       sb.append(itemNameFirstLetterCapitalised);
     }
     System.out.println(sb);
@@ -198,11 +213,6 @@ public class UserInterface {
       System.out.println(temp);
     }
 
-  }
-
-  public String capitaliseFirstLetterItem(Item item) {
-    String itemNameUpperCase = item.getName().substring(0,1).toUpperCase() + item.getName().substring(1).toLowerCase();
-    return itemNameUpperCase;
   }
 
   public void checkValidDirection(Room cave, String direction) {
