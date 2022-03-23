@@ -28,13 +28,13 @@ public class Player {
       if (found == null) {
         return Edible.NOT_PRESENT;
       }
-    } else {
-      if (found instanceof Food) {
-        eat((Food) found);
-        return Edible.EDIBLE;
-      } else return Edible.NON_EDIBLE;
     }
-    return null; // Hvad skal der ske med return null?
+
+    if (found instanceof Food) {
+      eat((Food) found);
+      return Edible.EDIBLE;
+    } else return Edible.NON_EDIBLE;
+
   }
 
   public void eat(Food food) {
@@ -79,7 +79,7 @@ public class Player {
   }
 
   public String capitaliseFirstLetterItem(Item item) {
-    String itemNameUpperCase = item.getName().substring(0,1).toUpperCase() + item.getName().substring(1).toLowerCase();
+    String itemNameUpperCase = item.getName().substring(0, 1).toUpperCase() + item.getName().substring(1).toLowerCase();
     return itemNameUpperCase;
   }
 
