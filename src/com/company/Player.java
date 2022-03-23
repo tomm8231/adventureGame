@@ -61,35 +61,24 @@ public class Player {
     return null;
   }
 
-  public String takeItem(String itemName) {
-    // remove from cave´s arrayList and put into players arrayList
+  public Item takeItem(Item found) {
 
-    Item item = currentRoom.findItemRoom(itemName);
-
-    if (item != null) {
-      inventoryPlayer.add(item);
-      currentRoom.removeItem(item);
-      String itemNameFirstLetterCapitalised = capitaliseFirstLetterItem(item);
-      return itemNameFirstLetterCapitalised + " has been added to your backpack.";
-
-    } else return "There is nothing like " + itemName + " in this cave.";
-  }
-
-  public String capitaliseFirstLetterItem(Item item) {
-    String itemNameUpperCase = item.getName().substring(0, 1).toUpperCase() + item.getName().substring(1).toLowerCase();
-    return itemNameUpperCase;
-  }
-
-  public Item dropItem(Item itemName) {
-    // remove from players arrayList and add to the Arraylist of the cave
-
-    if (itemName != null) {
-      currentRoom.addItem(itemName);
-      inventoryPlayer.remove(itemName);
-      return itemName;
-
-
+    if (found != null) {
+      inventoryPlayer.add(found);
+      currentRoom.removeItem(found);
+      return found;
     } else return null;
+
+  }
+
+  public Item dropItem(Item found) {
+
+    if (found != null) {
+      currentRoom.addItem(found);
+      inventoryPlayer.remove(found);
+      return found;
+    } else return null;
+
   }
 
 

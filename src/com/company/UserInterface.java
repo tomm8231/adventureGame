@@ -112,13 +112,21 @@ public class UserInterface {
 
       } else if (input.startsWith("take ")) {
         String itemName = input.substring(input.indexOf(" ") + 1);
-        System.out.println(player.takeItem(itemName));
+        Item found = player.findItemRoom(itemName);
+        Item itemTaken = player.takeItem(found);
+
+        if (itemTaken != null) {
+          String itemNameFirstLetterCapitalised = capitaliseFirstLetterItem(itemTaken);
+          System.out.println(itemNameFirstLetterCapitalised + " has been added to your pack.");
+        } else {
+          System.out.println("There's nothing " + itemName + " in this cave.");
+        }
 
 
       } else if (input.startsWith("drop ")) {
         String itemName = input.substring(input.indexOf(" ") + 1);
-        Item temp = player.findItemPlayer(itemName);
-        Item itemDropped  = player.dropItem(temp);
+        Item found = player.findItemPlayer(itemName);
+        Item itemDropped  = player.dropItem(found);
 
         if(itemDropped != null) {
           String itemNameFirstLetterCapitalised = capitaliseFirstLetterItem(itemDropped);
@@ -140,9 +148,9 @@ public class UserInterface {
 
       } else if (input.startsWith("eat ")){
         String eatenFood = input.substring(input.indexOf(" ") + 1);
-        //Item item = player.findItemPlayer(eatenFood);
         Edible found = player.tryEatFood(eatenFood);
 
+        // hvordan også kunne spise food fra rum og vide om man spiser fra backpack eller room hvis flere genstander?
 
         if (found == Edible.EDIBLE) {
           System.out.println("You have eaten the " + eatenFood);
