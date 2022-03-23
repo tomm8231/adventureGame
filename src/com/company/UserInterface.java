@@ -10,8 +10,6 @@ public class UserInterface {
   private boolean isAlive;
 
 
-
-
   public void welcomeMessage(){
     System.out.println("Welcome to Adventure Iceland!");
     System.out.println("""
@@ -153,7 +151,7 @@ public class UserInterface {
         String requestedFood = input.substring(input.indexOf(" ") + 1);
         Edible found = player.tryEatFood(requestedFood);
 
-        // hvordan også kunne spise food fra rum og vide om man spiser fra backpack eller room hvis flere genstander?
+
 
         if (found == Edible.EDIBLE) {
           System.out.println("You have eaten the " + requestedFood);
@@ -255,7 +253,7 @@ public class UserInterface {
 
       if (tempHealth < 25 && tempHealth > 0) {
         System.out.println("Warning: Your health points are low!");
-      } else if (tempHealth == 0) {
+      } else if (tempHealth <= 0) {
         System.out.println("You are dead");
       }
   }

@@ -12,7 +12,7 @@ public class Map {
 
 
   public void createCaves() {
-    //TODO: skal det stå NON_EDIBLE bag alle items??
+
    /*
     Item axe = new Item ("axe", "This axe is very blunt");
     Item torch = new Item ("torch", "A fire torch");
