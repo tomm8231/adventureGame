@@ -143,9 +143,6 @@ public class UserInterface {
         //Item item = player.findItemPlayer(eatenFood);
         Edible found = player.tryEatFood(eatenFood);
 
-        // koble 2 arraylist??
-        // hvordan også kunne spise food fra rum og vide om man spiser fra backpack eller room hvis flere genstander?
-        // the return from the method tryEatFood should be an enum
 
         if (found == Edible.EDIBLE) {
           System.out.println("You have eaten the " + eatenFood);
@@ -177,6 +174,10 @@ public class UserInterface {
       } else {
         System.out.println("\"" + input + "\" is not a valid command. Try again!");
       }
+
+      warningHealth();
+       //OBS loopet skal også stoppe hvis Player dør!!
+
     } while (!input.equals("exit"));
   }
 
@@ -227,6 +228,17 @@ public class UserInterface {
           player.getCurrentRoom().getDescription() +
           "\n----------------\n");
     }
+  }
+
+
+  public void warningHealth(){
+    int tempHealth = player.getHealthStatus();
+
+      if (tempHealth < 25 && tempHealth >= 1) {
+        System.out.println(tempHealth + " - You're in health danger! Go find some healthy food before anything else!");
+      } else {
+        System.out.println("You are dead!");
+      }
   }
 
   public void checkHealthStatus(){

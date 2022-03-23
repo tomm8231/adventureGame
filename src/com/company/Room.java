@@ -7,7 +7,7 @@ public class Room {
 
   private String name;
   private String description;
-  private ArrayList<Item> items = new ArrayList<>();
+  private ArrayList<Item> items;
 
   private Room north;
   private Room south;
@@ -25,7 +25,18 @@ public class Room {
     items.add(item);
   }
 
+  public Item findItemRoom(String itemName) {
+
+    for (Item item : items) {
+      if (item.getName().equals(itemName)) {
+        return item;
+      }
+    }
+    return null;
+  }
+
   // deleteItem should be done in Room public Item deleteItem(String name) med for-løkke
+  // we do not use this method!
   public Item deleteItem() {
     for (int i = 0; i < items.size(); i++) {
       Item temp = items.get(i);

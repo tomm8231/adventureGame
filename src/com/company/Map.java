@@ -42,8 +42,8 @@ public class Map {
             \tYou have to decide fast where to go, because you're claustrophobia is freaking you out.""");
     cave1.addItem(new Item ("axe","This axe is very blunt"));
     cave1.addItem(new Item ("knife","A rusty old knife"));
-    cave1.addItem(new Food ("apple", "A red apple", 5, "EDIBLE"));
-    cave1.addItem(new Food("orange", "A rotten orange", -5, "EDIBLE"));
+    cave1.addItem(new Food ("apple", "A red apple", 5));
+    cave1.addItem(new Food("orange", "A rotten orange", -5));
 
 
     Room cave2 = new Room("The moist","""
@@ -51,7 +51,7 @@ public class Map {
             \tThere's a long way home to your boat. But there are possibilities to move on...""");
     cave2.addItem(new Item("rope", "A long rope"));
     cave2.addItem(new Item("key", "An antique skeleton key"));
-    cave2.addItem(new Food("fish", "Some smelly fish", -5, "EDIBLE")); // -health
+    cave2.addItem(new Food("fish", "Some smelly fish", -5)); // -health
     cave2.addItem(new Food("bread", "Surprisingly fresh bread"));
 
 
@@ -59,9 +59,9 @@ public class Map {
             \tWhen you enter the cave you hear screaming bats all over the place. You consider if this is a good idea.""");
     cave3.addItem(new Item ("torch", "A fire torch"));
     cave3.addItem(new Item ("matches", "A box of matches"));
-    cave3.addItem(new Food("beer", "A cold beer", -5, "EDIBLE"));
-    cave3.addItem(new Food("candy", "Jelly Beans with butter taste", -5, "EDIBLE"));
-    cave3.addItem(new Food ("poison", "A brown bottle marked with poison", -100, "EDIBLE"));
+    cave3.addItem(new Food("beer", "A cold beer", -5));
+    cave3.addItem(new Food("candy", "Jelly Beans with butter taste", -5));
+    cave3.addItem(new Food ("poison", "A brown bottle marked with poison", -100));
 
 
     Room cave4 = new Room("The Eternal Deep","""
@@ -83,9 +83,9 @@ public class Map {
             \tIt's completely dark and you don't see anything.""");
     cave6.addItem(new Item ("dynamite", "A large box of TNT dynamite"));
     cave6.addItem(new Item ("revolver", "A Colt Model 1849 revolver"));
-    cave6.addItem(new Food("water", "A large bottle of water", 5, "EDIBLE"));
-    cave6.addItem(new Food("fish", "Harðfiskur is dried fish", 10, "EDIBLE"));
-    cave6.addItem(new Food("brændevin", "A bottle of The Black Death", -10, "EDIBLE"));
+    cave6.addItem(new Food("water", "A large bottle of water", 5));
+    cave6.addItem(new Food("fish", "Harðfiskur is dried fish", 10));
+    cave6.addItem(new Food("brændevin", "A bottle of The Black Death", -10));
 
 
     Room cave7 = new Room("The Lava Surprise","""
@@ -102,7 +102,7 @@ public class Map {
             \tYou look at your compass and to the north you can see bright flashes through a big pile of boulders blocking the way.""");
     cave8.addItem(new Item ("book", "An old geology book"));
     cave8.addItem(new Item ("map", "An old handwritten map of some tunnels"));
-    cave8.addItem(new Food("skyr", "An old box of Skyr", -5, "EDIBLE"));
+    cave8.addItem(new Food("skyr", "An old box of Skyr", -5));
 
 
     Room cave9 = new Room("The Windy Tunnel","""

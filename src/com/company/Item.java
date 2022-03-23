@@ -4,7 +4,7 @@ public class Item {
 
   private String name;
   private String description;
-  private int health;
+
 
 
   public Item(String name, String description) {
@@ -12,9 +12,6 @@ public class Item {
     this.description = description;
   }
 
-  public Item() {
-
-  }
 
   public String getName() {
     return name;
@@ -24,13 +21,9 @@ public class Item {
     return name + ": " + description;
   }
 
-  public int getHealth() {
-    return health;
-  }
 
   public String getDescription() {
     return description;
   }
-
 
 }

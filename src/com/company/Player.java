@@ -18,41 +18,38 @@ public class Player {
   }
 
   // Should return an enum, for ex. EDIBLE
-  public Edible tryEatFood(String item) { // String eller Item?
+  public Edible tryEatFood(String itemName) { // String eller Item?
 
     // search if the food is available
-    Item found = findItemRoom(item);
+    Item foundItem = currentRoom.findItemRoom(itemName);
 
-    if (found == null) {
-      found = findItemPlayer(item);
-      if (found == null) {
+    if (foundItem == null) {
+      foundItem = findItemPlayer(itemName);
+      if (foundItem == null) {
         return Edible.NOT_PRESENT;
       }
     }
 
-    if (found instanceof Food) {
-      eat((Food) found);
+    if (foundItem instanceof Food) {
+      eat((Food) foundItem);
       return Edible.EDIBLE;
     } else return Edible.NON_EDIBLE;
 
   }
 
+  public void updateHealthStatus(int healthStatus) {
+    this.healthStatus += healthStatus;
+  }
+
+
   public void eat(Food food) {
-    setHealthStatus(getHealthStatus() + food.getHealth());
+    updateHealthStatus(food.getHealth());
     inventoryPlayer.remove(food);
     currentRoom.removeItem(food);
   }
 
 
-  public Item findItemRoom(String itemName) {
 
-    for (Item item : currentRoom.getItems()) {
-      if (item.getName().equals(itemName)) {
-        return item;
-      }
-    }
-    return null;
-  }
 
   public Item findItemPlayer(String itemName) {
 
@@ -67,7 +64,7 @@ public class Player {
   public String takeItem(String itemName) {
     // remove from cave´s arrayList and put into players arrayList
 
-    Item item = findItemRoom(itemName);
+    Item item = currentRoom.findItemRoom(itemName);
 
     if (item != null) {
       inventoryPlayer.add(item);
