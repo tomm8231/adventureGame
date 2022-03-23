@@ -112,7 +112,7 @@ public class UserInterface {
 
       } else if (input.startsWith("take ")) {
         String itemName = input.substring(input.indexOf(" ") + 1);
-        Item found = player.findItemRoom(itemName);
+        Item found = player.getCurrentRoom().findItemRoom(itemName);
         Item itemTaken = player.takeItem(found);
 
         if (itemTaken != null) {
