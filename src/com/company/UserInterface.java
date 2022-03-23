@@ -56,7 +56,6 @@ public class UserInterface {
     /* String filepath = "music.wav";
     PlayMusic play = new PlayMusic();
     play.playMusic(filepath);
-
      */
 
     map = new Map();
@@ -149,17 +148,19 @@ public class UserInterface {
         checkHealthStatus();
 
       } else if (input.startsWith("eat ")){
-        String eatenFood = input.substring(input.indexOf(" ") + 1);
-        Edible found = player.tryEatFood(eatenFood);
+        String requestedFood = input.substring(input.indexOf(" ") + 1);
+        Edible found = player.tryEatFood(requestedFood);
 
         // hvordan også kunne spise food fra rum og vide om man spiser fra backpack eller room hvis flere genstander?
 
         if (found == Edible.EDIBLE) {
-          System.out.println("You have eaten the " + eatenFood);
+          System.out.println("You have eaten the " + requestedFood);
+          System.out.println("HP: " + player.getHealthStatus());
         } else if (found == Edible.NON_EDIBLE){
-          System.out.println("You can not eat the " + eatenFood);
+          System.out.println("You can not eat the " + requestedFood);
         } else {
-          System.out.println(eatenFood + " is not within reach.");
+          String requestedFoodCapitalised = capitaliseFirstLetterItem(requestedFood);
+          System.out.println(requestedFoodCapitalised + " is not within reach.");
         }
 
       }
@@ -195,6 +196,12 @@ public class UserInterface {
     String itemNameUpperCase = item.getName().substring(0,1).toUpperCase() + item.getName().substring(1).toLowerCase();
     return itemNameUpperCase;
   }
+
+  public String capitaliseFirstLetterItem(String item) {
+    String itemNameUpperCase = item.substring(0,1).toUpperCase() + item.substring(1).toLowerCase();
+    return itemNameUpperCase;
+  }
+
 
   public void lookAround() {
     System.out.println("Looking around...");
