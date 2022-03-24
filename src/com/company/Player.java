@@ -17,6 +17,29 @@ public class Player {
     this.healthStatus = healthStatus;
   }
 
+  public Edible tryEquip(String itemName){
+    Item foundItem = currentRoom.findItemRoom(itemName);
+
+    if (foundItem == null){
+      foundItem = findItemPlayer(itemName);
+      if (foundItem == null){
+        return Edible.NOT_PRESENT;
+      }
+    }
+    if (foundItem instanceof Weapon){
+      equipWeapon((Weapon) foundItem);
+      return Edible.EDIBLE;
+
+    } else return Edible.NON_EDIBLE; //TODO: Ændre navn på enum!
+  }
+
+  public void equipWeapon(Weapon weapon){
+    inventoryPlayer.remove(weapon);
+    // adde det valgte våben til nyt array eller arraylist? playersWeapon
+    // switch sådan at hvis man vælger et nyt våben som equip, så går det forrige tilbage i inventoryPlayer
+
+  }
+
   // Should return an enum, for ex. EDIBLE
   public Edible tryEatFood(String itemName) { // String eller Item?
 
@@ -41,15 +64,11 @@ public class Player {
     this.healthStatus += healthStatus;
   }
 
-
   public void eat(Food food) {
     updateHealthStatus(food.getHealth());
     inventoryPlayer.remove(food);
     currentRoom.removeItem(food);
   }
-
-
-
 
   public Item findItemPlayer(String itemName) {
 
@@ -80,7 +99,6 @@ public class Player {
     } else return null;
 
   }
-
 
   public ArrayList<Item> getBackpackInventory() {
     return inventoryPlayer;

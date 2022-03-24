@@ -40,6 +40,8 @@ public class UserInterface {
     System.out.println("\"Look\" | Description of surroundings");
     System.out.println("\"Take\" | Pick up an item you find");
     System.out.println("\"Drop\" | Get rid of an item from your inventory");
+    System.out.println("\"Equip\" | Choose your weapon from your inventory");
+    System.out.println("\"Attack\" | Attack your enemy");
     System.out.println("\"Inventory\" | View your bag of things");
     System.out.println("\"Health\" | Health status");
     System.out.println("\"Help\" | Game instructions");
@@ -77,8 +79,8 @@ public class UserInterface {
             """);
 
 
-    // move this one?
-    Torch torch = new Torch("torch", false);
+
+    //Torch torch = new Torch("torch", false);
 
     String input;
     do {
@@ -163,7 +165,12 @@ public class UserInterface {
           System.out.println(requestedFoodCapitalised + " is not within reach.");
         }
 
+      } else if (input.equals("equip ")){
+        String requestedWeapon = input.substring(input.indexOf(" ") + 1);
+        Edible found = player.tryEquip(requestedWeapon);
       }
+
+
        else if (input.equals("help")) {
         showCommands();
 
