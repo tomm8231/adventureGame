@@ -13,37 +13,15 @@ public class Map {
 
   public void createCaves() {
 
-   /*
-    Item axe = new Item ("axe", "This axe is very blunt");
-    Item torch = new Item ("torch", "A fire torch");
-    Item rope = new Item ("rope", "A long rope");
-    Item sword = new Item ("sword", "A sharp sword looking kind if medieval");
-    Item dynamite = new Item ("dynamite", "A large box of TNT dynamite");
-    Item diamond = new Item ("diamond", "A big shiny diamond");
-    Item knife = new Item ("knife", "A rusty old knife");
-    Item key = new Item ("key", "An antique skeleton key");
-    Item poison = new Item ("poison", "A brown bottle marked with poison");
-    Item coins = new Item ("coins", "A stack of coins");
-    Item book = new Item ("book", "An old geology book");
-    Item map = new Item ("map", "An old handwritten map of some tunnels");
-    Item revolver = new Item ("revolver", "A Colt Model 1849 revolver");
-    Item matches = new Item ("matches", "A box of matches"); // to dynamite and torch
-    Item compass = new Item ("compass", "An old hand holding compass");
-    Item screwdriver = new Item ("screwdriver", "A flat screwdriver");
-    Item oil = new Item ("oil", "A tiny bottle of oil");
-    Item lighter = new Item ("lighter", "A silver zippo lighter");
-    Item treasure = new Item ("treasure", "A large treasure chest"); // needs the key??
-
-
-    */
 
     Room cave1 = new Room("The Claustrophobia","""
             \tThe cave is surprisingly small and you feel that the walls are getting closer every second you stand there.
             \tYou have to decide fast where to go, because you're claustrophobia is freaking you out.""");
-    cave1.addItem(new Item ("axe","This axe is very blunt"));
-    cave1.addItem(new Item ("knife","A rusty old knife"));
     cave1.addItem(new Food ("apple", "A red apple", 5));
     cave1.addItem(new Food("orange", "A rotten orange", -100));
+    cave1.addItem(new MeleeWeapon("axe","This axe is very blunt", -20)); // healthDamage
+    cave1.addItem(new MeleeWeapon("knife","A rusty old knife", -10));
+
 
 
     Room cave2 = new Room("The moist","""
@@ -53,6 +31,8 @@ public class Map {
     cave2.addItem(new Item("key", "An antique skeleton key"));
     cave2.addItem(new Food("fish", "Some smelly fish", -5)); // -health
     cave2.addItem(new Food("bread", "Surprisingly fresh bread"));
+    cave2.addItem(new MeleeWeapon("harpoon", "A sharp harpoon", -30));
+
 
 
     Room cave3 = new Room("The Bats Nest","""
@@ -62,14 +42,17 @@ public class Map {
     cave3.addItem(new Food("beer", "A cold beer", -5));
     cave3.addItem(new Food("candy", "Jelly Beans with butter taste", -5));
     cave3.addItem(new Food ("poison", "A brown bottle marked with poison", -100));
+    cave3.addItem(new MeleeWeapon("sledgehammer", "Rather large and heavy", -5));
 
 
     Room cave4 = new Room("The Eternal Deep","""
             \tYou step onto a surface which feels rather wobbly. There's a distinct smell of rotten eggs. Your doubts about
             \tyour journey have never been bigger. Be very careful when you take further steps.""");
-    cave4.addItem(new Item ("sword", "A sharp sword looking kind if medieval"));
     cave4.addItem(new Item ("lighter", "A silver zippo lighter"));
     cave4.addItem(new Item ("oil", "A tiny bottle of oil"));
+    cave4.addItem(new MeleeWeapon ("spear", "Sharp spartan spear", -50));
+
+
 
 
     Room cave5 = new Room("The Spectacular","""
@@ -77,15 +60,17 @@ public class Map {
             \tand with the most amazing light. Something glittering is shining in the corner.""");
     cave5.addItem(new Item ("diamond", "A big shiny diamond"));
     cave5.addItem(new Item ("treasure", "A large treasure chest"));
+    cave5.addItem(new MeleeWeapon ("sword", "A sharp sword looking kind if medieval", -50));
+
 
 
     Room cave6 = new Room("The Mere Darkness","""
             \tIt's completely dark and you don't see anything.""");
-    cave6.addItem(new Item ("dynamite", "A large box of TNT dynamite"));
-    cave6.addItem(new Item ("revolver", "A Colt Model 1849 revolver"));
     cave6.addItem(new Food("water", "A large bottle of water", 5));
     cave6.addItem(new Food("fish", "Harðfiskur is dried fish", 10));
     cave6.addItem(new Food("brændevin", "A bottle of The Black Death", -10));
+    cave6.addItem(new MeleeWeapon ("dynamite", "A large box of TNT dynamite", -100));
+    cave6.addItem(new MeleeWeapon ("revolver", "A Colt Model 1849 revolver", -50));
 
 
     Room cave7 = new Room("The Lava Surprise","""
@@ -95,6 +80,7 @@ public class Map {
             \tYou think you saw something moving down in the lava.""");
     cave7.addItem(new Item ("compass", "An old hand holding compass"));
     cave7.addItem(new Item ("coins", "A stack of coins"));
+    cave7.addItem(new MeleeWeapon("panabas", "A large battle axe", -50));
 
 
     Room cave8 = new Room("The Massive Boulder","""
@@ -103,12 +89,15 @@ public class Map {
     cave8.addItem(new Item ("book", "An old geology book"));
     cave8.addItem(new Item ("map", "An old handwritten map of some tunnels"));
     cave8.addItem(new Food("skyr", "An old box of Skyr", -5));
+    cave8.addItem(new MeleeWeapon("karambit", "Historical combat knife", -20 ));
 
 
     Room cave9 = new Room("The Windy Tunnel","""
             \tThe wind blows your mind away and you cannot hear your own thoughts.
             \tLike the cave is protecting itself from you going deeper into it.""");
     cave9.addItem(new Item ("screwdriver", "A flat screwdriver"));
+    cave9.addItem(new Food ("maxim", "A bottle of maxim energy drink", 20));
+    cave9.addItem(new Food ("banana", "A yellow and fresh banana", 10));
 
 
     cave1.setEast(cave2);

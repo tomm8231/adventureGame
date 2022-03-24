@@ -169,7 +169,7 @@ public class UserInterface {
 
       } else if (input.equals("exit")) {
         System.out.println("Exiting game");
-
+/*
       } else if (input.equals("light on")) {
         // if you turn on the light and go to next room and go back, you should remember that you have been there
         // and therefore get another description of the room, because now you can see!
@@ -182,6 +182,8 @@ public class UserInterface {
         torch.pushDevice();
         System.out.println(torch);
 
+ */
+
       } else {
         System.out.println("\"" + input + "\" is not a valid command. Try again!");
       }
@@ -191,6 +193,8 @@ public class UserInterface {
 
     } while (!input.equals("exit"));  // || isAlive == false
   }
+
+
 
   public String capitaliseFirstLetterItem(Item item) {
     String itemNameUpperCase = item.getName().substring(0,1).toUpperCase() + item.getName().substring(1).toLowerCase();
