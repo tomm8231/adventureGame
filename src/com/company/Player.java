@@ -30,11 +30,12 @@ public class Player {
       equipWeapon((Weapon) foundItem);
       return Edible.EDIBLE;
 
-    } else return Edible.NON_EDIBLE; //TODO: Ændre navn på enum!
+    } else return Edible.NON_EDIBLE; //TODO: Ændre navn på enum?
   }
 
   public void equipWeapon(Weapon weapon){
     inventoryPlayer.remove(weapon);
+    System.out.println("Test sout: Jeg har våbenet nu i hånden!");
     // adde det valgte våben til nyt array eller arraylist? playersWeapon
     // switch sådan at hvis man vælger et nyt våben som equip, så går det forrige tilbage i inventoryPlayer
 

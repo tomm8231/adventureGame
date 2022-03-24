@@ -165,7 +165,7 @@ public class UserInterface {
           System.out.println(requestedFoodCapitalised + " is not within reach.");
         }
 
-      } else if (input.equals("equip ")){
+      } else if (input.startsWith("equip ")){
         String requestedWeapon = input.substring(input.indexOf(" ") + 1);
         Edible found = player.tryEquip(requestedWeapon);
       }
