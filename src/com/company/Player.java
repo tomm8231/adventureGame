@@ -65,6 +65,7 @@ public class Player {
     }
   }
 
+
   public Usability tryEatFood(String itemName) {
 
     // search if the food is available

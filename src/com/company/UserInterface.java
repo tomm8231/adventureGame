@@ -135,6 +135,7 @@ public class UserInterface {
         } else
         System.out.println("In your backpack you have:");
         showBackpackInventory(player.getBackpackInventory());
+        System.out.println("You have equipped: " + player.getEquippedWeapon().get(0).getName());
 
       } else if (input.equals("health")){
         checkHealthStatus();

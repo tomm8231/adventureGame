@@ -21,8 +21,9 @@ public class Map {
     cave1.addItem(new Food("orange", "A rotten orange", -100));
     cave1.addItem(new MeleeWeapon("axe","This axe is very blunt", -20)); // healthDamage
     cave1.addItem(new MeleeWeapon("knife","A rusty old knife", -10));
+    cave1.addItem(new RangedWeapon("crossbow", "crossbow", -20, 5));
 
-
+ // slangebøsse = slingshot
 
     Room cave2 = new Room("The moist","""
             \tSuddenly you're standing in water to your knees.
@@ -31,7 +32,7 @@ public class Map {
     cave2.addItem(new Item("key", "An antique skeleton key"));
     cave2.addItem(new Food("fish", "Some smelly fish", -5)); // -health
     cave2.addItem(new Food("bread", "Surprisingly fresh bread"));
-    cave2.addItem(new MeleeWeapon("harpoon", "A sharp harpoon", -30));
+    cave2.addItem(new RangedWeapon("harpoon", "A sharp harpoon", -30, 5));
 
 
 
@@ -50,8 +51,10 @@ public class Map {
             \tyour journey have never been bigger. Be very careful when you take further steps.""");
     cave4.addItem(new Item ("lighter", "A silver zippo lighter"));
     cave4.addItem(new Item ("oil", "A tiny bottle of oil"));
-    cave4.addItem(new MeleeWeapon ("spear", "Sharp spartan spear", -50));
 
+    //TODO: Ny subklasse til spear og dynamite
+    cave4.addItem(new MeleeWeapon ("spear", "Sharp spartan spear", -50));
+    cave4.addItem(new RangedWeapon("bow", "A set of bow and arrow", -20, 5));
 
 
 
@@ -69,8 +72,8 @@ public class Map {
     cave6.addItem(new Food("water", "A large bottle of water", 5));
     cave6.addItem(new Food("fish", "Harðfiskur is dried fish", 10));
     cave6.addItem(new Food("brændevin", "A bottle of The Black Death", -10));
-    cave6.addItem(new MeleeWeapon ("dynamite", "A large box of TNT dynamite", -100));
-    cave6.addItem(new MeleeWeapon ("revolver", "A Colt Model 1849 revolver", -50));
+    cave6.addItem(new RangedWeapon ("dynamite", "A large box of TNT dynamite", -100, 1));
+    cave6.addItem(new RangedWeapon ("revolver", "A Colt Model 1849 revolver", -50, 10));
 
 
     Room cave7 = new Room("The Lava Surprise","""

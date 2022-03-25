@@ -1,11 +1,11 @@
 package com.company;
 
 public class RangedWeapon extends Weapon  {
+protected int rangeWeapon;
 
-  // Definere antal skud et våben har
 
-
-  public RangedWeapon(String name, String description, int healthDamage) {
+  public RangedWeapon(String name, String description, int healthDamage, int range) {
     super(name, description, healthDamage);
+    this.rangeWeapon = range;
   }
 }
