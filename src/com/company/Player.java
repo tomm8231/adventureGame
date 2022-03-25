@@ -7,6 +7,7 @@ public class Player {
   private Room currentRoom;
   private int healthStatus = 100;
   private ArrayList<Item> inventoryPlayer = new ArrayList<>();
+  private ArrayList<Item> equippedWeapon = new ArrayList<>();
 
 
   public int getHealthStatus() {
@@ -35,11 +36,16 @@ public class Player {
 
   public void equipWeapon(Weapon weapon){
     inventoryPlayer.remove(weapon);
-    System.out.println("Test sout: Jeg har våbenet nu i hånden!");
-    // adde det valgte våben til nyt array eller arraylist? playersWeapon
+    equippedWeapon.add(weapon); // an arraylist for the weapon the player has in his hand
+
+    System.out.println("Test sout: Jeg har våbenet i hånden nu!");
+  }
+
+  public void switchWeapon (Weapon weapon){
     // switch sådan at hvis man vælger et nyt våben som equip, så går det forrige tilbage i inventoryPlayer
 
   }
+
 
   // Should return an enum, for ex. EDIBLE
   public Edible tryEatFood(String itemName) { // String eller Item?
