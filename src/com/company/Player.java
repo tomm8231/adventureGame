@@ -8,7 +8,7 @@ public class Player {
   private int healthStatus = 100;
   private ArrayList<Item> inventoryPlayer = new ArrayList<>();
   private ArrayList<Item> equippedWeapon = new ArrayList<>();
-
+// change to Weapon
 
   public int getHealthStatus() {
     return healthStatus;
@@ -63,6 +63,19 @@ public class Player {
       equippedWeapon.add(weapon);
       return weapon;
     }
+  }
+
+  public Usability tryAttack(Weapon weapon){
+
+    if(equippedWeapon.get(0) != null) {
+      if(weapon instanceof MeleeWeapon){
+        return Usability.USABLE;
+      } else{
+        RangedWeapon rangedWeapon = (RangedWeapon) getEquippedWeapon().get(0); //type caste
+        rangedWeapon.getHitAttempts();
+      }
+    }
+    return null; // change
   }
 
 

@@ -1,11 +1,20 @@
 package com.company;
 
 public class RangedWeapon extends Weapon  {
-protected int rangeWeapon;
+protected int hitAttempts;
 
 
-  public RangedWeapon(String name, String description, int healthDamage, int range) {
+  public RangedWeapon(String name, String description, int healthDamage, int hitAttempts) {
     super(name, description, healthDamage);
-    this.rangeWeapon = range;
+    this.hitAttempts = hitAttempts;
   }
+
+  public int getHitAttempts(){
+    return hitAttempts;
+  }
+
+  public void setHitAttempts(int hit){
+    this.hitAttempts -= hit;
+  }
+
 }
