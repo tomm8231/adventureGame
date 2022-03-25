@@ -14,11 +14,14 @@ public class Player {
     return healthStatus;
   }
 
+  // use later?
   public void setHealthStatus(int healthStatus) {
     this.healthStatus = healthStatus;
   }
 
-
+  public ArrayList<Item> getEquippedWeapon() {
+    return equippedWeapon;
+  }
 
   public Usability tryEquip(String itemName){
 
@@ -62,9 +65,6 @@ public class Player {
     }
   }
 
-
-
-
   public Usability tryEatFood(String itemName) {
 
     // search if the food is available
@@ -103,6 +103,7 @@ public class Player {
     }
     return null;
   }
+
 
   public Item takeItem(Item found) {
 

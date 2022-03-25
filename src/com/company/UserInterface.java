@@ -68,19 +68,9 @@ public class UserInterface {
     Scanner sc = new Scanner(System.in);
 
     welcomeMessage();
-
     sc.nextLine();
     showCommands();
-    System.out.println("""
-            You have abseiled into a very small and dark cave with four tiny
-            tunnels, you have no clues witch way to go. This cave is named The Claustrophobia...
-            
-            What do you do?
-            """);
-
-
-
-    //Torch torch = new Torch("torch", false);
+    introMapDescription();
 
     String input;
     do {
@@ -177,20 +167,6 @@ public class UserInterface {
 
       } else if (input.equals("exit")) {
         System.out.println("Exiting game");
-/*
-      } else if (input.equals("light on")) {
-        // if you turn on the light and go to next room and go back, you should remember that you have been there
-        // and therefore get another description of the room, because now you can see!
-        if (player.getCurrentRoom().getName().equals("The Mere Darkness")){
-          torch.pushDevice();
-          System.out.println(torch);
-        }
-
-      } else if (input.equals("light off")) {
-        torch.pushDevice();
-        System.out.println(torch);
-
- */
 
       } else {
         System.out.println("\"" + input + "\" is not a valid command. Try again!");
@@ -202,103 +178,118 @@ public class UserInterface {
     } while (!input.equals("exit"));  // || isAlive == false
   }
 
-  public void checkUsabilityWeapon(Usability usability){
 
-
-    if (usability == Usability.NOT_PRESENT){
-      System.out.println("This item is not in your backpack.");
-    } else if (usability == Usability.NOT_PRESENT_WEAPON) {
-      System.out.println("This weapon is not in your backpack.");
-    } else if (usability == Usability.USABLE) {
-      System.out.println("You're now carrying the " + "VÅBEN" + " in your hands.");
-
-    } else if (usability == Usability.NON_USABLE) {
-      System.out.println("This item is not a weapon!");
-    }
-  }
-
-  public String capitaliseFirstLetterItem(Item item) {
-    return item.getName().substring(0,1).toUpperCase() + item.getName().substring(1).toLowerCase();
-  }
-
-  public String capitaliseFirstLetterItem(String item) {
-    return item.substring(0,1).toUpperCase() + item.substring(1).toLowerCase();
-
+  public void introMapDescription(){
+    System.out.println("""
+            You have abseiled into a very small and dark cave with four tiny
+            tunnels, you have no clues witch way to go. This cave is named The Claustrophobia...
+            
+            What do you do?
+            """);
   }
 
 
-  public void lookAround() {
-    System.out.println("Looking around...");
-    System.out.println(player.getCurrentRoom().getName());
-    System.out.println(player.getCurrentRoom().getDescription());
 
-    boolean isCaveEmpty = player.getCurrentRoom().getItems().isEmpty();
-    if(isCaveEmpty) {
-      System.out.println("You can not see any items to pick up in this cave");
-    } else
-      System.out.println("In the cave you can see:");
-
-    StringBuilder sb = new StringBuilder();
-    for (Item item : player.getCurrentRoom().getItems()) {
-      String itemNameFirstLetterCapitalised = capitaliseFirstLetterItem(item) + ": " + item.getDescription() + "\n";
-      sb.append(itemNameFirstLetterCapitalised);
-    }
-    System.out.println(sb);
-  }
-
-  public void showBackpackInventory(ArrayList<Item> inventoryPlayer){
-    // StringBuilder sb = new StringBuilder();
-    for (Item item : inventoryPlayer) {
-      //String temp = item.getName();
-      String temp = capitaliseFirstLetterItem(item);
-      //sb.append(temp);
-      System.out.println(temp);
-    }
-
-  }
-
-  public void checkValidDirection(Room cave, String direction) {
-
-    if (cave == null) {
-      System.out.println("Ófærð! Try another path.");
-
-    } else {
-      System.out.println("Going " + direction + "...\n" +
-          "\n----------------\n" +
-          "You have entered \"" + player.getCurrentRoom().getName() + "\":\n" +
-          player.getCurrentRoom().getDescription() +
-          "\n----------------\n");
-    }
-  }
+public void checkUsabilityWeapon(Usability usability){
 
 
-  public void warningHealth(){
-    int tempHealth = player.getHealthStatus();
+if (usability == Usability.NOT_PRESENT){
+System.out.println("This item is not in your backpack.");
+} else if (usability == Usability.NOT_PRESENT_WEAPON) {
+System.out.println("This weapon is not in your backpack.");
+} else if (usability == Usability.USABLE) {
+// Find the equipped weapon in Player Class
+ArrayList found = player.getEquippedWeapon();
+System.out.println("You're now carrying the " + player.getEquippedWeapon().get(0).getName() + " in your hands.");
 
-      if (tempHealth < 25 && tempHealth > 0) {
-        System.out.println("Warning: Your health points are low!");
-      } else if (tempHealth <= 0) {
-        System.out.println("You are dead");
-      }
-  }
+} else if (usability == Usability.NON_USABLE) {
+System.out.println("This item is not a weapon!");
+}
+}
 
-  public void checkHealthStatus(){
-    int tempHealth = player.getHealthStatus();
+public String capitaliseFirstLetterItem(Item item) {
+return item.getName().substring(0,1).toUpperCase() + item.getName().substring(1).toLowerCase();
+}
 
-    if(tempHealth <= 100 && tempHealth >= 75) {
-      System.out.println(tempHealth + " - You're in good shape!");
-    } else if (tempHealth < 75 && tempHealth >= 50) {
-      System.out.println(tempHealth + " - You're in okay shape. Some healthy food would be good for you!");
-    } else if (tempHealth < 50 && tempHealth >= 25) {
-      System.out.println(tempHealth + " - You're getting weak! Consider what you consume and try avoid combats.");
-    } else if (tempHealth < 25 && tempHealth >= 1) {
-      System.out.println(tempHealth + " - You're in health danger! Go find some healthy food before anything else!");
-    }
-  }
+public String capitaliseFirstLetterItem(String item) {
+return item.substring(0,1).toUpperCase() + item.substring(1).toLowerCase();
 
-  public void newLine() {
-    System.out.println();
-  }
+}
+
+
+public void lookAround() {
+System.out.println("Looking around...");
+System.out.println(player.getCurrentRoom().getName());
+System.out.println(player.getCurrentRoom().getDescription());
+
+boolean isCaveEmpty = player.getCurrentRoom().getItems().isEmpty();
+
+if (isCaveEmpty) {
+System.out.println("You can not see any items to pick up in this cave");
+} else
+System.out.println("In the cave you can see:");
+
+StringBuilder sb = new StringBuilder();
+for (Item item : player.getCurrentRoom().getItems()) {
+String itemNameFirstLetterCapitalised = capitaliseFirstLetterItem(item) + ": " + item.getDescription() + "\n";
+sb.append(itemNameFirstLetterCapitalised);
+}
+System.out.println(sb);
+}
+
+public void showBackpackInventory(ArrayList<Item> inventoryPlayer){
+// StringBuilder sb = new StringBuilder();
+for (Item item : inventoryPlayer) {
+//String temp = item.getName();
+String temp = capitaliseFirstLetterItem(item);
+//sb.append(temp);
+System.out.println(temp);
+}
+
+}
+
+public void checkValidDirection(Room cave, String direction) {
+
+if (cave == null) {
+System.out.println("Ófærð! Try another path.");
+
+} else {
+System.out.println("Going " + direction + "...\n" +
+  "\n----------------\n" +
+  "You have entered \"" + player.getCurrentRoom().getName() + "\":\n" +
+  player.getCurrentRoom().getDescription() +
+  "\n----------------\n");
+}
+}
+
+
+public void warningHealth(){
+int tempHealth = player.getHealthStatus();
+
+if (tempHealth < 25 && tempHealth > 0) {
+System.out.println("Warning: Your health points are low!");
+} else if (tempHealth <= 0) {
+System.out.println("You are dead");
+}
+}
+
+public void checkHealthStatus(){
+int tempHealth = player.getHealthStatus();
+
+if(tempHealth <= 100 && tempHealth >= 75) {
+System.out.println(tempHealth + " - You're in good shape!");
+} else if (tempHealth < 75 && tempHealth >= 50) {
+System.out.println(tempHealth + " - You're in okay shape. Some healthy food would be good for you!");
+} else if (tempHealth < 50 && tempHealth >= 25) {
+System.out.println(tempHealth + " - You're getting weak! Consider what you consume and try avoid combats.");
+} else if (tempHealth < 25 && tempHealth >= 1) {
+System.out.println(tempHealth + " - You're in health danger! Go find some healthy food before anything else!");
+}
+}
+
+public void newLine() {
+System.out.println();
+}
 
 }
 
