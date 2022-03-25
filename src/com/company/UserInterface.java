@@ -135,7 +135,8 @@ public class UserInterface {
         } else
         System.out.println("In your backpack you have:");
         showBackpackInventory(player.getBackpackInventory());
-        System.out.println("You have equipped: " + player.getEquippedWeapon().get(0).getName());
+        showEquippedWeapon();
+
 
       } else if (input.equals("health")){
         checkHealthStatus();
@@ -236,6 +237,16 @@ String itemNameFirstLetterCapitalised = capitaliseFirstLetterItem(item) + ": " +
 sb.append(itemNameFirstLetterCapitalised);
 }
 System.out.println(sb);
+}
+
+
+public void showEquippedWeapon(){
+
+    if(player.getEquippedWeapon().isEmpty()){
+      System.out.println("You are not equipped with any weapon");
+    } else {
+      System.out.println("You are equipped with: " + player.getEquippedWeapon().get(0).getName());
+    }
 }
 
 public void showBackpackInventory(ArrayList<Item> inventoryPlayer){
