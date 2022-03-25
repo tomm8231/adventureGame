@@ -34,21 +34,26 @@ public class Player {
     } else return Edible.NON_EDIBLE; //TODO: Ændre navn på enum?
   }
 
-  public void equipWeapon(Weapon weapon){
-    inventoryPlayer.remove(weapon);
-    equippedWeapon.add(weapon); // an arraylist for the weapon the player has in his hand
+  public Weapon equipWeapon(Weapon weapon){
 
-    System.out.println("Test sout: Jeg har våbenet i hånden nu!");
+    boolean isEmpty = equippedWeapon.isEmpty();
+
+    if (isEmpty == true){
+      inventoryPlayer.remove(weapon);
+      equippedWeapon.add(weapon);
+      return weapon;
+    } else {
+      inventoryPlayer.add(equippedWeapon.get(0));
+      equippedWeapon.clear();
+      inventoryPlayer.remove(weapon);
+      equippedWeapon.add(weapon);
+      return weapon;
+    }
   }
 
-  public void switchWeapon (Weapon weapon){
-    // switch sådan at hvis man vælger et nyt våben som equip, så går det forrige tilbage i inventoryPlayer
-
-  }
 
 
-  // Should return an enum, for ex. EDIBLE
-  public Edible tryEatFood(String itemName) { // String eller Item?
+  public Edible tryEatFood(String itemName) {
 
     // search if the food is available
     Item foundItem = currentRoom.findItemRoom(itemName);

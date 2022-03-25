@@ -9,7 +9,6 @@ public abstract class Weapon extends Item {
   public Weapon(String name, String description, int healthDamage) {
     super(name, description);
     this.healthDamage = healthDamage;
-
   }
 
   @Override

@@ -1,7 +1,6 @@
 package com.company;
 
 public class RangedWeapon extends Weapon  {
-// lægge til attributt med det som ikke er i Weapon
 
   // Definere antal skud et våben har
 
