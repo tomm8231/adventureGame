@@ -18,27 +18,38 @@ public class Player {
     this.healthStatus = healthStatus;
   }
 
-  public Edible tryEquip(String itemName){
-    Item foundItem = currentRoom.findItemRoom(itemName);
 
-    if (foundItem == null){
-      foundItem = findItemPlayer(itemName);
-      if (foundItem == null){
-        return Edible.NOT_PRESENT;
+
+  public Usability tryEquip(String itemName){
+
+    Item foundItemPlayer = findItemPlayer(itemName);
+
+    // Check if it is a weapon
+
+    if (foundItemPlayer == null) { // not in backpack
+      Item foundItemRoom = currentRoom.findItemRoom(itemName);
+      if (foundItemRoom != null) {
+        if (foundItemRoom instanceof Weapon) {
+          return Usability.NOT_PRESENT_WEAPON;
+        } else {
+          return Usability.NOT_PRESENT;
+        }
+      } else if (foundItemPlayer == null) {
+        return Usability.NOT_PRESENT;
       }
     }
-    if (foundItem instanceof Weapon){
-      equipWeapon((Weapon) foundItem);
-      return Edible.EDIBLE;
+    if (foundItemPlayer instanceof Weapon){
+      equipWeapon((Weapon) foundItemPlayer);
+      return Usability.USABLE;
 
-    } else return Edible.NON_EDIBLE; //TODO: Ændre navn på enum?
+    } else return Usability.NON_USABLE;
   }
 
   public Weapon equipWeapon(Weapon weapon){
 
     boolean isEmpty = equippedWeapon.isEmpty();
 
-    if (isEmpty == true){
+    if (isEmpty){
       inventoryPlayer.remove(weapon);
       equippedWeapon.add(weapon);
       return weapon;
@@ -53,7 +64,8 @@ public class Player {
 
 
 
-  public Edible tryEatFood(String itemName) {
+
+  public Usability tryEatFood(String itemName) {
 
     // search if the food is available
     Item foundItem = currentRoom.findItemRoom(itemName);
@@ -61,14 +73,14 @@ public class Player {
     if (foundItem == null) {
       foundItem = findItemPlayer(itemName);
       if (foundItem == null) {
-        return Edible.NOT_PRESENT;
+        return Usability.NOT_PRESENT;
       }
     }
 
     if (foundItem instanceof Food) {
       eat((Food) foundItem);
-      return Edible.EDIBLE;
-    } else return Edible.NON_EDIBLE;
+      return Usability.USABLE;
+    } else return Usability.NON_USABLE;
 
   }
 
@@ -139,7 +151,6 @@ public class Player {
     }
     return nextRoom;
   }
-
 
   public Room findNewRoom(String direction) {
 

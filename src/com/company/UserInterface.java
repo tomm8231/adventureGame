@@ -7,7 +7,7 @@ public class UserInterface {
 
   private Player player;
   private Map map;
-  private boolean isAlive;
+  private boolean isAlive; //TODO: loopet
 
 
   public void welcomeMessage(){
@@ -151,14 +151,14 @@ public class UserInterface {
 
       } else if (input.startsWith("eat ")){
         String requestedFood = input.substring(input.indexOf(" ") + 1);
-        Edible found = player.tryEatFood(requestedFood);
+        Usability found = player.tryEatFood(requestedFood);
 
 
 
-        if (found == Edible.EDIBLE) {
+        if (found == Usability.USABLE) {
           System.out.println("You have eaten the " + requestedFood);
           System.out.println("HP: " + player.getHealthStatus());
-        } else if (found == Edible.NON_EDIBLE){
+        } else if (found == Usability.NON_USABLE){
           System.out.println("You can not eat the " + requestedFood);
         } else {
           String requestedFoodCapitalised = capitaliseFirstLetterItem(requestedFood);
@@ -167,7 +167,8 @@ public class UserInterface {
 
       } else if (input.startsWith("equip ")){
         String requestedWeapon = input.substring(input.indexOf(" ") + 1);
-        Edible found = player.tryEquip(requestedWeapon);
+        Usability found = player.tryEquip(requestedWeapon);
+        checkUsabilityWeapon(found);
       }
 
 
@@ -201,16 +202,28 @@ public class UserInterface {
     } while (!input.equals("exit"));  // || isAlive == false
   }
 
+  public void checkUsabilityWeapon(Usability usability){
 
+
+    if (usability == Usability.NOT_PRESENT){
+      System.out.println("This item is not in your backpack.");
+    } else if (usability == Usability.NOT_PRESENT_WEAPON) {
+      System.out.println("This weapon is not in your backpack.");
+    } else if (usability == Usability.USABLE) {
+      System.out.println("You're now carrying the " + "VÅBEN" + " in your hands.");
+
+    } else if (usability == Usability.NON_USABLE) {
+      System.out.println("This item is not a weapon!");
+    }
+  }
 
   public String capitaliseFirstLetterItem(Item item) {
-    String itemNameUpperCase = item.getName().substring(0,1).toUpperCase() + item.getName().substring(1).toLowerCase();
-    return itemNameUpperCase;
+    return item.getName().substring(0,1).toUpperCase() + item.getName().substring(1).toLowerCase();
   }
 
   public String capitaliseFirstLetterItem(String item) {
-    String itemNameUpperCase = item.substring(0,1).toUpperCase() + item.substring(1).toLowerCase();
-    return itemNameUpperCase;
+    return item.substring(0,1).toUpperCase() + item.substring(1).toLowerCase();
+
   }
 
 
@@ -219,8 +232,8 @@ public class UserInterface {
     System.out.println(player.getCurrentRoom().getName());
     System.out.println(player.getCurrentRoom().getDescription());
 
-    boolean result = player.getCurrentRoom().getItems().isEmpty();
-    if(result == true) {
+    boolean isCaveEmpty = player.getCurrentRoom().getItems().isEmpty();
+    if(isCaveEmpty) {
       System.out.println("You can not see any items to pick up in this cave");
     } else
       System.out.println("In the cave you can see:");
