@@ -72,13 +72,13 @@ public class UserInterface {
     showCommands();
     introMapDescription();
 
-
+    isAlive = true;
     String input = "";
 
-    while (!input.equals("exit") || isAlive == true) {
+    while (!input.equals("exit") && (isAlive)) {
 
       input = sc.nextLine().trim().toLowerCase();
-      isAlive = true;
+
 
       if (input.equals("look")) {
         lookAround();
@@ -120,11 +120,8 @@ public class UserInterface {
       warningHealth();
       isAlive = player.playerDead();
 
-
     }
-
   }
-
 
 
   public void introMapDescription() {
