@@ -265,6 +265,7 @@ public class UserInterface {
 
   public void displayAttack(String input){
     displayCheckedWeapon();
+    player.attackEnemy();
     String attackEnemy = input.substring(input.indexOf(" ") + 1);
     // attack enemy
 

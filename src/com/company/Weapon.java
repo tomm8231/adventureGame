@@ -4,7 +4,7 @@ package com.company;
 
 public abstract class Weapon extends Item {
   protected int healthDamage;
-  protected int hitAttempts;
+
 
 
   public Weapon(String name, String description, int healthDamage) {

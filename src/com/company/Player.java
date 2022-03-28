@@ -57,7 +57,6 @@ public class Player {
       equippedWeapon.add(weapon);
       return weapon;
     } else {
-      //TODO: Når man equipper item nr 2 lægges våben nr 1 tilbage i rummet og ikke i ryggsæk!
       inventoryPlayer.add(equippedWeapon.get(0));
       equippedWeapon.clear();
       equippedWeapon.add(weapon);
@@ -81,14 +80,20 @@ public class Player {
     }
   }
 
-  public void attackEnemy(Usability usability){
+  public void attackEnemy(){
 
     Usability found = checkWeapon((Weapon) getEquippedWeapon().get(0));
 
     if (found == Usability.USABLE){
       // opdatere hitAttempts
+      int remainingUses = ((Weapon) getEquippedWeapon().get(0)).remainingUses();
+      System.out.println(remainingUses);
       ((Weapon) getEquippedWeapon().get(0)).setHitAttempts();
 
+      remainingUses = ((Weapon) getEquippedWeapon().get(0)).remainingUses();
+      System.out.println(remainingUses);
+
+      // use in next part:
       //  int healthDamage = ((Weapon) getEquippedWeapon().get(0)).getHealthDamage();
       //  ((Weapon) getEquippedWeapon().get(0)).setHealthDamage(healthDamage);
     }
