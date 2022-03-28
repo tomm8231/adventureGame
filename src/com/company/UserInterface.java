@@ -7,7 +7,8 @@ public class UserInterface {
 
   private Player player;
   private Map map;
-  private boolean isAlive; //TODO: loopet
+  private boolean isAlive;
+
 
 
   public void welcomeMessage() {
@@ -71,13 +72,67 @@ public class UserInterface {
     sc.nextLine();
     showCommands();
     introMapDescription();
-    String input = sc.nextLine();
+    loopGame();
 
-    Game game = new Game();
-
-    game.game(input);
 
   }
+
+  public void loopGame(){
+    Scanner sc = new Scanner(System.in);
+    UserInterface ui = new UserInterface();
+
+    String input;
+    do {
+
+      input = sc.nextLine().trim().toLowerCase();
+      isAlive = true;
+
+      if (input.equals("look")) {
+        ui.lookAround();
+      }
+
+      else if (input.startsWith("go ")) {
+        ui.goHelpMethod(input);
+
+      } else if (input.startsWith("take ")) {
+        ui.takeHelpMethod(input);
+
+      } else if (input.startsWith("drop ")) {
+        ui.dropHelpMethod(input);
+
+      } else if (input.equals("inventory")) {
+        ui.inventoryHelpMethod();
+
+      } else if (input.equals("health")) {
+        ui.checkHealthStatus();
+
+      } else if (input.startsWith("eat ")) {
+        ui.eatHelpMethod(input);
+
+      } else if (input.startsWith("equip ")) {
+        ui.equipHelpMethod(input);
+
+      } else if (input.startsWith("attack ")) {
+        ui.attackHelpMethod(input);
+
+
+      } else if (input.equals("help")) {
+        ui.showCommands();
+
+      } else if (input.equals("exit")) {
+        System.out.println("Exiting game");
+
+      } else {
+        System.out.println("\"" + input + "\" is not a valid command. Try again!");
+      }
+
+      ui.warningHealth();
+      //OBS loopet skal også stoppe hvis Player dør!!
+
+    } while (!input.equals("exit"));  // || isAlive == false
+  }
+
+
 
 
   public void introMapDescription() {
@@ -157,7 +212,7 @@ public class UserInterface {
     }
   }
 
-  public void dropHelptMethod(String input) {
+  public void dropHelpMethod(String input) {
     String itemName = input.substring(input.indexOf(" ") + 1);
     Item found = player.findItemPlayer(itemName);
     Item itemDropped = player.dropItem(found);

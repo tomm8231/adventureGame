@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Game {
 
+  private boolean isAlive;
+
   public void game(String input){
     Scanner sc = new Scanner(System.in);
     UserInterface ui = new UserInterface();
@@ -12,7 +14,7 @@ public class Game {
     do {
 
       input = sc.nextLine().trim().toLowerCase();
-      ui.isAlive = true;
+      isAlive = true;
 
       if (input.equals("look")) {
         ui.lookAround();
@@ -25,7 +27,7 @@ public class Game {
         ui.takeHelpMethod(input);
 
       } else if (input.startsWith("drop ")) {
-        ui.dropHelptMethod(input);
+        ui.dropHelpMethod(input);
 
       } else if (input.equals("inventory")) {
         ui.inventoryHelpMethod();
@@ -61,4 +63,4 @@ public class Game {
 
 }
 
-}
+
