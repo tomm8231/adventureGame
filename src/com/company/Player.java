@@ -111,15 +111,13 @@ public class Player {
     if (weapons.isEmpty()) {
       return Usability.NOT_PRESENT_WEAPON;
     } else {
-      Usability found = checkWeapon((Weapon) getEquippedWeapon().get(0));
-
-      if (found == Usability.USABLE) {
-        ((Weapon) getEquippedWeapon().get(0)).setHitAttempts();
-        return Usability.USABLE;
+      // Usability found = checkWeapon((Weapon) getEquippedWeapon().get(0));
+      ((Weapon) getEquippedWeapon().get(0)).setHitAttempts();
+      return Usability.USABLE;
       }
-    }
-    return null;
   }
+
+
 
 
 

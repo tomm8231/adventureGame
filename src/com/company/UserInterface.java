@@ -81,22 +81,6 @@ public class UserInterface {
       if (input.equals("look")) {
         lookAround();
       }
-        /*
-        if (player.getCurrentRoom().getName().equals("The Mere Darkness")) {
-          if (player.findItemPlayer("torch") == null) {
-            System.out.println("You have to find a flashlight or torch or something to light up this dark cave!");
-          }
-        } else {
-           lookAround(); // this is not finished
-         }
-        }
-       /*else if (player.getCurrentRoom().getName().equals("The Mere Darkness") && player.findItemPlayer("torch").getName().equals("torch")) {
-          System.out.println("It is dark, you have to write 'light on'.");
-
-          // make a new method to check if the light is on?
-          //BUG: you should only could see the things in the room if the light is on!lookAround();
-        }
-         */
 
       else if (input.startsWith("go ")) {
         goHelpMethod(input);
@@ -108,39 +92,18 @@ public class UserInterface {
         dropHelptMethod(input);
 
       } else if (input.equals("inventory")) {
-        if (player.checkEmptyBackpack() == true) {
-          System.out.println("You have nothing in your backpack");
-        } else
-          System.out.println("In your backpack you have:");
-        showBackpackInventory(player.getBackpackInventory());
-        showEquippedWeapon();
-
+        inventoryHelpMethod();
 
       } else if (input.equals("health")) {
         checkHealthStatus();
 
       } else if (input.startsWith("eat ")) {
-        String requestedFood = input.substring(input.indexOf(" ") + 1);
-        Usability found = player.tryEatFood(requestedFood);
-
-
-        if (found == Usability.USABLE) {
-          System.out.println("You have eaten the " + requestedFood);
-          System.out.println("HP: " + player.getHealthStatus());
-        } else if (found == Usability.NON_USABLE) {
-          System.out.println("You can not eat the " + requestedFood);
-        } else {
-          String requestedFoodCapitalised = capitaliseFirstLetterItem(requestedFood);
-          System.out.println(requestedFoodCapitalised + " is not within reach.");
-        }
 
       } else if (input.startsWith("equip ")) {
-        String requestedWeapon = input.substring(input.indexOf(" ") + 1);
-        Usability found = player.tryEquip(requestedWeapon);
-        checkUsabilityWeapon(found);
+        equipHelpMethod(input);
 
       } else if (input.startsWith("attack ")) {
-        displayAttack(input);
+        attackHelpMethod(input);
 
 
       } else if (input.equals("help")) {
@@ -250,9 +213,14 @@ public class UserInterface {
     }
   }
 
+  public void equipHelpMethod(String input){
+    String requestedWeapon = input.substring(input.indexOf(" ") + 1);
+    Usability found = player.tryEquip(requestedWeapon);
+    checkUsabilityWeapon(found);
+  }
 
 
-  public void showEquippedWeapon() {
+  public void showEquippedWeaponInventory() {
 
     if (player.getEquippedWeapon().isEmpty()) {
       System.out.println("You are not equipped with any weapon");
@@ -261,14 +229,15 @@ public class UserInterface {
     }
   }
 
-  public void displayCheckedWeapon(){
+  public void displayCheckedWeaponAttack(){
     ArrayList<Item> playerEquippedWeapon = player.getEquippedWeapon();
 
     if(playerEquippedWeapon.isEmpty()){
-      System.out.println("You have not equipped this weapon");
+      System.out.println("You are not equipped with any weapon!");
     } else {
       Weapon equippedWeapon = (Weapon) player.getEquippedWeapon().get(0);
       Usability usabilityWeapon = player.checkWeapon(equippedWeapon);
+      System.out.println("You are equipped with: " + player.getEquippedWeapon().get(0).getName());
 
       if (usabilityWeapon == Usability.USABLE) {
         System.out.println("Attack the enemy!");
@@ -278,15 +247,37 @@ public class UserInterface {
     }
   }
 
+  public void inventoryHelpMethod(){
+    if (player.checkEmptyBackpack() == true) {
+      System.out.println("You have nothing in your backpack");
+    } else
+      System.out.println("In your backpack you have:");
+    showBackpackInventory(player.getBackpackInventory());
+    showEquippedWeaponInventory();
+  }
 
-
-  public void displayAttack(String input){
-    displayCheckedWeapon();
+  public void attackHelpMethod(String input){
+    displayCheckedWeaponAttack();
     player.attackEnemy();
 
     String attackEnemy = input.substring(input.indexOf(" ") + 1);
     // attack enemy
+  }
 
+  public void eatHelpMethod(String input){
+    String requestedFood = input.substring(input.indexOf(" ") + 1);
+    Usability found = player.tryEatFood(requestedFood);
+
+
+    if (found == Usability.USABLE) {
+      System.out.println("You have eaten the " + requestedFood);
+      System.out.println("HP: " + player.getHealthStatus());
+    } else if (found == Usability.NON_USABLE) {
+      System.out.println("You can not eat the " + requestedFood);
+    } else {
+      String requestedFoodCapitalised = capitaliseFirstLetterItem(requestedFood);
+      System.out.println(requestedFoodCapitalised + " is not within reach.");
+    }
   }
 
 
