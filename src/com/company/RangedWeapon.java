@@ -9,16 +9,13 @@ protected int hitAttempts;
     this.hitAttempts = hitAttempts;
   }
 
-  public int getHitAttempts(){
-    return hitAttempts;
-  }
-
-  public void setHitAttempts(int hit){
-    this.hitAttempts -= hit;
+@Override
+  public void setHitAttempts(){
+    this.hitAttempts -= 1;
   }
 
 @Override
-  public int remainingUses(){ // eller canUse() ??
+  public int remainingUses(){
     return hitAttempts;
   }
 

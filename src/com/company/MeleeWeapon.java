@@ -12,4 +12,8 @@ public class MeleeWeapon extends Weapon {
   public int remainingUses() {
     return 1;
   }
+
+  @Override
+  public void setHitAttempts() {
+  }
 }
