@@ -1,5 +1,6 @@
 package com.company;
 
+import javax.swing.text.Utilities;
 import java.util.ArrayList;
 
 public class Player {
@@ -68,6 +69,29 @@ public class Player {
   public Usability checkWeapon(Weapon weapon) {
     int ammoLeft = weapon.remainingUses();
 
+    if (equippedWeapon.isEmpty()) {
+      return Usability.NOT_PRESENT_WEAPON; // if not equipped weapon
+    }
+
+    if (ammoLeft > 0) {
+      return Usability.USABLE;
+    } else {
+      return Usability.NON_USABLE;
+      // RangedWeapon rangedWeapon = (RangedWeapon) getEquippedWeapon().get(0); //type caste
+    }
+  }
+
+
+
+
+/*
+ public Usability checkWeapon(Weapon weapon) {
+    int ammoLeft = weapon.remainingUses();
+    //TODO: Ændre til det samme som i UI!
+    if(equippedWeapon.isEmpty()){
+
+    }
+
     if (equippedWeapon.get(0) != null) { // weapon is equipped
       if (ammoLeft > 0) {
         return Usability.USABLE;
@@ -75,37 +99,37 @@ public class Player {
         return Usability.NON_USABLE;
         // RangedWeapon rangedWeapon = (RangedWeapon) getEquippedWeapon().get(0); //type caste
       }
-    }  { //TODO: Dette virker ikke!
-      return Usability.NOT_PRESENT_WEAPON; // if not equipped weapon
     }
+      return Usability.NOT_PRESENT_WEAPON; // if not equipped weapon
+  }
+ */
+
+
+  public Usability attackEnemy() {
+
+    ArrayList<Item> weapons = equippedWeapon;
+    if (weapons.isEmpty()) {
+      return Usability.NOT_PRESENT_WEAPON;
+    } else {
+      Usability found = checkWeapon((Weapon) getEquippedWeapon().get(0));
+
+      if (found == Usability.USABLE) {
+        ((Weapon) getEquippedWeapon().get(0)).setHitAttempts();
+        return Usability.USABLE;
+      }
+    }
+    return null;
   }
 
 
-  public void attackEnemy(){
 
-    Usability found = checkWeapon((Weapon) getEquippedWeapon().get(0));
-
-    if (found == Usability.USABLE) {
-      // opdatere hitAttempts
-      int remainingUses = ((Weapon) getEquippedWeapon().get(0)).remainingUses();
-      System.out.println(remainingUses);
-      ((Weapon) getEquippedWeapon().get(0)).setHitAttempts();
-
-      remainingUses = ((Weapon) getEquippedWeapon().get(0)).remainingUses();
-      System.out.println(remainingUses);
-
-    } else if (found == Usability.NON_USABLE) {
-      System.out.println("Ikke et våben");
-    } else if (found == Usability.NOT_PRESENT_WEAPON) {
-      System.out.println("Not present");
-    }
 
       // use in next part:
       //  int healthDamage = ((Weapon) getEquippedWeapon().get(0)).getHealthDamage();
       //  ((Weapon) getEquippedWeapon().get(0)).setHealthDamage(healthDamage);
 
 
-  }
+
 
   public Usability tryEatFood(String itemName) {
 

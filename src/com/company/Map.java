@@ -51,8 +51,6 @@ public class Map {
             \tyour journey have never been bigger. Be very careful when you take further steps.""");
     cave4.addItem(new Item ("lighter", "A silver zippo lighter"));
     cave4.addItem(new Item ("oil", "A tiny bottle of oil"));
-
-    //TODO: Ny subklasse til spear og dynamite
     cave4.addItem(new MeleeWeapon ("spear", "Sharp spartan spear", -50));
     cave4.addItem(new RangedWeapon("bow", "A set of bow and arrow", -20, 5));
 

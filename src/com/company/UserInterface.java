@@ -249,18 +249,19 @@ public class UserInterface {
   }
 
   public void displayCheckedWeapon(){
-    ArrayList<Item> items = player.getEquippedWeapon();
+    ArrayList<Item> playerEquippedWeapon = player.getEquippedWeapon();
 
-    if(items.isEmpty()){
+    if(playerEquippedWeapon.isEmpty()){
       System.out.println("You have not equipped this weapon");
-    }
-    Weapon equippedWeapon = (Weapon) player.getEquippedWeapon().get(0);
-    Usability usabilityWeapon = player.checkWeapon(equippedWeapon);
+    } else {
+      Weapon equippedWeapon = (Weapon) player.getEquippedWeapon().get(0);
+      Usability usabilityWeapon = player.checkWeapon(equippedWeapon);
 
-    if (usabilityWeapon == Usability.USABLE) {
-      System.out.println("Attack the enemy!");
-    } else if (usabilityWeapon == Usability.NON_USABLE) {
-      System.out.println("Sorry your weapon is out ammo!");
+      if (usabilityWeapon == Usability.USABLE) {
+        System.out.println("Attack the enemy!");
+      } else if (usabilityWeapon == Usability.NON_USABLE) {
+        System.out.println("Sorry your weapon is out ammo!");
+      }
     }
   }
 
@@ -269,6 +270,7 @@ public class UserInterface {
   public void displayAttack(String input){
     displayCheckedWeapon();
     player.attackEnemy();
+
     String attackEnemy = input.substring(input.indexOf(" ") + 1);
     // attack enemy
 
