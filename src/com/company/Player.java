@@ -61,6 +61,7 @@ public class Player {
       inventoryPlayer.add(equippedWeapon.get(0));
       equippedWeapon.clear();
       equippedWeapon.add(weapon);
+      inventoryPlayer.remove(weapon);
       return weapon;
     }
   }
