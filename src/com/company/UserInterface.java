@@ -99,35 +99,13 @@ public class UserInterface {
          */
 
       else if (input.startsWith("go ")) {
-        String direction = input.substring(input.indexOf(" ") + 1);
-        Room room = player.movePlayer(direction);
-        checkValidDirection(room, direction);
+        goHelpMethod(input);
 
       } else if (input.startsWith("take ")) {
-        String itemName = input.substring(input.indexOf(" ") + 1);
-        Item found = player.getCurrentRoom().findItemRoom(itemName);
-        Item itemTaken = player.takeItem(found);
-
-        if (itemTaken != null) {
-          String itemNameFirstLetterCapitalised = capitaliseFirstLetterItem(itemTaken);
-          System.out.println(itemNameFirstLetterCapitalised + " has been added to your pack.");
-        } else {
-          System.out.println("There's nothing " + itemName + " in this cave.");
-        }
-
+        takeHelpMethod(input);
 
       } else if (input.startsWith("drop ")) {
-        String itemName = input.substring(input.indexOf(" ") + 1);
-        Item found = player.findItemPlayer(itemName);
-        Item itemDropped = player.dropItem(found);
-
-        if (itemDropped != null) {
-          String itemNameFirstLetterCapitalised = capitaliseFirstLetterItem(itemDropped);
-          System.out.println(itemNameFirstLetterCapitalised + " has been dropped.");
-        } else {
-          System.out.println("There is nothing like " + itemName + " in your backpack.");
-        }
-
+        dropHelptMethod(input);
 
       } else if (input.equals("inventory")) {
         if (player.checkEmptyBackpack() == true) {
@@ -163,6 +141,7 @@ public class UserInterface {
 
       } else if (input.startsWith("attack ")) {
         displayAttack(input);
+
 
       } else if (input.equals("help")) {
         showCommands();
@@ -237,6 +216,40 @@ public class UserInterface {
     }
     System.out.println(sb);
   }
+
+  public void goHelpMethod(String input) {
+    String direction = input.substring(input.indexOf(" ") + 1);
+    Room room = player.movePlayer(direction);
+    checkValidDirection(room, direction);
+  }
+
+
+  public void takeHelpMethod(String input) {
+    String itemName = input.substring(input.indexOf(" ") + 1);
+    Item found = player.getCurrentRoom().findItemRoom(itemName);
+    Item itemTaken = player.takeItem(found);
+
+    if (itemTaken != null) {
+      String itemNameFirstLetterCapitalised = capitaliseFirstLetterItem(itemTaken);
+      System.out.println(itemNameFirstLetterCapitalised + " has been added to your pack.");
+    } else {
+      System.out.println("There's nothing " + itemName + " in this cave.");
+    }
+  }
+
+  public void dropHelptMethod(String input) {
+    String itemName = input.substring(input.indexOf(" ") + 1);
+    Item found = player.findItemPlayer(itemName);
+    Item itemDropped = player.dropItem(found);
+
+    if (itemDropped != null) {
+      String itemNameFirstLetterCapitalised = capitaliseFirstLetterItem(itemDropped);
+      System.out.println(itemNameFirstLetterCapitalised + " has been dropped.");
+    } else {
+      System.out.println("There is nothing like " + itemName + " in your backpack.");
+    }
+  }
+
 
 
   public void showEquippedWeapon() {
