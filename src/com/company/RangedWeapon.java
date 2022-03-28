@@ -17,4 +17,9 @@ protected int hitAttempts;
     this.hitAttempts -= hit;
   }
 
+@Override
+  public int remainingUses(){ // eller canUse() ??
+    return hitAttempts;
+  }
+
 }

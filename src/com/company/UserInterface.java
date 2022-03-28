@@ -162,7 +162,11 @@ public class UserInterface {
         checkUsabilityWeapon(found);
 
       } else if (input.startsWith("attack ")) {
-        String requestedEnemy = input.substring(input.indexOf(" ") + 1);
+        String attackEnemy = input.substring(input.indexOf(" ") + 1);
+        // attack enemy
+        Usability found = player.checkWeapon((Weapon) player.getEquippedWeapon().get(0));
+        displayCheckedWeapon(found);
+
 
 
       } else if (input.equals("help")) {
@@ -248,6 +252,22 @@ public class UserInterface {
       System.out.println("You are equipped with: " + player.getEquippedWeapon().get(0).getName());
     }
   }
+
+  public void displayCheckedWeapon(Usability usability){
+    if (usability == Usability.USABLE) {
+      System.out.println("Attack the enemy!");
+    } else if (usability == Usability.NON_USABLE) {
+      System.out.println("Sorry your weapon is out ammo!");
+    } else {
+      System.out.println("You have not equipped this weapon");
+    }
+
+  }
+
+  public void attack(String input){
+
+  }
+
 
   public void showBackpackInventory(ArrayList<Item> inventoryPlayer) {
 // StringBuilder sb = new StringBuilder();

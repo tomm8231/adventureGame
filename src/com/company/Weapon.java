@@ -3,8 +3,9 @@ package com.company;
 // ikke lave new Weapon noget sted!
 
 public abstract class Weapon extends Item {
-  protected int healthDamage; // husk at lave attributt først!
-  // protected, hele hiarkiet skal have tilgang
+  protected int healthDamage;
+  protected int hitAttempts;
+
 
   public Weapon(String name, String description, int healthDamage) {
     super(name, description);
@@ -15,6 +16,8 @@ public abstract class Weapon extends Item {
   public String getName() {
     return super.getName();
   }
+
+  public abstract int remainingUses(); // det skal være en metode i Weapon og en Override i RangedWeapon
 
   @Override // kan godt ligge i subclasses
   public String toString() {

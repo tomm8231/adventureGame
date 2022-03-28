@@ -7,4 +7,9 @@ public class MeleeWeapon extends Weapon {
   public MeleeWeapon(String name, String description, int healthDamage) {
     super(name, description, healthDamage);
   }
+
+  @Override
+  public int remainingUses() {
+    return 1;
+  }
 }

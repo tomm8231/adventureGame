@@ -32,7 +32,7 @@ public class Player {
     if (foundItemPlayer == null) { // not in backpack
       Item foundItemRoom = currentRoom.findItemRoom(itemName);
       if (foundItemRoom != null) {
-        if (foundItemRoom instanceof Weapon) {
+        if (foundItemRoom instanceof Weapon) { //TODO: OBS IKKE TILLADT!!
           return Usability.NOT_PRESENT_WEAPON;
         } else {
           return Usability.NOT_PRESENT;
@@ -57,6 +57,7 @@ public class Player {
       equippedWeapon.add(weapon);
       return weapon;
     } else {
+      //TODO: Når man equipper item nr 2 lægges våben nr 1 tilbage i rummet og ikke i ryggsæk!
       inventoryPlayer.add(equippedWeapon.get(0));
       equippedWeapon.clear();
       inventoryPlayer.remove(weapon);
@@ -65,17 +66,19 @@ public class Player {
     }
   }
 
-  public Usability tryAttack(Weapon weapon){
+  public Usability checkWeapon(Weapon weapon) {
+    int ammoLeft = weapon.remainingUses();
 
-    if(equippedWeapon.get(0) != null) {
-      if(weapon instanceof MeleeWeapon){
+    if (equippedWeapon.get(0) != null) { // weapon is equipped
+      if (ammoLeft > 0) {
         return Usability.USABLE;
-      } else{
-        RangedWeapon rangedWeapon = (RangedWeapon) getEquippedWeapon().get(0); //type caste
-        rangedWeapon.getHitAttempts();
+      } else {
+        return Usability.NON_USABLE;
       }
+      // RangedWeapon rangedWeapon = (RangedWeapon) getEquippedWeapon().get(0); //type caste
+    } else {
+      return Usability.NOT_PRESENT_WEAPON;
     }
-    return null; // change
   }
 
 
