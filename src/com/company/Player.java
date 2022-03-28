@@ -231,7 +231,6 @@ public class Player {
   }
 
   public boolean playerDead(){
-
     int tempHealth = getHealthStatus();
     if (tempHealth <= 0){
       return false;

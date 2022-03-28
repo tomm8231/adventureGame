@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -106,7 +107,6 @@ public class UserInterface {
       } else if (input.startsWith("attack ")) {
         attackHelpMethod(input);
 
-
       } else if (input.equals("help")) {
         showCommands();
 
@@ -118,11 +118,39 @@ public class UserInterface {
       }
 
       warningHealth();
+
       isAlive = player.playerDead();
 
+      playAgain(isAlive);
+
+
     }
+
+
   }
 
+  public void playAgain(boolean isAlive) {
+    Scanner sc = new Scanner(System.in);
+    String answer = "";
+    int counter = 0;
+
+    while (!answer.equals("yes") && !answer.equals("no"))
+      if (isAlive == false) {
+        if (counter < 1) {
+          System.out.println("Play again?");
+          counter++;
+        }
+        answer = sc.nextLine().trim().toLowerCase();
+        if (answer.equals("yes")) {
+          isAlive = true;
+          startGame();
+        } else if (answer.equals("no")) {
+          System.out.println("Quitting game...");
+          isAlive = false;
+        } else if (!answer.equals("yes") || !answer.equals("no"))
+          System.out.println("Please answer yes or no");
+      }
+  }
 
   public void introMapDescription() {
     System.out.println("""
@@ -214,7 +242,7 @@ public class UserInterface {
     }
   }
 
-  public void equipHelpMethod(String input){
+  public void equipHelpMethod(String input) {
     String requestedWeapon = input.substring(input.indexOf(" ") + 1);
     Usability found = player.tryEquip(requestedWeapon);
     checkUsabilityWeapon(found);
@@ -230,10 +258,10 @@ public class UserInterface {
     }
   }
 
-  public void displayCheckedWeaponAttack(){
+  public void displayCheckedWeaponAttack() {
     ArrayList<Item> playerEquippedWeapon = player.getEquippedWeapon();
 
-    if(playerEquippedWeapon.isEmpty()){
+    if (playerEquippedWeapon.isEmpty()) {
       System.out.println("You are not equipped with any weapon!");
     } else {
       Weapon equippedWeapon = (Weapon) player.getEquippedWeapon().get(0);
@@ -248,7 +276,7 @@ public class UserInterface {
     }
   }
 
-  public void inventoryHelpMethod(){
+  public void inventoryHelpMethod() {
     if (player.checkEmptyBackpack() == true) {
       System.out.println("You have nothing in your backpack");
     } else
@@ -257,7 +285,7 @@ public class UserInterface {
     showEquippedWeaponInventory();
   }
 
-  public void attackHelpMethod(String input){
+  public void attackHelpMethod(String input) {
     displayCheckedWeaponAttack();
     player.attackEnemy();
 
@@ -265,7 +293,7 @@ public class UserInterface {
     // attack enemy
   }
 
-  public void eatHelpMethod(String input){
+  public void eatHelpMethod(String input) {
     String requestedFood = input.substring(input.indexOf(" ") + 1);
     Usability found = player.tryEatFood(requestedFood);
 
