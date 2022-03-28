@@ -79,7 +79,6 @@ public class UserInterface {
 
   public void loopGame(){
     Scanner sc = new Scanner(System.in);
-    UserInterface ui = new UserInterface();
 
     String input;
     do {
@@ -88,36 +87,36 @@ public class UserInterface {
       isAlive = true;
 
       if (input.equals("look")) {
-        ui.lookAround();
+        lookAround();
       }
 
       else if (input.startsWith("go ")) {
-        ui.goHelpMethod(input);
+        goHelpMethod(input);
 
       } else if (input.startsWith("take ")) {
-        ui.takeHelpMethod(input);
+        takeHelpMethod(input);
 
       } else if (input.startsWith("drop ")) {
-        ui.dropHelpMethod(input);
+        dropHelpMethod(input);
 
       } else if (input.equals("inventory")) {
-        ui.inventoryHelpMethod();
+        inventoryHelpMethod();
 
       } else if (input.equals("health")) {
-        ui.checkHealthStatus();
+        checkHealthStatus();
 
       } else if (input.startsWith("eat ")) {
-        ui.eatHelpMethod(input);
+        eatHelpMethod(input);
 
       } else if (input.startsWith("equip ")) {
-        ui.equipHelpMethod(input);
+        equipHelpMethod(input);
 
       } else if (input.startsWith("attack ")) {
-        ui.attackHelpMethod(input);
+        attackHelpMethod(input);
 
 
       } else if (input.equals("help")) {
-        ui.showCommands();
+        showCommands();
 
       } else if (input.equals("exit")) {
         System.out.println("Exiting game");
@@ -126,10 +125,10 @@ public class UserInterface {
         System.out.println("\"" + input + "\" is not a valid command. Try again!");
       }
 
-      ui.warningHealth();
-      //OBS loopet skal også stoppe hvis Player dør!!
+      warningHealth();
 
-    } while (!input.equals("exit"));  // || isAlive == false
+
+    } while (!input.equals("exit") || isAlive == false);
   }
 
 
