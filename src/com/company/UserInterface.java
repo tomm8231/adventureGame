@@ -10,7 +10,6 @@ public class UserInterface {
   private boolean isAlive;
 
 
-
   public void welcomeMessage() {
     System.out.println("Welcome to Adventure Iceland!");
     System.out.println("""
@@ -72,25 +71,18 @@ public class UserInterface {
     sc.nextLine();
     showCommands();
     introMapDescription();
-    loopGame();
 
 
-  }
+    String input = "";
 
-  public void loopGame(){
-    Scanner sc = new Scanner(System.in);
-
-    String input;
-    do {
+    while (!input.equals("exit") || isAlive == true) {
 
       input = sc.nextLine().trim().toLowerCase();
       isAlive = true;
 
       if (input.equals("look")) {
         lookAround();
-      }
-
-      else if (input.startsWith("go ")) {
+      } else if (input.startsWith("go ")) {
         goHelpMethod(input);
 
       } else if (input.startsWith("take ")) {
@@ -126,11 +118,12 @@ public class UserInterface {
       }
 
       warningHealth();
+      isAlive = player.playerDead();
 
 
-    } while (!input.equals("exit") || isAlive == false);
+    }
+
   }
-
 
 
 
@@ -327,6 +320,7 @@ public class UserInterface {
       System.out.println("You are dead");
     }
   }
+
 
   public void checkHealthStatus() {
     int tempHealth = player.getHealthStatus();

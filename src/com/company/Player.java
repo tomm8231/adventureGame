@@ -230,5 +230,13 @@ public class Player {
     } else return null;
   }
 
+  public boolean playerDead(){
 
+    int tempHealth = getHealthStatus();
+    if (tempHealth <= 0){
+      return false;
+    } else {
+      return true;
+    }
+  }
 }
