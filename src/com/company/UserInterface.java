@@ -256,7 +256,7 @@ public class UserInterface {
       System.out.println("Attack the enemy!");
     } else if (usabilityWeapon == Usability.NON_USABLE) {
       System.out.println("Sorry your weapon is out ammo!");
-    } else {
+    } else if (usabilityWeapon == Usability.NOT_PRESENT_WEAPON) {
       System.out.println("You have not equipped this weapon");
     }
   }

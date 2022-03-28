@@ -23,7 +23,7 @@ public class Player {
     return equippedWeapon;
   }
 
-  public Usability tryEquip(String itemName){
+  public Usability tryEquip(String itemName) {
 
     Item foundItemPlayer = findItemPlayer(itemName);
 
@@ -41,18 +41,18 @@ public class Player {
         return Usability.NOT_PRESENT;
       }
     }
-    if (foundItemPlayer instanceof Weapon){
+    if (foundItemPlayer instanceof Weapon) {
       equipWeapon((Weapon) foundItemPlayer);
       return Usability.USABLE;
 
     } else return Usability.NON_USABLE;
   }
 
-  public Weapon equipWeapon(Weapon weapon){
+  public Weapon equipWeapon(Weapon weapon) {
 
     boolean isEmpty = equippedWeapon.isEmpty();
 
-    if (isEmpty){
+    if (isEmpty) {
       inventoryPlayer.remove(weapon);
       equippedWeapon.add(weapon);
       return weapon;
@@ -73,18 +73,19 @@ public class Player {
         return Usability.USABLE;
       } else {
         return Usability.NON_USABLE;
+        // RangedWeapon rangedWeapon = (RangedWeapon) getEquippedWeapon().get(0); //type caste
       }
-      // RangedWeapon rangedWeapon = (RangedWeapon) getEquippedWeapon().get(0); //type caste
     } else {
-      return Usability.NOT_PRESENT_WEAPON;
+      return Usability.NOT_PRESENT_WEAPON; // if not equipped weapon
     }
   }
+
 
   public void attackEnemy(){
 
     Usability found = checkWeapon((Weapon) getEquippedWeapon().get(0));
 
-    if (found == Usability.USABLE){
+    if (found == Usability.USABLE) {
       // opdatere hitAttempts
       int remainingUses = ((Weapon) getEquippedWeapon().get(0)).remainingUses();
       System.out.println(remainingUses);
@@ -93,10 +94,16 @@ public class Player {
       remainingUses = ((Weapon) getEquippedWeapon().get(0)).remainingUses();
       System.out.println(remainingUses);
 
+    } else if (found == Usability.NON_USABLE) {
+      System.out.println("Ikke et våben");
+    } else if (found == Usability.NOT_PRESENT_WEAPON) {
+      System.out.println("Not present");
+    }
+
       // use in next part:
       //  int healthDamage = ((Weapon) getEquippedWeapon().get(0)).getHealthDamage();
       //  ((Weapon) getEquippedWeapon().get(0)).setHealthDamage(healthDamage);
-    }
+
 
   }
 
