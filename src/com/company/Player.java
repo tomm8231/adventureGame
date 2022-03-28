@@ -75,7 +75,7 @@ public class Player {
         return Usability.NON_USABLE;
         // RangedWeapon rangedWeapon = (RangedWeapon) getEquippedWeapon().get(0); //type caste
       }
-    } else {
+    }  { //TODO: Dette virker ikke!
       return Usability.NOT_PRESENT_WEAPON; // if not equipped weapon
     }
   }

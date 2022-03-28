@@ -249,6 +249,11 @@ public class UserInterface {
   }
 
   public void displayCheckedWeapon(){
+    ArrayList<Item> items = player.getEquippedWeapon();
+
+    if(items.isEmpty()){
+      System.out.println("You have not equipped this weapon");
+    }
     Weapon equippedWeapon = (Weapon) player.getEquippedWeapon().get(0);
     Usability usabilityWeapon = player.checkWeapon(equippedWeapon);
 
@@ -256,8 +261,6 @@ public class UserInterface {
       System.out.println("Attack the enemy!");
     } else if (usabilityWeapon == Usability.NON_USABLE) {
       System.out.println("Sorry your weapon is out ammo!");
-    } else if (usabilityWeapon == Usability.NOT_PRESENT_WEAPON) {
-      System.out.println("You have not equipped this weapon");
     }
   }
 
