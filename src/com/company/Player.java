@@ -24,6 +24,8 @@ public class Player {
     return equippedWeapon;
   }
 
+
+
   public Usability tryEquip(String itemName) {
 
     Item foundItemPlayer = findItemPlayer(itemName);
@@ -105,7 +107,7 @@ public class Player {
  */
 
 
-  public Usability attackEnemy() {
+  public Usability attackEnemy(String enemyName) {
 
     ArrayList<Item> weapons = equippedWeapon;
     if (weapons.isEmpty()) {
@@ -113,8 +115,15 @@ public class Player {
     } else {
       // Usability found = checkWeapon((Weapon) getEquippedWeapon().get(0));
       ((Weapon) getEquippedWeapon().get(0)).setHitAttempts();
-      return Usability.USABLE;
+      Enemy enemy = currentRoom.findEnemyRoom(enemyName);
+      if (enemy != null) {
+        System.out.println("Enemy hp before attack: " + currentRoom.getEnemies().get(0).getHealthPoints());
+        currentRoom.getEnemies().get(0).setHealthPoints(10);
+        System.out.println("Enemy hp after attack: " + currentRoom.getEnemies().get(0).getHealthPoints());
+        return Usability.USABLE;
       }
+      }
+    return null;
   }
 
 

@@ -8,6 +8,7 @@ public class Room {
   private String name;
   private String description;
   private ArrayList<Item> items;
+  private ArrayList<Enemy> enemies;
 
   private Room north;
   private Room south;
@@ -19,7 +20,31 @@ public class Room {
     this.name = name;
     this.description = description;
     this.items = new ArrayList<>();
+    this.enemies = new ArrayList<>();
   }
+
+  public void addEnemy(Enemy enemy) {
+    enemies.add(enemy);
+  }
+
+  public void removeEnemy(Enemy enemy) {
+    this.enemies.remove(enemy);
+  }
+
+  public Enemy findEnemyRoom(String enemyName) {
+    for (Enemy enemy : enemies) {
+      if (enemy.getName().equals(enemyName)) {
+        return enemy;
+      }
+    }
+    return null;
+  }
+
+  public ArrayList<Enemy> getEnemies() {
+    return enemies;
+  }
+
+
 
   public void addItem(Item item){
     items.add(item);

@@ -119,7 +119,9 @@ public class UserInterface {
       warningHealth();
 
       isAlive = player.playerDead();
-      playAgain(isAlive);
+      if (!isAlive) {
+        playAgain(isAlive);
+      }
 
     } while (!input.equals("exit") && (isAlive));
 
@@ -192,7 +194,7 @@ public class UserInterface {
     int counter = 0;
 
     while (!answer.equals("yes") && !answer.equals("no"))
-      if (isAlive == false) {
+      if (!isAlive) {
         if (counter < 1) {
           System.out.println("Play again? (yes/no)");
           counter++;
@@ -356,8 +358,9 @@ public class UserInterface {
   }
 
   public void attackHelpMethod(String input) {
+    String requestedEnemy = input.substring(input.indexOf(" ") + 1);
     displayCheckedWeaponAttack();
-    player.attackEnemy();
+    player.attackEnemy(requestedEnemy);
 
     String attackEnemy = input.substring(input.indexOf(" ") + 1);
     // attack enemy
