@@ -13,9 +13,12 @@ public class Map {
 
   public void createCaves() {
 
-
+    // Weapons to the enemy:
     Item swordEnemy = new MeleeWeapon("sword", "It's very sharp and curvy!", -20);
+    Item batFangs = new MeleeWeapon("batfangs", "In the mouth you see som crazy sharp fangs", -30);
 
+
+    // Caves with items, food, weapons and enemies:
     Room cave1 = new Room("The Claustrophobia","""
             \tThe cave is surprisingly small and you feel that the walls are getting closer every second you stand there.
             \tYou have to decide fast where to go, because you're claustrophobia is freaking you out.""");
@@ -48,6 +51,10 @@ public class Map {
     cave3.addItem(new Food("candy", "Jelly Beans with butter taste", -5));
     cave3.addItem(new Food ("poison", "A brown bottle marked with poison", -100));
     cave3.addItem(new MeleeWeapon("sledgehammer", "Rather large and heavy", -5));
+    // Enemy
+    cave3.addEnemy(new Enemy("bat-gremlin", "A weird little creature, a hybrid between a bat and a gremlin.", 50, (Weapon) batFangs));
+
+    //TODO: Hvordan give player et våben?
 
 
     Room cave4 = new Room("The Eternal Deep","""

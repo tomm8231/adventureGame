@@ -12,7 +12,7 @@ public class Enemy {
 
 
 
-  public Enemy(String name, String description, int healthPointsm, Weapon weapon) {
+  public Enemy(String name, String description, int healthPoints, Weapon weapon) {
     this.name = name;
     this.description = description;
     this.healthPoints = healthPoints;
@@ -39,6 +39,8 @@ public class Enemy {
   public String toString() {
     return name + ": " + description;
   }
+
+
 
 
   public String getDescription() {

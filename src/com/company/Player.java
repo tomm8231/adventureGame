@@ -9,7 +9,7 @@ public class Player {
   private int healthStatus = 100;
   private ArrayList<Item> inventoryPlayer = new ArrayList<>();
   private ArrayList<Item> equippedWeapon = new ArrayList<>();
-// change to Weapon
+
 
   public int getHealthStatus() {
     return healthStatus;

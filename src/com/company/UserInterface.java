@@ -1,7 +1,6 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -241,7 +240,7 @@ public class UserInterface {
 
     // Find the equipped weapon in Player Class
     } else if (usability == Usability.USABLE) {
-      ArrayList found = player.getEquippedWeapon();
+      ArrayList<Item> found = player.getEquippedWeapon();
       System.out.println("You're now carrying the " + player.getEquippedWeapon().get(0).getName() + " in your hands.");
 
     } else if (usability == Usability.NON_USABLE) {
@@ -258,6 +257,10 @@ public class UserInterface {
 
   }
 
+  public String capitaliseFirstLetterEnemy(Enemy enemy) {
+    return enemy.getName().substring(0, 1).toUpperCase() + enemy.getName().substring(1).toLowerCase();
+
+  }
 
   public void lookAround() {
     System.out.println("Looking around...");
@@ -277,6 +280,13 @@ public class UserInterface {
       sb.append(itemNameFirstLetterCapitalised);
     }
     System.out.println(sb);
+
+    StringBuilder sbEnemy = new StringBuilder();
+    for (Enemy enemy : player.getCurrentRoom().getEnemies()){
+      String enemyNameFirstLetterCapitalised = capitaliseFirstLetterEnemy(enemy) + ": " + enemy.getDescription() + "\n";
+      sbEnemy.append(enemyNameFirstLetterCapitalised);
+    }
+    System.out.println(sbEnemy);
   }
 
   public void goHelpMethod(String input) {
