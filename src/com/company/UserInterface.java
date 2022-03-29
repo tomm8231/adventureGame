@@ -12,6 +12,7 @@ public class UserInterface {
 
 
   public void welcomeMessage() {
+    newLine();
     System.out.println("Welcome to Adventure Iceland!");
     System.out.println("""
                 
@@ -21,16 +22,13 @@ public class UserInterface {
         /    |    \\/ /_/ | \\   /\\  ___/|   |  \\  | |  |  /|  | \\/\\  ___/  |   \\  \\__\\  ___/|  |__/ __ \\|   |  \\/ /_/ |  \\|
         \\____|__  /\\____ |  \\_/  \\___  >___|  /__| |____/ |__|    \\___  > |___|\\___  >___  >____(____  /___|  /\\____ |  __
                 \\/      \\/           \\/     \\/                        \\/           \\/    \\/          \\/     \\/      \\/  \\/
-         
+                
         """);
 
-
     System.out.println("""
-        You have arrived to Iceland with a sailboat, and you are on the most exciting trip of your life to experience
-        the newly discovered lava caves, found by some researchers from the University of Aberdeen.
-        You have heard that it is very difficult to find the greatest cave of them all, the one with purple stalactites all
-        over, a huge waterfall and with the most amazing light, but with enough food, water and patience, you have decided
-        to complete. Get ready for the Adventure of Vatnajökull!
+        You have arrived to Iceland to experience the legendary lava caves, which no adventurer has ever been able to document before.
+        You have heard various rumors, from purple stalactites all over to some horror stories, which can not be rooted in reality - you think.
+        Get ready for the Adventure of Vatnajökull!
         """);
 
     System.out.println("Press enter to play game");
@@ -65,24 +63,25 @@ public class UserInterface {
     player = new Player();
     map.createCaves();
     player.setCurrentRoom(map.getStarterRoom());
-
     Scanner sc = new Scanner(System.in);
 
     welcomeMessage();
     sc.nextLine();
     showCommands();
     introMapDescription();
-
+    loopGame();
+/*
     isAlive = true;
     String input = "";
 
-    while (!input.equals("exit") && (isAlive)) {
+    do {
 
       input = sc.nextLine().trim().toLowerCase();
 
 
       if (input.equals("look")) {
         lookAround();
+
       } else if (input.startsWith("go ")) {
         goHelpMethod(input);
 
@@ -120,14 +119,72 @@ public class UserInterface {
       warningHealth();
 
       isAlive = player.playerDead();
-
       playAgain(isAlive);
 
+    } while (!input.equals("exit") && (isAlive));
 
-    }
+
+
+ */
+  }
+
+  public void loopGame(){
+
+    Scanner sc = new Scanner(System.in);
+
+    String input;
+
+    isAlive = true;
+    do {
+
+     input = sc.nextLine().trim().toLowerCase();
+
+      if (input.equals("look")) {
+        lookAround();
+
+      } else if (input.startsWith("go ")) {
+        goHelpMethod(input);
+
+      } else if (input.startsWith("take ")) {
+        takeHelpMethod(input);
+
+      } else if (input.startsWith("drop ")) {
+        dropHelpMethod(input);
+
+      } else if (input.equals("inventory")) {
+        inventoryHelpMethod();
+
+      } else if (input.equals("health")) {
+        checkHealthStatus();
+
+      } else if (input.startsWith("eat ")) {
+        eatHelpMethod(input);
+
+      } else if (input.startsWith("equip ")) {
+        equipHelpMethod(input);
+
+      } else if (input.startsWith("attack ")) {
+        attackHelpMethod(input);
+
+      } else if (input.equals("help")) {
+        showCommands();
+
+      } else if (input.equals("exit")) {
+        System.out.println("Exiting game");
+
+      } else {
+        System.out.println("\"" + input + "\" is not a valid command. Try again!");
+      }
+
+      warningHealth();
+      afterDeath();
+
+
+    } while (!input.equals("exit") && (isAlive));
 
 
   }
+
 
   public void playAgain(boolean isAlive) {
     Scanner sc = new Scanner(System.in);
@@ -137,7 +194,7 @@ public class UserInterface {
     while (!answer.equals("yes") && !answer.equals("no"))
       if (isAlive == false) {
         if (counter < 1) {
-          System.out.println("Play again?");
+          System.out.println("Play again? (yes/no)");
           counter++;
         }
         answer = sc.nextLine().trim().toLowerCase();
@@ -152,6 +209,16 @@ public class UserInterface {
       }
   }
 
+  public void afterDeath(){
+
+    isAlive = player.playerDead();
+
+    if (!isAlive){
+      playAgain(isAlive);
+    }
+  }
+
+
   public void introMapDescription() {
     System.out.println("""
         You have abseiled into a very small and dark cave with four tiny
@@ -164,13 +231,14 @@ public class UserInterface {
 
   public void checkUsabilityWeapon(Usability usability) {
 
-
     if (usability == Usability.NOT_PRESENT) {
       System.out.println("This item is not in your backpack.");
+
     } else if (usability == Usability.NOT_PRESENT_WEAPON) {
       System.out.println("This weapon is not in your backpack.");
+
+    // Find the equipped weapon in Player Class
     } else if (usability == Usability.USABLE) {
-// Find the equipped weapon in Player Class
       ArrayList found = player.getEquippedWeapon();
       System.out.println("You're now carrying the " + player.getEquippedWeapon().get(0).getName() + " in your hands.");
 
@@ -248,7 +316,7 @@ public class UserInterface {
     checkUsabilityWeapon(found);
   }
 
-
+// print when player writes "inventory"
   public void showEquippedWeaponInventory() {
 
     if (player.getEquippedWeapon().isEmpty()) {
@@ -270,6 +338,7 @@ public class UserInterface {
 
       if (usabilityWeapon == Usability.USABLE) {
         System.out.println("Attack the enemy!");
+
       } else if (usabilityWeapon == Usability.NON_USABLE) {
         System.out.println("Sorry your weapon is out ammo!");
       }
@@ -277,7 +346,8 @@ public class UserInterface {
   }
 
   public void inventoryHelpMethod() {
-    if (player.checkEmptyBackpack() == true) {
+    // boolean true
+    if (player.checkEmptyBackpack()) {
       System.out.println("You have nothing in your backpack");
     } else
       System.out.println("In your backpack you have:");
@@ -311,14 +381,11 @@ public class UserInterface {
 
 
   public void showBackpackInventory(ArrayList<Item> inventoryPlayer) {
-// StringBuilder sb = new StringBuilder();
+
     for (Item item : inventoryPlayer) {
-//String temp = item.getName();
       String temp = capitaliseFirstLetterItem(item);
-//sb.append(temp);
       System.out.println(temp);
     }
-
   }
 
   public void checkValidDirection(Room cave, String direction) {
