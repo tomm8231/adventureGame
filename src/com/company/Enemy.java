@@ -24,8 +24,17 @@ public class Enemy {
     equippedWeaponEnemy.add(weapon);
   }
 
+  public Usability attackPlayer() {
+    ((Weapon) getEquippedWeaponEnemy().get(0)).setHitAttempts();
+    return Usability.USABLE;
+  }
+
   public String getName() {
     return name;
+  }
+
+  public ArrayList<Item> getEquippedWeaponEnemy() {
+    return equippedWeaponEnemy;
   }
 
   public void setHealthPoints(int playerDamage) {
