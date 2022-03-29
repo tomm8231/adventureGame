@@ -119,6 +119,7 @@ public class Player {
       if (enemy != null) {
         System.out.println("Enemy hp before attack: " + currentRoom.getEnemies().get(0).getHealthPoints());
         currentRoom.getEnemies().get(0).setHealthPoints(10);
+
         System.out.println("Enemy hp after attack: " + currentRoom.getEnemies().get(0).getHealthPoints());
         return Usability.USABLE;
       }

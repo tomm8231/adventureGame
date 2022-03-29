@@ -1,20 +1,28 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Enemy {
 
 
   private String name;
   private String description;
   private int healthPoints;
+  ArrayList<Item> equippedWeaponEnemy = new ArrayList<>();
 
 
 
-  public Enemy(String name, String description, int healthPoints) {
+  public Enemy(String name, String description, int healthPointsm, Weapon weapon) {
     this.name = name;
     this.description = description;
     this.healthPoints = healthPoints;
+    equipEnemy(weapon);
   }
 
+
+  public void equipEnemy(Weapon weapon) {
+    equippedWeaponEnemy.add(weapon);
+  }
 
   public String getName() {
     return name;

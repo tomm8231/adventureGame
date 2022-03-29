@@ -14,6 +14,8 @@ public class Map {
   public void createCaves() {
 
 
+    Item swordEnemy = new MeleeWeapon("sword", "It's very sharp and curvy!", -20);
+
     Room cave1 = new Room("The Claustrophobia","""
             \tThe cave is surprisingly small and you feel that the walls are getting closer every second you stand there.
             \tYou have to decide fast where to go, because you're claustrophobia is freaking you out.""");
@@ -33,7 +35,7 @@ public class Map {
     cave2.addItem(new Food("fish", "Some smelly fish", -5)); // -health
     cave2.addItem(new Food("bread", "Surprisingly fresh bread"));
     cave2.addItem(new RangedWeapon("harpoon", "A sharp harpoon", -30, 5));
-    cave2.addEnemy(new Enemy("orc", "This orc seems extremely aggressive!", 50));
+    cave2.addEnemy(new Enemy("orc", "This orc seems extremely aggressive!", 50, (Weapon) swordEnemy));
 
 
 

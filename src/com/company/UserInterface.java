@@ -361,9 +361,6 @@ public class UserInterface {
     String requestedEnemy = input.substring(input.indexOf(" ") + 1);
     displayCheckedWeaponAttack();
     player.attackEnemy(requestedEnemy);
-
-    String attackEnemy = input.substring(input.indexOf(" ") + 1);
-    // attack enemy
   }
 
   public void eatHelpMethod(String input) {
