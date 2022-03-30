@@ -21,10 +21,10 @@ public class Enemy {
 
   }
 
-  public Usability attackPlayer() {
+  public int attackPlayer() {
     ((Weapon) getEquippedWeaponEnemy().get(0)).setHitAttempts();
     // returnere våbenets health damage?
-    return Usability.USABLE;
+    return ((Weapon) getEquippedWeaponEnemy().get(0)).getHealthDamage();
   }
 
   public void attackedByPlayer(Weapon weapon){

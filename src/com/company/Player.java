@@ -84,31 +84,28 @@ public class Player {
   }
 
 
-  public Usability attackEnemy(String enemyName) {
+  public void attackEnemy(String enemyName) {
 
     ArrayList<Item> weaponPlayer = equippedWeapon;
 
-    if (weaponPlayer.isEmpty()) {
-      return Usability.NOT_PRESENT_WEAPON;
-    } else {
-      // Usability found = checkWeapon((Weapon) getEquippedWeapon().get(0));
+    if (!weaponPlayer.isEmpty()) {
+
       ((Weapon) getEquippedWeapon().get(0)).setHitAttempts();
 
+      Enemy enemy = currentRoom.findEnemyRoom(enemyName);
       // The enemy gets automatically attacked by Player, we send our weapon as parameter to the
       // method in the enemy Class: attackedByPlayer:
-      currentRoom.getEnemies().get(0).attackedByPlayer((Weapon) equippedWeapon.get(0));
 
-
-      Enemy enemy = currentRoom.findEnemyRoom(enemyName);
       if (enemy != null) {
-        System.out.println("Enemy hp before attack: " + currentRoom.getEnemies().get(0).getHealthPoints()); //TODO: Enemy skal holde styr på sin egne HP
-        currentRoom.getEnemies().get(0).setHealthPoints(10);
+        enemy.attackedByPlayer((Weapon) equippedWeapon.get(0));
+        System.out.println("Enemy hp before attack: " + enemy.getHealthPoints()); //TODO: Enemy skal holde styr på sin egne HP
+        enemy.setHealthPoints(10);
 
-        System.out.println("Enemy hp after attack: " + currentRoom.getEnemies().get(0).getHealthPoints());
-        return Usability.USABLE;
+        System.out.println("Enemy hp after attack: " + enemy.getHealthPoints());
+
+        setHealthPoints(healthPoints - enemy.attackPlayer());
       }
-      }
-    return null;
+    }
   }
 
   public void attackedByEnemy(Weapon weapon){

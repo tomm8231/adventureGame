@@ -167,6 +167,7 @@ public class UserInterface {
       } else if (input.startsWith("attack ")) {
         attackHelpMethod(input);
 
+
       } else if (input.equals("help")) {
         showCommands();
 
