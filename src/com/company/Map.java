@@ -65,7 +65,8 @@ public class Map {
     cave4.addItem(new Item ("oil", "A tiny bottle of oil"));
     cave4.addItem(new MeleeWeapon ("spear", "Sharp spartan spear", -50));
     cave4.addItem(new RangedWeapon("bow", "A set of bow and arrow", -20, 5));
-
+    cave4.addItem(new MeleeWeapon("axe2", "TEST TEST damage -100",-100));
+    cave4.addEnemy(new Enemy("t", "Tommy T", 100, (Weapon) batFangs));
 
 
     Room cave5 = new Room("The Spectacular","""
