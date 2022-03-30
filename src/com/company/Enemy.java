@@ -27,7 +27,8 @@ public class Enemy {
     return ((Weapon) getEquippedWeaponEnemy().get(0)).getHealthDamage();
   }
 
-  public void attackedByPlayer(Weapon weapon){
+
+  public void attackedByPlayer(Weapon weapon, Room room){
 
   // getDamage(Weapon) from Player
     Weapon equippedWeaponPlayer = weapon;
@@ -39,8 +40,8 @@ public class Enemy {
       player.attackedByEnemy(equippedWeaponPlayer);
 
     } else{
-      dropWeapon();
-      removeDeadEnemy();
+      dropWeapon((Weapon) equippedWeaponEnemy.get(0), room);
+      removeDeadEnemy(room);
     }
   }
 
@@ -52,12 +53,14 @@ public class Enemy {
     }
   }
 
-  public void dropWeapon() {
-  player.getCurrentRoom().addItem(equippedWeaponEnemy.get(0));
+
+
+  public void dropWeapon(Weapon weapon, Room room) {
+    room.addItem(weapon);
   }
 
-  public void removeDeadEnemy(){
-    player.getCurrentRoom().removeEnemy(player.getCurrentRoom().getEnemies().get(0));
+  public void removeDeadEnemy(Room room){
+    room.removeEnemy(room.getEnemies().get(0));
   }
 
   public String getName() {

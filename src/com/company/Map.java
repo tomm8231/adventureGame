@@ -14,9 +14,9 @@ public class Map {
   public void createCaves() {
 
     // Weapons to the enemy:
-    Item swordEnemy = new MeleeWeapon("sword", "It's very sharp and curvy!", -20);
-    Item batFangs = new MeleeWeapon("bat-fangs", "In the mouth you see som crazy sharp fangs", -30);
-    Item dragonFire = new MeleeWeapon("fire", "fire-breathing from the Dragon", -30); //TODO: Is this a Melee or range?
+    MeleeWeapon swordEnemy = new MeleeWeapon("sword", "It's very sharp and curvy!", -20);
+    MeleeWeapon batFangs = new MeleeWeapon("bat-fangs", "In the mouth you see som crazy sharp fangs", -30);
+    MeleeWeapon dragonFire = new MeleeWeapon("fire", "fire-breathing from the Dragon", -30); //TODO: Is this a Melee or range?
 
 
 
@@ -66,7 +66,7 @@ public class Map {
     cave4.addItem(new MeleeWeapon ("spear", "Sharp spartan spear", -50));
     cave4.addItem(new RangedWeapon("bow", "A set of bow and arrow", -20, 5));
     cave4.addItem(new MeleeWeapon("axe2", "TEST TEST damage -100",-100));
-    cave4.addEnemy(new Enemy("t", "Tommy T", 100, (Weapon) batFangs));
+    cave4.addEnemy(new Enemy("t", "Tommy T", 100, batFangs));
 
 
     Room cave5 = new Room("The Spectacular","""
