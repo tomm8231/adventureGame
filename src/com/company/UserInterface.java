@@ -306,7 +306,7 @@ public class UserInterface {
       String itemNameFirstLetterCapitalised = capitaliseFirstLetterItem(itemTaken);
       System.out.println(itemNameFirstLetterCapitalised + " has been added to your pack.");
     } else {
-      System.out.println("There's nothing " + itemName + " in this cave.");
+      System.out.println("There's no " + itemName + " in this cave.");
     }
   }
 
@@ -350,7 +350,7 @@ public class UserInterface {
       System.out.println("You are equipped with: " + player.getEquippedWeapon().get(0).getName());
 
       if (usabilityWeapon == Usability.USABLE) {
-        System.out.println("Attack the enemy!");
+        System.out.println("You attacked the " + player.getCurrentRoom().getEnemies().get(0).getName());
 
       } else if (usabilityWeapon == Usability.NON_USABLE) {
         System.out.println("Sorry your weapon is out ammo!");
@@ -372,6 +372,8 @@ public class UserInterface {
     String requestedEnemy = input.substring(input.indexOf(" ") + 1);
     displayCheckedWeaponAttack();
     player.attackEnemy(requestedEnemy);
+
+
   }
 
   public void eatHelpMethod(String input) {

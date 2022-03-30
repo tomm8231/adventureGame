@@ -36,7 +36,7 @@ public class Enemy {
 
     if(isEnemyAlive){
       //TODO: BUG: attackedByEnemy(equippedWeaponPlayer);
-      System.out.println("Enemy is alive. Attack again");
+      System.out.println("Enemy is still alive.\nWhat's your next move?");
     } else{
       dropWeapon((Weapon) equippedWeaponEnemy.get(0), room);
       removeDeadEnemy(room);
