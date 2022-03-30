@@ -9,9 +9,7 @@ public class Enemy {
   private String description;
   private int healthPoints;
   private ArrayList<Item> equippedWeaponEnemy = new ArrayList<>();
-  //private boolean isAliveEnemy;
-  //TODO: Skal arrayList være protected?
-  Player player = new Player();
+  private boolean isEnemyAlive;
 
   public Enemy(String name, String description, int healthPoints, Weapon weapon) {
     this.name = name;
@@ -34,18 +32,20 @@ public class Enemy {
     Weapon equippedWeaponPlayer = weapon;
     setHealthPoints(equippedWeaponPlayer.healthDamage);
 
-    //isAliveEnemy = enemyDead();
+    isEnemyAlive = isEnemyAlive();
 
-    if(!enemyDead()){
-      player.attackedByEnemy(equippedWeaponPlayer);
-
+    if(isEnemyAlive){
+      //TODO: BUG: attackedByEnemy(equippedWeaponPlayer);
+      System.out.println("Enemy is alive. Attack again");
     } else{
       dropWeapon((Weapon) equippedWeaponEnemy.get(0), room);
       removeDeadEnemy(room);
     }
+
+    attackPlayer();
   }
 
-  public boolean enemyDead(){
+  public boolean isEnemyAlive(){
     if (healthPoints <= 0){
       return false;
     } else {
@@ -72,7 +72,7 @@ public class Enemy {
   }
 
   public void setHealthPoints(int playerDamage) {
-    this.healthPoints -= playerDamage;
+    this.healthPoints += playerDamage;
   }
 
   public int getHealthPoints() {

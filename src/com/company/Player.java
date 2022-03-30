@@ -15,8 +15,8 @@ public class Player {
   }
 
   // use later?
-  public void setHealthPoints(int healthPoints) {
-    this.healthPoints = healthPoints;
+  public void setHealthPoints(int health) {
+    this.healthPoints += health;
   }
 
   public ArrayList<Item> getEquippedWeapon() {
@@ -98,12 +98,9 @@ public class Player {
 
       if (enemy != null) {
         enemy.attackedByPlayer((Weapon) equippedWeapon.get(0), currentRoom);
-        System.out.println("Enemy hp before attack: " + enemy.getHealthPoints());
-        enemy.setHealthPoints(((Weapon) equippedWeapon.get(0)).healthDamage);
-
-        System.out.println("Enemy hp after attack: " + enemy.getHealthPoints());
-
-        setHealthPoints(healthPoints - enemy.attackPlayer());
+        //enemy.setHealthPoints(((Weapon) equippedWeapon.get(0)).healthDamage);
+        attackedByEnemy((Weapon) enemy.getEquippedWeaponEnemy().get(0));
+        //setHealthPoints(enemy.attackPlayer());
       }
     }
   }
