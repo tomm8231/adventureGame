@@ -11,7 +11,7 @@ public class Enemy {
   private ArrayList<Item> equippedWeaponEnemy = new ArrayList<>();
   //private boolean isAliveEnemy;
   //TODO: Skal arrayList være protected?
-
+  Player player = new Player();
 
   public Enemy(String name, String description, int healthPoints, Weapon weapon) {
     this.name = name;
@@ -28,6 +28,7 @@ public class Enemy {
   }
 
   public void attackedByPlayer(Weapon weapon){
+
   // getDamage(Weapon) from Player
     Weapon equippedWeaponPlayer = weapon;
     setHealthPoints(equippedWeaponPlayer.healthDamage);
@@ -35,9 +36,12 @@ public class Enemy {
     //isAliveEnemy = enemyDead();
 
     if(!enemyDead()){
+      player.attackedByEnemy(equippedWeaponPlayer);
 
+    } else{
+      dropWeapon();
+      removeDeadEnemy();
     }
-
   }
 
   public boolean enemyDead(){
@@ -46,6 +50,14 @@ public class Enemy {
     } else {
       return true;
     }
+  }
+
+  public void dropWeapon() {
+  player.getCurrentRoom().addItem(equippedWeaponEnemy.get(0));
+  }
+
+  public void removeDeadEnemy(){
+    player.getCurrentRoom().removeEnemy(player.getCurrentRoom().getEnemies().get(0));
   }
 
   public String getName() {

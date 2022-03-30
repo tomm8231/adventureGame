@@ -86,8 +86,8 @@ public class Player {
 
   public Usability attackEnemy(String enemyName) {
 
-
     ArrayList<Item> weaponPlayer = equippedWeapon;
+
     if (weaponPlayer.isEmpty()) {
       return Usability.NOT_PRESENT_WEAPON;
     } else {
