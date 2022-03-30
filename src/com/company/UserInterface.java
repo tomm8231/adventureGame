@@ -67,7 +67,7 @@ public class UserInterface {
     welcomeMessage();
     sc.nextLine();
     showCommands();
-    introMapDescription();
+    displayIntroCave();
     loopGame();
 /*
     isAlive = true;
@@ -220,7 +220,7 @@ public class UserInterface {
   }
 
 
-  public void introMapDescription() {
+  public void displayIntroCave() {
     System.out.println("""
         You have abseiled into a very small and dark cave with four tiny
         tunnels, you have no clues witch way to go. This cave is named The Claustrophobia...
@@ -380,7 +380,7 @@ public class UserInterface {
 
     if (found == Usability.USABLE) {
       System.out.println("You have eaten the " + requestedFood);
-      System.out.println("HP: " + player.getHealthStatus());
+      System.out.println("HP: " + player.getHealthPoints());
     } else if (found == Usability.NON_USABLE) {
       System.out.println("You can not eat the " + requestedFood);
     } else {
@@ -414,7 +414,7 @@ public class UserInterface {
 
 
   public void warningHealth() {
-    int tempHealth = player.getHealthStatus();
+    int tempHealth = player.getHealthPoints();
 
     if (tempHealth < 25 && tempHealth > 0) {
       System.out.println("Warning: Your health points are low!");
@@ -425,7 +425,7 @@ public class UserInterface {
 
 
   public void checkHealthStatus() {
-    int tempHealth = player.getHealthStatus();
+    int tempHealth = player.getHealthPoints();
 
     if (tempHealth <= 100 && tempHealth >= 75) {
       System.out.println(tempHealth + " - You're in good shape!");

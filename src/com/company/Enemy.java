@@ -8,25 +8,44 @@ public class Enemy {
   private String name;
   private String description;
   private int healthPoints;
-  ArrayList<Item> equippedWeaponEnemy = new ArrayList<>();
-
+  private ArrayList<Item> equippedWeaponEnemy = new ArrayList<>();
+  //private boolean isAliveEnemy;
+  //TODO: Skal arrayList være protected?
 
 
   public Enemy(String name, String description, int healthPoints, Weapon weapon) {
     this.name = name;
     this.description = description;
     this.healthPoints = healthPoints;
-    equipEnemy(weapon);
-  }
+    this.equippedWeaponEnemy.add(weapon);
 
-
-  public void equipEnemy(Weapon weapon) {
-    equippedWeaponEnemy.add(weapon);
   }
 
   public Usability attackPlayer() {
     ((Weapon) getEquippedWeaponEnemy().get(0)).setHitAttempts();
+    // returnere våbenets health damage?
     return Usability.USABLE;
+  }
+
+  public void attackedByPlayer(Weapon weapon){
+  // getDamage(Weapon) from Player
+    Weapon equippedWeaponPlayer = weapon;
+    setHealthPoints(equippedWeaponPlayer.healthDamage);
+
+    //isAliveEnemy = enemyDead();
+
+    if(!enemyDead()){
+
+    }
+
+  }
+
+  public boolean enemyDead(){
+    if (healthPoints <= 0){
+      return false;
+    } else {
+      return true;
+    }
   }
 
   public String getName() {
@@ -48,8 +67,6 @@ public class Enemy {
   public String toString() {
     return name + ": " + description;
   }
-
-
 
 
   public String getDescription() {

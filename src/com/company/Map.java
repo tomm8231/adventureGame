@@ -15,7 +15,9 @@ public class Map {
 
     // Weapons to the enemy:
     Item swordEnemy = new MeleeWeapon("sword", "It's very sharp and curvy!", -20);
-    Item batFangs = new MeleeWeapon("batfangs", "In the mouth you see som crazy sharp fangs", -30);
+    Item batFangs = new MeleeWeapon("bat-fangs", "In the mouth you see som crazy sharp fangs", -30);
+    Item dragonFire = new MeleeWeapon("fire", "fire-breathing from the Dragon", -30); //TODO: Is this a Melee or range?
+
 
 
     // Caves with items, food, weapons and enemies:
@@ -27,8 +29,9 @@ public class Map {
     cave1.addItem(new MeleeWeapon("axe","This axe is very blunt", -20)); // healthDamage
     cave1.addItem(new MeleeWeapon("knife","A rusty old knife", -10));
     cave1.addItem(new RangedWeapon("crossbow", "crossbow", -20, 5));
+    cave1.addItem(new RangedWeapon("slingshot", "A homemade slingshot", -3, 50));
 
- // slangebøsse = slingshot
+
 
     Room cave2 = new Room("The moist","""
             \tSuddenly you're standing in water to your knees.
@@ -51,10 +54,8 @@ public class Map {
     cave3.addItem(new Food("candy", "Jelly Beans with butter taste", -5));
     cave3.addItem(new Food ("poison", "A brown bottle marked with poison", -100));
     cave3.addItem(new MeleeWeapon("sledgehammer", "Rather large and heavy", -5));
-    // Enemy
     cave3.addEnemy(new Enemy("bat-gremlin", "A weird little creature, a hybrid between a bat and a gremlin.", 50, (Weapon) batFangs));
 
-    //TODO: Hvordan give player et våben?
 
 
     Room cave4 = new Room("The Eternal Deep","""
@@ -73,11 +74,12 @@ public class Map {
     cave5.addItem(new Item ("diamond", "A big shiny diamond"));
     cave5.addItem(new Item ("treasure", "A large treasure chest"));
     cave5.addItem(new MeleeWeapon ("sword", "A sharp sword looking kind if medieval", -50));
+    cave5.addEnemy(new Enemy("dragon", "A green large fire-breathing dragon", -40, (Weapon) dragonFire));
 
 
 
     Room cave6 = new Room("The Mere Darkness","""
-            \tIt's completely dark and you don't see anything.""");
+            \tIt's dark.""");
     cave6.addItem(new Food("water", "A large bottle of water", 5));
     cave6.addItem(new Food("fish", "Harðfiskur is dried fish", 10));
     cave6.addItem(new Food("brændevin", "A bottle of The Black Death", -10));

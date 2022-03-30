@@ -1,29 +1,27 @@
 package com.company;
 
-import javax.swing.text.Utilities;
 import java.util.ArrayList;
 
 public class Player {
 
   private Room currentRoom;
-  private int healthStatus = 100;
+  private int healthPoints = 100;
   private ArrayList<Item> inventoryPlayer = new ArrayList<>();
   private ArrayList<Item> equippedWeapon = new ArrayList<>();
 
 
-  public int getHealthStatus() {
-    return healthStatus;
+  public int getHealthPoints() {
+    return healthPoints;
   }
 
   // use later?
-  public void setHealthStatus(int healthStatus) {
-    this.healthStatus = healthStatus;
+  public void setHealthPoints(int healthPoints) {
+    this.healthPoints = healthPoints;
   }
 
   public ArrayList<Item> getEquippedWeapon() {
     return equippedWeapon;
   }
-
 
 
   public Usability tryEquip(String itemName) {
@@ -51,6 +49,7 @@ public class Player {
     } else return Usability.NON_USABLE;
   }
 
+
   public Weapon equipWeapon(Weapon weapon) {
 
     boolean isEmpty = equippedWeapon.isEmpty();
@@ -68,6 +67,7 @@ public class Player {
     }
   }
 
+
   public Usability checkWeapon(Weapon weapon) {
     int ammoLeft = weapon.remainingUses();
 
@@ -79,45 +79,29 @@ public class Player {
       return Usability.USABLE;
     } else {
       return Usability.NON_USABLE;
-      // RangedWeapon rangedWeapon = (RangedWeapon) getEquippedWeapon().get(0); //type caste
+
     }
   }
-
-
-
-
-/*
- public Usability checkWeapon(Weapon weapon) {
-    int ammoLeft = weapon.remainingUses();
-    //TODO: Ændre til det samme som i UI!
-    if(equippedWeapon.isEmpty()){
-
-    }
-
-    if (equippedWeapon.get(0) != null) { // weapon is equipped
-      if (ammoLeft > 0) {
-        return Usability.USABLE;
-      } else {
-        return Usability.NON_USABLE;
-        // RangedWeapon rangedWeapon = (RangedWeapon) getEquippedWeapon().get(0); //type caste
-      }
-    }
-      return Usability.NOT_PRESENT_WEAPON; // if not equipped weapon
-  }
- */
 
 
   public Usability attackEnemy(String enemyName) {
 
-    ArrayList<Item> weapons = equippedWeapon;
-    if (weapons.isEmpty()) {
+
+    ArrayList<Item> weaponPlayer = equippedWeapon;
+    if (weaponPlayer.isEmpty()) {
       return Usability.NOT_PRESENT_WEAPON;
     } else {
       // Usability found = checkWeapon((Weapon) getEquippedWeapon().get(0));
       ((Weapon) getEquippedWeapon().get(0)).setHitAttempts();
+
+      // The enemy gets automatically attacked by Player, we send our weapon as parameter to the
+      // method in the enemy Class: attackedByPlayer:
+      currentRoom.getEnemies().get(0).attackedByPlayer((Weapon) equippedWeapon.get(0));
+
+
       Enemy enemy = currentRoom.findEnemyRoom(enemyName);
       if (enemy != null) {
-        System.out.println("Enemy hp before attack: " + currentRoom.getEnemies().get(0).getHealthPoints());
+        System.out.println("Enemy hp before attack: " + currentRoom.getEnemies().get(0).getHealthPoints()); //TODO: Enemy skal holde styr på sin egne HP
         currentRoom.getEnemies().get(0).setHealthPoints(10);
 
         System.out.println("Enemy hp after attack: " + currentRoom.getEnemies().get(0).getHealthPoints());
@@ -127,15 +111,15 @@ public class Player {
     return null;
   }
 
-
-
-
+  public void attackedByEnemy(Weapon weapon){
+    Weapon weaponEnemy = weapon;
+    setHealthPoints(weaponEnemy.getHealthDamage());
+  }
 
 
       // use in next part:
       //  int healthDamage = ((Weapon) getEquippedWeapon().get(0)).getHealthDamage();
       //  ((Weapon) getEquippedWeapon().get(0)).setHealthDamage(healthDamage);
-
 
 
 
@@ -159,7 +143,7 @@ public class Player {
   }
 
   public void updateHealthStatus(int healthStatus) {
-    this.healthStatus += healthStatus;
+    this.healthPoints += healthStatus;
   }
 
   public void eat(Food food) {
@@ -241,7 +225,7 @@ public class Player {
   }
 
   public boolean playerDead(){
-    int tempHealth = getHealthStatus();
+    int tempHealth = getHealthPoints();
     if (tempHealth <= 0){
       return false;
     } else {
