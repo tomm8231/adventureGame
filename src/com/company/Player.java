@@ -98,8 +98,8 @@ public class Player {
 
       if (enemy != null) {
         enemy.attackedByPlayer((Weapon) equippedWeapon.get(0), currentRoom);
-        System.out.println("Enemy hp before attack: " + enemy.getHealthPoints()); //TODO: Enemy skal holde styr på sin egne HP
-        enemy.setHealthPoints(10);
+        System.out.println("Enemy hp before attack: " + enemy.getHealthPoints());
+        enemy.setHealthPoints(((Weapon) equippedWeapon.get(0)).healthDamage);
 
         System.out.println("Enemy hp after attack: " + enemy.getHealthPoints());
 
