@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-03-30T15:21:07.250Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36" etag="ATKP8tmU8LIZUHZFY2Y5" version="17.1.2" type="github">
+<mxfile host="app.diagrams.net" modified="2022-03-31T06:52:16.799Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36" etag="PxP4rHHuo6ewh3MKd26J" version="17.1.2" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1022" dy="436" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -32,7 +32,7 @@
             <mxPoint x="205" y="300" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="UK7usxM2ex3z4qg5tMJh-2" value="Print: not equipped weapon" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="UK7usxM2ex3z4qg5tMJh-2" value="Print: Not equipped weapon" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="145" y="160" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="UK7usxM2ex3z4qg5tMJh-4" value="[else]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
@@ -64,7 +64,7 @@
         <mxCell id="UK7usxM2ex3z4qg5tMJh-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="UK7usxM2ex3z4qg5tMJh-14" target="UK7usxM2ex3z4qg5tMJh-20" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="UK7usxM2ex3z4qg5tMJh-14" value="Print: no ammo left" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="UK7usxM2ex3z4qg5tMJh-14" value="Print: No ammo left" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="325" y="160" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="UK7usxM2ex3z4qg5tMJh-16" value="[else]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
@@ -91,13 +91,13 @@
         <mxCell id="UK7usxM2ex3z4qg5tMJh-31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="UK7usxM2ex3z4qg5tMJh-28" target="UK7usxM2ex3z4qg5tMJh-30" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="UK7usxM2ex3z4qg5tMJh-28" value="Print: you attacked the air" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="UK7usxM2ex3z4qg5tMJh-28" value="Print: You attacked the air" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="495" y="160" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="UK7usxM2ex3z4qg5tMJh-33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="UK7usxM2ex3z4qg5tMJh-30" target="UK7usxM2ex3z4qg5tMJh-32" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="UK7usxM2ex3z4qg5tMJh-30" value="update setHitAttempts" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="UK7usxM2ex3z4qg5tMJh-30" value="Update setHitAttempts" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="495" y="230" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="UK7usxM2ex3z4qg5tMJh-32" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;dashed=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
@@ -115,7 +115,7 @@
         <mxCell id="UK7usxM2ex3z4qg5tMJh-47" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="UK7usxM2ex3z4qg5tMJh-40" target="UK7usxM2ex3z4qg5tMJh-46" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="UK7usxM2ex3z4qg5tMJh-40" value="enemy&#39;s weapon&lt;br&gt;--&amp;gt; item in room" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="UK7usxM2ex3z4qg5tMJh-40" value="enemy&#39;s weapon:&lt;br&gt;Drop item in room" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="680" y="500" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="UK7usxM2ex3z4qg5tMJh-52" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="KBF3oVBtgUm7NCO85rsH-5" target="UK7usxM2ex3z4qg5tMJh-50" edge="1">
@@ -159,7 +159,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="UK7usxM2ex3z4qg5tMJh-53" value="Print: play again?" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="UK7usxM2ex3z4qg5tMJh-53" value="Print: Play again?" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="155" y="520" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="UK7usxM2ex3z4qg5tMJh-55" value="[player alive]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
@@ -174,10 +174,10 @@
         <mxCell id="UK7usxM2ex3z4qg5tMJh-59" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;dashed=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="200" y="610" width="30" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="KBF3oVBtgUm7NCO85rsH-0" value="update Players setHitAttempts" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="KBF3oVBtgUm7NCO85rsH-0" value="Update player&#39;s setHitAttempts" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="680" y="160" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="KBF3oVBtgUm7NCO85rsH-5" value="update Players setHitAttempts" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="KBF3oVBtgUm7NCO85rsH-5" value="Update player&#39;s setHitAttempts" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="310" y="385" width="120" height="50" as="geometry" />
         </mxCell>
         <mxCell id="KBF3oVBtgUm7NCO85rsH-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="UK7usxM2ex3z4qg5tMJh-42" target="KBF3oVBtgUm7NCO85rsH-5">
