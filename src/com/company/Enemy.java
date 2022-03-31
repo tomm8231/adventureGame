@@ -30,14 +30,16 @@ public class Enemy {
 
   // getDamage(Weapon)
     Weapon equippedWeaponPlayer = weapon;
+    System.out.println("ENEMY HP BEFORE: " + getHealthPoints());
     setHealthPoints(equippedWeaponPlayer.healthDamage);
+    System.out.println("ENEMY HP BEFORE " + getHealthPoints());
 
     isEnemyAlive = isEnemyAlive();
 
     if(isEnemyAlive){
       attackPlayer();
       return "Enemy is still alive.\nWhat's your next move?";
-    } else{
+    } else {
       dropWeapon((Weapon) equippedWeaponEnemy.get(0), room);
       removeDeadEnemy(room);
       return "The enemy is dead and seems to have dropped something.";

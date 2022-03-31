@@ -114,12 +114,16 @@ public class Player {
     return null;
   }
 
-  public String attackedByEnemy(Weapon weapon){
+  public String attackedByEnemy(Weapon weapon) {
     Weapon weaponEnemy = weapon;
     setHealthPoints(weaponEnemy.getHealthDamage());
-    return "You got attacked by " + currentRoom.getEnemies().get(0).getName() + ".\n" +
-        "And you have lost " + weaponEnemy.getHealthDamage() + " HP.";
+    if (currentRoom.getEnemies().size() > 0) {
+      return "You got attacked by " + currentRoom.getEnemies().get(0).getName() + ".\n" +
+          "And you have lost " + weaponEnemy.getHealthDamage() + " HP.";
+    }
+    return null;
   }
+
 
 
       // use in next part:
@@ -138,6 +142,8 @@ public class Player {
       if (foundItem == null) {
         return Usability.NOT_PRESENT;
       }
+    } else {
+
     }
 
     if (foundItem instanceof Food) {
