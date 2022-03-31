@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-03-31T19:14:05.221Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36" etag="0iCSfaQvYHN3Thf_8cUq" version="17.1.2" type="github">
+<mxfile host="app.diagrams.net" modified="2022-03-31T19:24:14.795Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36" etag="jz9JTgK4BQq70Xr7ls7L" version="17.1.2" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="896" dy="2438" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+    <mxGraphModel dx="582" dy="2209" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -20,7 +20,7 @@
         <mxCell id="zkfFHV4jXpPFQw0GAbJ--4" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
           <mxGeometry y="80" width="260" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="zkfFHV4jXpPFQw0GAbJ--5" value="+ welcomeMessage(): void&#xa;+ showCommands(): void&#xa;+ startGane(): void&#xa;+ loopGame(): void&#xa;+ playAgain(): void&#xa;+ afterDeath(): void&#xa;+ displayIntroCave(): void&#xa;+ checkUsabilityWeapon(): void&#xa;+ capitalise x 3&#xa;+ lookAround(): void&#xa;+ goHelpMethod(): void&#xa;+ takeHelpMethod(): void&#xa;+ dropHelpMethod(): void&#xa;+ equipHelpMethod(): void&#xa;+ displayCheckedWeaponAttack(): void&#xa;+ inventoryHelpMethod(): void&#xa;+ attackHelpMethod(): void&#xa;+ eatHelpMethod(): void&#xa;+ showBackpackInventory(): void&#xa;+ checkValidDirection(): void&#xa;+ warningHealth(): void&#xa;+ checkHealthStatus(): void&#xa;+ newLine(): void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--5" value="+ welcomeMessage(): void&#xa;+ showCommands(): void&#xa;+ startGane(): void&#xa;+ loopGame(): void&#xa;+ playAgain(): void&#xa;+ afterDeath(): void&#xa;+ displayIntroCave(): void&#xa;+ checkUsabilityWeapon(): void&#xa;+ capitalise x 3&#xa;+ lookAround(): void&#xa;+ goHelpMethod(): void&#xa;+ takeHelpMethod(): void&#xa;+ dropHelpMethod(): void&#xa;+ equipHelpMethod(): void&#xa;+ showEquippedWeaponInventory():void&#xa;+ displayCheckedWeaponAttack(): void&#xa;+ inventoryHelpMethod(): void&#xa;+ attackHelpMethod(): void&#xa;+ eatHelpMethod(): void&#xa;+ showBackpackInventory(): void&#xa;+ checkValidDirection(): void&#xa;+ warningHealth(): void&#xa;+ checkHealthStatus(): void&#xa;+ newLine(): void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
           <mxGeometry y="88" width="260" height="372" as="geometry" />
         </mxCell>
         <mxCell id="0htfcrwwrIv0TzqpJnIH-0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
@@ -41,18 +41,18 @@
           <mxGeometry y="26" width="160" height="8" as="geometry" />
         </mxCell>
         <mxCell id="zkfFHV4jXpPFQw0GAbJ--13" value="Player" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="414" y="-950" width="220" height="370" as="geometry">
+          <mxGeometry x="414" y="-950" width="220" height="390" as="geometry">
             <mxRectangle x="250" y="-90" width="170" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="dRhHNlCPHHymV1BK2kCy-11" value="- currentRoom: Room&#xa;- healthStatus: int" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--13" vertex="1">
-          <mxGeometry y="26" width="220" height="44" as="geometry" />
+        <mxCell id="dRhHNlCPHHymV1BK2kCy-11" value="- currentRoom: Room&#xa;- healthStatus: int&#xa;- inventoryPlayer: ArrayList&lt;Item&gt;&#xa;- equippedWeapon: ArrayList&lt;Item&gt;&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--13" vertex="1">
+          <mxGeometry y="26" width="220" height="64" as="geometry" />
         </mxCell>
         <mxCell id="zkfFHV4jXpPFQw0GAbJ--15" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--13" vertex="1">
-          <mxGeometry y="70" width="220" height="18" as="geometry" />
+          <mxGeometry y="90" width="220" height="18" as="geometry" />
         </mxCell>
-        <mxCell id="dRhHNlCPHHymV1BK2kCy-12" value="+ getHealthStatus(): int&#xa;+ getEquippedWeapon():AL&#xa;+ tryEquip(): Usability&#xa;+ equipWeapon(): Weapon&#xa;+ checkWeapon(): Usability&#xa;+ attackEnemy(): Usability&#xa;+ tryEatFood(): Usability&#xa;+ updateHealthStatus(): void&#xa;+ eat(): void&#xa;+ findItemPlayer(): Item&#xa;+ takeItem(): Item&#xa;+ dropItem(): Item &#xa;+ checkEmptyBackpack(): boolean&#xa;+ movePlayer(): String&#xa;+ findNewRoom(): Room&#xa;+ playerDead(): boolean" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--13" vertex="1">
-          <mxGeometry y="88" width="220" height="282" as="geometry" />
+        <mxCell id="dRhHNlCPHHymV1BK2kCy-12" value="+ tryEquip(): Usability&#xa;+ equipWeapon(): Weapon&#xa;+ checkWeapon(): Usability&#xa;+ tryAttack(): String&#xa;+ attackEnemy(): Usability&#xa;+ tryEatFood(): Usability&#xa;+ updateHealthStatus(): void&#xa;+ eat(): void&#xa;+ findItemPlayer(): Item&#xa;+ takeItem(): Item&#xa;+ dropItem(): Item &#xa;+ checkEmptyBackpack(): boolean&#xa;+ movePlayer(): String&#xa;+ findNewRoom(): Room&#xa;+ playerDead(): boolean" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--13" vertex="1">
+          <mxGeometry y="108" width="220" height="282" as="geometry" />
         </mxCell>
         <mxCell id="0htfcrwwrIv0TzqpJnIH-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="zkfFHV4jXpPFQw0GAbJ--17">
           <mxGeometry relative="1" as="geometry">
@@ -117,27 +117,27 @@
         <mxCell id="0htfcrwwrIv0TzqpJnIH-22" value="+ getName(): String&#xa;+ toString(): String&#xa;+ getDescription(): String" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="0htfcrwwrIv0TzqpJnIH-18">
           <mxGeometry y="110" width="160" height="46" as="geometry" />
         </mxCell>
-        <mxCell id="0htfcrwwrIv0TzqpJnIH-23" value="Edible (enum)" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=34;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="420" y="-260" width="170" height="100" as="geometry">
+        <mxCell id="0htfcrwwrIv0TzqpJnIH-23" value="Usability (enum)" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=34;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="180" y="-1610" width="170" height="100" as="geometry">
             <mxRectangle x="20" y="-300" width="170" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
         <mxCell id="0htfcrwwrIv0TzqpJnIH-25" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="0htfcrwwrIv0TzqpJnIH-23">
           <mxGeometry y="34" width="170" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="0htfcrwwrIv0TzqpJnIH-26" value="+ Edible : enum " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="0htfcrwwrIv0TzqpJnIH-23">
+        <mxCell id="0htfcrwwrIv0TzqpJnIH-26" value="+ Usability: enum " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="0htfcrwwrIv0TzqpJnIH-23">
           <mxGeometry y="64" width="170" height="36" as="geometry" />
         </mxCell>
         <mxCell id="0htfcrwwrIv0TzqpJnIH-27" value="Food" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=34;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="180" y="-320" width="160" height="180" as="geometry">
+          <mxGeometry x="180" y="-320" width="160" height="120" as="geometry">
             <mxRectangle x="20" y="-300" width="170" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="0htfcrwwrIv0TzqpJnIH-28" value="- health: int&#xa;- edible: Edible" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="0htfcrwwrIv0TzqpJnIH-27">
-          <mxGeometry y="34" width="160" height="46" as="geometry" />
+        <mxCell id="0htfcrwwrIv0TzqpJnIH-28" value="- health: int&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="0htfcrwwrIv0TzqpJnIH-27">
+          <mxGeometry y="34" width="160" height="36" as="geometry" />
         </mxCell>
         <mxCell id="0htfcrwwrIv0TzqpJnIH-29" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="0htfcrwwrIv0TzqpJnIH-27">
-          <mxGeometry y="80" width="160" height="30" as="geometry" />
+          <mxGeometry y="70" width="160" height="30" as="geometry" />
         </mxCell>
         <mxCell id="0htfcrwwrIv0TzqpJnIH-33" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="265" y="-790" width="40" height="20" as="geometry" />
@@ -220,13 +220,13 @@
             <mxRectangle x="250" y="-90" width="170" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="0htfcrwwrIv0TzqpJnIH-65" value="- name: String&#xa;- description: String&#xa;- healthPoints: int&#xa;- weaponEnemy: ArrayList&lt;&gt;&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="0htfcrwwrIv0TzqpJnIH-64">
+        <mxCell id="0htfcrwwrIv0TzqpJnIH-65" value="- name: String&#xa;- description: String&#xa;- healthPoints: int&#xa;- weaponEnemy: ArrayList&lt;Item&gt;&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="0htfcrwwrIv0TzqpJnIH-64">
           <mxGeometry y="26" width="220" height="74" as="geometry" />
         </mxCell>
         <mxCell id="0htfcrwwrIv0TzqpJnIH-66" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="0htfcrwwrIv0TzqpJnIH-64">
           <mxGeometry y="100" width="220" height="18" as="geometry" />
         </mxCell>
-        <mxCell id="0htfcrwwrIv0TzqpJnIH-67" value="+ attackPlayer(): Usability&#xa;+ attackedByPlayer(): void&#xa;+ dropWeapon(): void&#xa;+ removeDeadEnemy(): void&#xa;+ getWeaponEnemy(): ArrayList&lt;Item&gt;&#xa;+ toString(): String&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fillColor=none;" vertex="1" parent="0htfcrwwrIv0TzqpJnIH-64">
+        <mxCell id="0htfcrwwrIv0TzqpJnIH-67" value="+ attackPlayer(): Usability&#xa;+ attackedByPlayer(): void&#xa;+ dropWeapon(): void&#xa;+ removeDeadEnemy(): void&#xa;+ toString(): String&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fillColor=none;" vertex="1" parent="0htfcrwwrIv0TzqpJnIH-64">
           <mxGeometry y="118" width="220" height="122" as="geometry" />
         </mxCell>
         <mxCell id="0htfcrwwrIv0TzqpJnIH-70" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="zkfFHV4jXpPFQw0GAbJ--5" target="0htfcrwwrIv0TzqpJnIH-15">
