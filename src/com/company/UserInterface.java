@@ -371,20 +371,19 @@ public class UserInterface {
   public void attackHelpMethod(String input) {
     String requestedEnemy = input.substring(input.indexOf(" ") + 1);
     displayCheckedWeaponAttack();
-    Usability success = player.tryAttack(requestedEnemy);
+    String enemy  = player.tryAttack(requestedEnemy);
 
-    if(success == Usability.NOT_PRESENT){
+    if (enemy == null) {
+      System.out.println("null");
+    } else if (enemy.equals("NON_USABLE")) {
       System.out.println("There is no enemy in the room");
-    } else if(success == Usability.USABLE){
-      System.out.println("You attacked the " + player.getCurrentRoom().getEnemies().get(0).getName());
-    } else if (success == Usability.NON_USABLE){
-      System.out.println("You cannot attack this");
+    } else {
+      System.out.println(enemy);
     }
 
-    //System.out.println(player.attackEnemy(requestedEnemy));
-
-
   }
+
+
 
   public void eatHelpMethod(String input) {
     String requestedFood = input.substring(input.indexOf(" ") + 1);

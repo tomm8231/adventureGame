@@ -83,28 +83,24 @@ public class Player {
     }
   }
 
-  public Usability tryAttack(String requestedEnemy) {
+  public String tryAttack(String requestedEnemy) {
 
     Enemy enemy = currentRoom.findEnemyRoom(requestedEnemy);
 
-    // Check if it is an enemy in the room
-    if (enemy == null) {
-      return Usability.NOT_PRESENT;
-    }
-
     // Check if requested enemy is an enemy or item
-    if (enemy instanceof Enemy && enemy != null) {
-      attackEnemy(enemy);
-      return Usability.USABLE;
-    } else return Usability.NON_USABLE;
+    if (enemy instanceof Enemy) {
+      return attackEnemy(enemy);
+    } else  {
+      return "NON_USABLE";
+    }
   }
+
 
   public String attackEnemy(Enemy enemy) {
 
     ArrayList<Item> weaponPlayer = equippedWeapon;
 
     if (!weaponPlayer.isEmpty()) {
-
       ((Weapon) getEquippedWeapon().get(0)).setHitAttempts();
 
       // The enemy gets automatically attacked by Player, we send our weapon as parameter to the
