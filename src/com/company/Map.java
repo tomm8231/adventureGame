@@ -19,7 +19,6 @@ public class Map {
     MeleeWeapon spear = new MeleeWeapon("spear", "A sharp spear", -30);
     MeleeWeapon lavaclub = new MeleeWeapon("lava-club", "A large lava club", -30);
     MeleeWeapon mjolnir = new MeleeWeapon("mjölnir", "looks like the legendary hammer of Thor!", -40);
-    MeleeWeapon lavaRock = new MeleeWeapon("lavarock", "a porous, sharp rock from a recent eruption", -5);
 
 
 
@@ -109,6 +108,7 @@ public class Map {
     cave7.addItem(new Item ("coins", "A stack of coins"));
     cave7.addItem(new MeleeWeapon("panabas", "A large battle axe", -50));
     cave7.addEnemy(new Enemy ("lavamonster", "A creepy large lava monster is located in the surface", 50, lavaclub));
+    cave7.addItem(new MeleeWeapon("lavarock", "a porous, sharp rock from a recent eruption", -5));
 
 
     Room cave8 = new Room("The Massive Boulder","""
