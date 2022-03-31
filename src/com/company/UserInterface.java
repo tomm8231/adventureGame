@@ -206,7 +206,7 @@ public class UserInterface {
         } else if (answer.equals("no")) {
           System.out.println("Quitting game...");
           isAlive = false;
-        } else if (!answer.equals("yes") || !answer.equals("no"))
+        } else if (!answer.equals("yes") && !answer.equals("no"))
           System.out.println("Please answer yes or no");
       }
   }
@@ -349,11 +349,8 @@ public class UserInterface {
       Usability usabilityWeapon = player.checkWeapon(equippedWeapon);
       System.out.println("You are equipped with: " + player.getEquippedWeapon().get(0).getName());
 
-      if (usabilityWeapon == Usability.USABLE) {
-        //System.out.println("You attacked the " + player.getCurrentRoom().getEnemies().get(0).getName());
-
-      } else if (usabilityWeapon == Usability.NON_USABLE) {
-        System.out.println("Sorry your weapon is out ammo!");
+      if (usabilityWeapon == Usability.NON_USABLE) {
+        System.out.println("Sorry your weapon is out of ammo!");
       }
     }
   }
@@ -375,7 +372,7 @@ public class UserInterface {
 
 
     if(enemy == null){
-      System.out.println("The enemy is dead");
+      System.out.println("The enemy is dead and seems to have dropped something.");
     } else if (enemy.equals("NON_USABLE")) {
       System.out.println("There is no enemy in the room");
     } else {

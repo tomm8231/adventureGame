@@ -99,8 +99,6 @@ public class Player {
 
   public String attackEnemy(Enemy enemy) {
 
-
-
     ArrayList<Item> weaponPlayer = equippedWeapon;
 
     if (!weaponPlayer.isEmpty()) {
@@ -111,12 +109,13 @@ public class Player {
 
       if (enemy != null) {
         enemy.attackedByPlayer((Weapon) equippedWeapon.get(0), currentRoom);
-        return attackedByEnemy((Weapon) enemy.getEquippedWeaponEnemy().get(0));
+        return attackedByEnemy((Weapon) enemy.getWeaponEnemy().get(0));
       }
     }
     return null;
   }
- //TODO: rename method to something like getHpPlayer?
+
+
   public String attackedByEnemy(Weapon weapon) {
     Weapon weaponEnemy = weapon;
 
@@ -127,12 +126,6 @@ public class Player {
     }
     return null;
   }
-
-
-
-      // use in next part:
-      //  int healthDamage = ((Weapon) getEquippedWeapon().get(0)).getHealthDamage();
-      //  ((Weapon) getEquippedWeapon().get(0)).setHealthDamage(healthDamage);
 
 
 
