@@ -18,6 +18,9 @@ public class Map {
     MeleeWeapon batFangs = new MeleeWeapon("bat-fangs", "In the mouth you see som crazy sharp fangs", -30);
     MeleeWeapon spear = new MeleeWeapon("spear", "A sharp spear", -30);
     MeleeWeapon lavaclub = new MeleeWeapon("lava-club", "A large lava club", -30);
+    MeleeWeapon mjolnir = new MeleeWeapon("mjölnir", "looks like the legendary hammer of Thor!", -40);
+    MeleeWeapon lavaRock = new MeleeWeapon("lavarock", "a porous, sharp rock from a recent eruption", -5);
+
 
 
 
@@ -116,6 +119,7 @@ public class Map {
     cave8.addItem(new Food("skyr", "An old box of Skyr", -5));
     cave8.addItem(new Food("hákarl", "A piece of some fermented shark", 50));
     cave8.addItem(new MeleeWeapon("karambit", "Historical combat knife", -20 ));
+    cave8.addEnemy(new Enemy("viking", "An extremely aggressive viking warrior throwing his hammer is shouting and making thunder in the cave.", 250, mjolnir));
 
 
     Room cave9 = new Room("The Windy Tunnel","""
