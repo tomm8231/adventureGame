@@ -373,15 +373,15 @@ public class UserInterface {
     displayCheckedWeaponAttack();
     String enemy  = player.tryAttack(requestedEnemy);
 
-    // check if enemy is dead - where?
+
     if(enemy == null){
-      System.out.println("TEST: Either there are no enemy in the room or the enemy is dead");
+      System.out.println("The enemy is dead");
     } else if (enemy.equals("NON_USABLE")) {
       System.out.println("There is no enemy in the room");
     } else {
+      System.out.println("You attacked the " + requestedEnemy);
       System.out.println(enemy);
     }
-//TODO: HUSK tryAttack returnerer requestedEnemy til UI!
   }
 
   public void eatHelpMethod(String input) {

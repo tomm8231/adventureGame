@@ -9,7 +9,6 @@ public class Enemy {
   private String description;
   private int healthPoints;
   private ArrayList<Item> equippedWeaponEnemy = new ArrayList<>();
-  private boolean isEnemyAlive;
 
   public Enemy(String name, String description, int healthPoints, Weapon weapon) {
     this.name = name;
@@ -26,19 +25,40 @@ public class Enemy {
   }
 
 
-  public String attackedByPlayer(Weapon weapon, Room room){
+  public boolean attackedByPlayer(Weapon weapon, Room room){ //changed from String
 
   // getDamage(Weapon)
     Weapon equippedWeaponPlayer = weapon;
-    System.out.println("Enemy HP before attack: " + getHealthPoints());
+    System.out.println("TEST: Enemy HP before attack: " + getHealthPoints()); //TODO: Fjerne når det fungerer
     setHealthPoints(equippedWeaponPlayer.healthDamage);
-    System.out.println("Enemy HP after been attacked " + getHealthPoints());
+    System.out.println("TEST: Enemy HP after been attacked " + getHealthPoints()); //TODO: Fjerne når det fungerer
 
-    isEnemyAlive = isEnemyAlive();
+    boolean isEnemyAlive = isEnemyAlive();
 
     if(isEnemyAlive){
       attackPlayer();
-      return "Enemy is still alive.\nWhat's your next move?";
+      return true;
+    } else {
+      dropWeapon((Weapon) equippedWeaponEnemy.get(0), room);
+      removeDeadEnemy(room);
+      return false;
+    }
+  }
+//TODO: SE PÅ DETTE TORSDAG AFTEN!
+/*
+  public String attackedByPlayer(Weapon weapon, Room room){
+
+    // getDamage(Weapon)
+    Weapon equippedWeaponPlayer = weapon;
+    System.out.println("TEST: Enemy HP before attack: " + getHealthPoints()); //TODO: Fjerne når det fungerer
+    setHealthPoints(equippedWeaponPlayer.healthDamage);
+    System.out.println("TEST: Enemy HP after been attacked " + getHealthPoints()); //TODO: Fjerne når det fungerer
+
+    boolean isEnemyAlive = isEnemyAlive();
+
+    if(isEnemyAlive){
+      attackPlayer();
+      return "\n" + getName() + " is still alive.\n Enemy's HP is now " + getHealthPoints();
     } else {
       dropWeapon((Weapon) equippedWeaponEnemy.get(0), room);
       removeDeadEnemy(room);
@@ -46,12 +66,10 @@ public class Enemy {
     }
   }
 
+ */ //attackedByPlayer before Marcus tried to fix it
+
   public boolean isEnemyAlive(){
-    if (healthPoints <= 0){
-      return false;
-    } else {
-      return true;
-    }
+    return healthPoints > 0;
   }
 
 
@@ -88,6 +106,7 @@ public class Enemy {
   public String getDescription() {
     return description;
   }
+
 
 }
 

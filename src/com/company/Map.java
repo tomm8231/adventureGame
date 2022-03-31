@@ -17,6 +17,7 @@ public class Map {
     MeleeWeapon swordEnemy = new MeleeWeapon("sword", "It's very sharp and curvy!", -20);
     MeleeWeapon batFangs = new MeleeWeapon("bat-fangs", "In the mouth you see som crazy sharp fangs", -30);
     MeleeWeapon spear = new MeleeWeapon("spear", "A sharp spear", -30);
+    MeleeWeapon lavaclub = new MeleeWeapon("lava-club", "A large lava club", -30);
 
 
 
@@ -96,6 +97,7 @@ public class Map {
     cave7.addItem(new Item ("compass", "An old hand holding compass"));
     cave7.addItem(new Item ("coins", "A stack of coins"));
     cave7.addItem(new MeleeWeapon("panabas", "A large battle axe", -50));
+    cave7.addEnemy(new Enemy ("lavamonster", "A creepy large lava monster is located in the surface", 50, lavaclub));
 
 
     Room cave8 = new Room("The Massive Boulder","""

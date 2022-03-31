@@ -83,6 +83,7 @@ public class Player {
     }
   }
 
+
   public String tryAttack(String requestedEnemy) {
 
     Enemy enemy = currentRoom.findEnemyRoom(requestedEnemy);
@@ -91,14 +92,14 @@ public class Player {
     if (enemy instanceof Enemy) {
       if (enemy.isEnemyAlive()) {
         return attackEnemy(enemy);
-      } else
-      return "NON_USABLE";
-    }
-    return requestedEnemy; //TODO: skal den returnere dette?
+      }
+    } return "NON_USABLE";
   }
 
 
   public String attackEnemy(Enemy enemy) {
+
+
 
     ArrayList<Item> weaponPlayer = equippedWeapon;
 
@@ -115,13 +116,14 @@ public class Player {
     }
     return null;
   }
-
+ //TODO: rename method to something like getHpPlayer?
   public String attackedByEnemy(Weapon weapon) {
     Weapon weaponEnemy = weapon;
-    setHealthPoints(weaponEnemy.getHealthDamage());
-    if (currentRoom.getEnemies().size() > 0) {
-      return "You got attacked by " + currentRoom.getEnemies().get(0).getName() + ".\n" +
-          "And you have lost " + weaponEnemy.getHealthDamage() + " HP.";
+
+    if ((!currentRoom.getEnemies().isEmpty())) {
+      setHealthPoints(weaponEnemy.getHealthDamage());
+      return "You got attacked by the " + currentRoom.getEnemies().get(0).getName() + " and you lost " +
+          weaponEnemy.getHealthDamage() + " HP.";
     }
     return null;
   }
