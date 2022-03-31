@@ -83,8 +83,24 @@ public class Player {
     }
   }
 
+  public Usability tryAttack(String requestedEnemy) {
 
-  public String attackEnemy(String enemyName) {
+    Enemy enemy = currentRoom.findEnemyRoom(requestedEnemy);
+
+    // Check if it is an enemy in the room
+    if (enemy == null) {
+      return Usability.NOT_PRESENT;
+    } else if (enemy != null) {
+      return Usability.USABLE;
+    }
+    // Check if requested enemy is an enemy or item
+    if (enemy instanceof Enemy) {
+      attackEnemy(enemy);
+      return Usability.USABLE;
+    } else return Usability.NON_USABLE;
+  }
+
+  public String attackEnemy(Enemy enemy) {
 
     ArrayList<Item> weaponPlayer = equippedWeapon;
 
@@ -92,15 +108,14 @@ public class Player {
 
       ((Weapon) getEquippedWeapon().get(0)).setHitAttempts();
 
-      Enemy enemy = currentRoom.findEnemyRoom(enemyName);
       // The enemy gets automatically attacked by Player, we send our weapon as parameter to the
       // method in the enemy Class: attackedByPlayer:
 
       if (enemy != null) {
         enemy.attackedByPlayer((Weapon) equippedWeapon.get(0), currentRoom);
-        //enemy.setHealthPoints(((Weapon) equippedWeapon.get(0)).healthDamage);
+
         return attackedByEnemy((Weapon) enemy.getEquippedWeaponEnemy().get(0));
-        //setHealthPoints(enemy.attackPlayer());
+
       }
     }
     return "There is no enemy around!";

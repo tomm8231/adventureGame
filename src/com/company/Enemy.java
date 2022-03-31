@@ -26,7 +26,7 @@ public class Enemy {
   }
 
 
-  public void attackedByPlayer(Weapon weapon, Room room){
+  public String attackedByPlayer(Weapon weapon, Room room){
 
   // getDamage(Weapon)
     Weapon equippedWeaponPlayer = weapon;
@@ -35,14 +35,13 @@ public class Enemy {
     isEnemyAlive = isEnemyAlive();
 
     if(isEnemyAlive){
-      //TODO: BUG: attackedByEnemy(equippedWeaponPlayer);
-      System.out.println("Enemy is still alive.\nWhat's your next move?");
+      attackPlayer();
+      return "Enemy is still alive.\nWhat's your next move?";
     } else{
       dropWeapon((Weapon) equippedWeaponEnemy.get(0), room);
       removeDeadEnemy(room);
+      return "The enemy is dead and seems to have dropped something.";
     }
-
-    attackPlayer();
   }
 
   public boolean isEnemyAlive(){

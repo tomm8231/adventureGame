@@ -371,7 +371,11 @@ public class UserInterface {
   public void attackHelpMethod(String input) {
     String requestedEnemy = input.substring(input.indexOf(" ") + 1);
     displayCheckedWeaponAttack();
-    System.out.println(player.attackEnemy(requestedEnemy));
+    Usability success = player.tryAttack(requestedEnemy);
+
+    if(success == Usability.)
+
+    //System.out.println(player.attackEnemy(requestedEnemy));
 
 
   }
