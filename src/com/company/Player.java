@@ -90,11 +90,10 @@ public class Player {
     // Check if it is an enemy in the room
     if (enemy == null) {
       return Usability.NOT_PRESENT;
-    } else if (enemy != null) {
-      return Usability.USABLE;
     }
+
     // Check if requested enemy is an enemy or item
-    if (enemy instanceof Enemy) {
+    if (enemy instanceof Enemy && enemy != null) {
       attackEnemy(enemy);
       return Usability.USABLE;
     } else return Usability.NON_USABLE;
@@ -113,12 +112,10 @@ public class Player {
 
       if (enemy != null) {
         enemy.attackedByPlayer((Weapon) equippedWeapon.get(0), currentRoom);
-
         return attackedByEnemy((Weapon) enemy.getEquippedWeaponEnemy().get(0));
-
       }
     }
-    return "There is no enemy around!";
+    return null;
   }
 
   public String attackedByEnemy(Weapon weapon){

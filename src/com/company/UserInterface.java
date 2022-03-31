@@ -350,7 +350,7 @@ public class UserInterface {
       System.out.println("You are equipped with: " + player.getEquippedWeapon().get(0).getName());
 
       if (usabilityWeapon == Usability.USABLE) {
-        System.out.println("You attacked the " + player.getCurrentRoom().getEnemies().get(0).getName());
+        //System.out.println("You attacked the " + player.getCurrentRoom().getEnemies().get(0).getName());
 
       } else if (usabilityWeapon == Usability.NON_USABLE) {
         System.out.println("Sorry your weapon is out ammo!");
@@ -373,7 +373,13 @@ public class UserInterface {
     displayCheckedWeaponAttack();
     Usability success = player.tryAttack(requestedEnemy);
 
-    if(success == Usability.)
+    if(success == Usability.NOT_PRESENT){
+      System.out.println("There is no enemy in the room");
+    } else if(success == Usability.USABLE){
+      System.out.println("You attacked the " + player.getCurrentRoom().getEnemies().get(0).getName());
+    } else if (success == Usability.NON_USABLE){
+      System.out.println("You cannot attack this");
+    }
 
     //System.out.println(player.attackEnemy(requestedEnemy));
 
