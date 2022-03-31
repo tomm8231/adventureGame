@@ -84,7 +84,7 @@ public class Player {
   }
 
 
-  public void attackEnemy(String enemyName) {
+  public String attackEnemy(String enemyName) {
 
     ArrayList<Item> weaponPlayer = equippedWeapon;
 
@@ -99,15 +99,18 @@ public class Player {
       if (enemy != null) {
         enemy.attackedByPlayer((Weapon) equippedWeapon.get(0), currentRoom);
         //enemy.setHealthPoints(((Weapon) equippedWeapon.get(0)).healthDamage);
-        attackedByEnemy((Weapon) enemy.getEquippedWeaponEnemy().get(0));
+        return attackedByEnemy((Weapon) enemy.getEquippedWeaponEnemy().get(0));
         //setHealthPoints(enemy.attackPlayer());
       }
     }
+    return "There is no enemy around!";
   }
 
-  public void attackedByEnemy(Weapon weapon){
+  public String attackedByEnemy(Weapon weapon){
     Weapon weaponEnemy = weapon;
     setHealthPoints(weaponEnemy.getHealthDamage());
+    return "You got attacked by " + currentRoom.getEnemies().get(0).getName() + ".\n" +
+        "And you have lost " + weaponEnemy.getHealthDamage() + " HP.";
   }
 
 

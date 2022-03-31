@@ -39,7 +39,7 @@ public class Map {
     cave2.addItem(new Item("rope", "A long rope"));
     cave2.addItem(new Item("key", "An antique skeleton key"));
     cave2.addItem(new Food("fish", "Some smelly fish", -5)); // -health
-    cave2.addItem(new Food("bread", "Surprisingly fresh bread"));
+    cave2.addItem(new Food("bread", "Surprisingly fresh bread", 5));
     cave2.addItem(new RangedWeapon("harpoon", "A sharp harpoon", -30, 5));
     cave2.addEnemy(new Enemy("orc", "This orc seems extremely aggressive!", 50, (Weapon) swordEnemy));
 

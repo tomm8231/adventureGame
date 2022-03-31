@@ -21,14 +21,14 @@ public class Enemy {
 
   public int attackPlayer() {
     ((Weapon) getEquippedWeaponEnemy().get(0)).setHitAttempts();
-    // returnere våbenets health damage?
+    // return the health damage of the weapon
     return ((Weapon) getEquippedWeaponEnemy().get(0)).getHealthDamage();
   }
 
 
   public void attackedByPlayer(Weapon weapon, Room room){
 
-  // getDamage(Weapon) from Player
+  // getDamage(Weapon)
     Weapon equippedWeaponPlayer = weapon;
     setHealthPoints(equippedWeaponPlayer.healthDamage);
 
