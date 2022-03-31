@@ -89,10 +89,12 @@ public class Player {
 
     // Check if requested enemy is an enemy or item
     if (enemy instanceof Enemy) {
-      return attackEnemy(enemy);
-    } else  {
+      if (enemy.isEnemyAlive()) {
+        return attackEnemy(enemy);
+      } else
       return "NON_USABLE";
     }
+    return requestedEnemy; //TODO: skal den returnere dette?
   }
 
 

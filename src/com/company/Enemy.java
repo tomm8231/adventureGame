@@ -30,9 +30,9 @@ public class Enemy {
 
   // getDamage(Weapon)
     Weapon equippedWeaponPlayer = weapon;
-    System.out.println("ENEMY HP BEFORE: " + getHealthPoints());
+    System.out.println("Enemy HP before attack: " + getHealthPoints());
     setHealthPoints(equippedWeaponPlayer.healthDamage);
-    System.out.println("ENEMY HP BEFORE " + getHealthPoints());
+    System.out.println("Enemy HP after been attacked " + getHealthPoints());
 
     isEnemyAlive = isEnemyAlive();
 

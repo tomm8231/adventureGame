@@ -16,7 +16,7 @@ public class Map {
     // Weapons to the enemy:
     MeleeWeapon swordEnemy = new MeleeWeapon("sword", "It's very sharp and curvy!", -20);
     MeleeWeapon batFangs = new MeleeWeapon("bat-fangs", "In the mouth you see som crazy sharp fangs", -30);
-    MeleeWeapon dragonFire = new MeleeWeapon("fire", "fire-breathing from the Dragon", -30); //TODO: Is this a Melee or range?
+    MeleeWeapon spear = new MeleeWeapon("spear", "A sharp spear", -30);
 
 
 
@@ -41,7 +41,7 @@ public class Map {
     cave2.addItem(new Food("fish", "Some smelly fish", -5)); // -health
     cave2.addItem(new Food("bread", "Surprisingly fresh bread", 5));
     cave2.addItem(new RangedWeapon("harpoon", "A sharp harpoon", -30, 5));
-    cave2.addEnemy(new Enemy("orc", "This orc seems extremely aggressive!", 50, (Weapon) swordEnemy));
+    cave2.addEnemy(new Enemy("orc", "This orc seems extremely aggressive!", 50, swordEnemy));
 
 
 
@@ -54,7 +54,7 @@ public class Map {
     cave3.addItem(new Food("candy", "Jelly Beans with butter taste", -5));
     cave3.addItem(new Food ("poison", "A brown bottle marked with poison", -100));
     cave3.addItem(new MeleeWeapon("sledgehammer", "Rather large and heavy", -5));
-    cave3.addEnemy(new Enemy("bat-gremlin", "A weird little creature, a hybrid between a bat and a gremlin.", 50, (Weapon) batFangs));
+    cave3.addEnemy(new Enemy("bat-gremlin", "A weird little creature, a hybrid between a bat and a gremlin.", 50, batFangs));
 
 
 
@@ -66,7 +66,7 @@ public class Map {
     cave4.addItem(new MeleeWeapon ("spear", "Sharp spartan spear", -50));
     cave4.addItem(new RangedWeapon("bow", "A set of bow and arrow", -20, 5));
     cave4.addItem(new MeleeWeapon("axe2", "TEST TEST damage -100",-100));
-    cave4.addEnemy(new Enemy("t", "Tommy T", 100, batFangs));
+    cave4.addEnemy(new Enemy("monster", "Creepy monster", 100, spear));
 
 
     Room cave5 = new Room("The Spectacular","""
@@ -75,7 +75,7 @@ public class Map {
     cave5.addItem(new Item ("diamond", "A big shiny diamond"));
     cave5.addItem(new Item ("treasure", "A large treasure chest"));
     cave5.addItem(new MeleeWeapon ("sword", "A sharp sword looking kind if medieval", -50));
-    cave5.addEnemy(new Enemy("dragon", "A green large fire-breathing dragon", -40, (Weapon) dragonFire));
+
 
 
 
