@@ -343,7 +343,7 @@ public class UserInterface {
     ArrayList<Item> playerEquippedWeapon = player.getEquippedWeapon();
 
     if (playerEquippedWeapon.isEmpty()) {
-      System.out.println("You are not equipped with any weapon!");
+      //System.out.println("You are not equipped with any weapon!");
     } else {
       Weapon equippedWeapon = (Weapon) player.getEquippedWeapon().get(0);
       Usability usabilityWeapon = player.checkWeapon(equippedWeapon);
@@ -369,16 +369,20 @@ public class UserInterface {
   public void attackHelpMethod(String input) {
     String requestedEnemy = input.substring(input.indexOf(" ") + 1);
     displayCheckedWeaponAttack();
-    String enemy  = player.tryAttack(requestedEnemy);
+    Usability success  = player.attackEnemy(requestedEnemy);
+    Usability enemyIsPresent = player.tryAttack(requestedEnemy);
 
 
-    if(enemy == null){
-      System.out.println("The enemy is dead and seems to have dropped something.");
-    } else if (enemy.equals("NON_USABLE")) {
+    if(success == Usability.NOT_PRESENT_WEAPON){
+      System.out.println("You are not equipped with any weapon");
+    } else if (success == Usability.NON_USABLE) {
       System.out.println("There is no enemy in the room");
-    } else {
-      System.out.println("You attacked the " + requestedEnemy);
-      System.out.println(enemy);
+    } else if (success == Usability.USABLE) {
+      if (enemyIsPresent == Usability.USABLE) {
+        System.out.println("You attacked the " + requestedEnemy);
+      } else if (enemyIsPresent == Usability.NON_USABLE) {
+        System.out.println("This cannot be attacked!");
+      }
     }
   }
 
