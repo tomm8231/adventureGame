@@ -38,6 +38,7 @@ public class Enemy {
     if(isEnemyAlive){
       attackPlayer();
     } else {
+      System.out.println("Enemy is dead");
       dropWeapon((Weapon) weaponEnemy.get(0), room);
       removeDeadEnemy(room);
     }

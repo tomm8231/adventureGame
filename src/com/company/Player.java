@@ -84,47 +84,56 @@ public class Player {
   }
 
 
-  public String tryAttack(String requestedEnemy) {
+  public Usability tryAttack(String requestedEnemy) {
 
     Enemy enemy = currentRoom.findEnemyRoom(requestedEnemy);
 
-    // Check if requested enemy is an enemy or item
-    if (enemy instanceof Enemy) {
-      if (enemy.isEnemyAlive()) {
-        return attackEnemy(enemy);
-      }
-    } return "NON_USABLE";
+
+    //Weapon weapon = (Weapon) equippedWeapon.get(0);
+
+    if(!equippedWeapon.isEmpty()) {
+      if (enemy instanceof Enemy) {
+        if (enemy.isEnemyAlive()) {
+          return Usability.USABLE;
+        }
+      } else return Usability.NON_USABLE;
+    }
+    return Usability.NOT_PRESENT;
   }
 
 
-  public String attackEnemy(Enemy enemy) {
+  public Usability attackEnemy(String enemyName) { // slette enemy enemy
+
+
+    Usability success = tryAttack(enemyName);
+
+    // Hvordan finde enemy? Hvis enemy er parameter får vi problemer i UI
+    Enemy enemy = currentRoom.findEnemyRoom(enemyName);
 
     ArrayList<Item> weaponPlayer = equippedWeapon;
 
     if (!weaponPlayer.isEmpty()) {
       ((Weapon) getEquippedWeapon().get(0)).setHitAttempts();
-
-      // The enemy gets automatically attacked by Player, we send our weapon as parameter to the
-      // method in the enemy Class: attackedByPlayer:
-
-      if (enemy != null) {
-        enemy.attackedByPlayer((Weapon) equippedWeapon.get(0), currentRoom);
-        return attackedByEnemy((Weapon) enemy.getWeaponEnemy().get(0));
-      }
+      return Usability.USABLE;
+    } else if (success == Usability.USABLE) {
+      enemy.attackedByPlayer((Weapon) equippedWeapon.get(0), currentRoom);
+      attackedByEnemy((Weapon) enemy.getWeaponEnemy().get(0));
+      return Usability.USABLE;
     }
-    return null;
+    return Usability.NOT_PRESENT_WEAPON;
   }
 
 
-  public String attackedByEnemy(Weapon weapon) {
+  public void attackedByEnemy(Weapon weapon) {
     Weapon weaponEnemy = weapon;
 
     if ((!currentRoom.getEnemies().isEmpty())) {
       setHealthPoints(weaponEnemy.getHealthDamage());
-      return "You got attacked by the " + currentRoom.getEnemies().get(0).getName() + " and you lost " +
-          weaponEnemy.getHealthDamage() + " HP.";
+      // SORRY PETER SIDSTE KRISELAPELØSNING!!
+      System.out.println("You got attacked by the " + currentRoom.getEnemies().get(0).getName() + " and you lost " +
+          weaponEnemy.getHealthDamage() + " HP.");
     }
-    return null;
+
   }
 
 
