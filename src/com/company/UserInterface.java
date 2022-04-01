@@ -351,7 +351,7 @@ public class UserInterface {
 
       if (usabilityWeapon == Usability.NON_USABLE) {
         System.out.println("Sorry your weapon is out of ammo!");
-        //TODO: Denne melding kommer FØR enemy dør!!!
+
       }
     }
   }
