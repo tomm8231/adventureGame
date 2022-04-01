@@ -27,11 +27,8 @@ public class Enemy {
 
   public void attackedByPlayer(Weapon weapon, Room room){
 
-  // getDamage(Weapon)
     Weapon equippedWeaponPlayer = weapon;
-    System.out.println("TEST: Enemy HP before attack: " + getHealthPoints()); //TODO: Fjerne når det fungerer
     setHealthPoints(equippedWeaponPlayer.healthDamage);
-    System.out.println("TEST: Enemy HP after been attacked " + getHealthPoints()); //TODO: Fjerne når det fungerer
 
     boolean isEnemyAlive = isEnemyAlive();
 
